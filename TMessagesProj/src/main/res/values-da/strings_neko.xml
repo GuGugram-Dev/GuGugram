@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="NekoSettings">Neko Indstillinger</string>
+    <string name="NekoSettings">GuGu Indstillinger</string>
     <string name="IPv6">Prøv at oprette forbindelse via IPv6</string>
     <string name="MessageMenu">Meddelelse menu</string>
     <string name="HidePhone">Skjul mit telefonnummer</string>
