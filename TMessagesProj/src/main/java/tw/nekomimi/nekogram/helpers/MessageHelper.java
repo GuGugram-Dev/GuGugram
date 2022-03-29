@@ -146,7 +146,7 @@ public class MessageHelper extends BaseController {
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("can_not_skip", false);
-            Pattern regex = Pattern.compile("Nekogram-(.*)-([0-9]+)-(.*)\\.apk");
+            Pattern regex = Pattern.compile("GuGugram-(.*)-([0-9]+)-(.*)\\.apk");
             JSONObject file = new JSONObject();
             JSONObject message = new JSONObject();
             for (MessageObject messageObject : messageObjects) {
@@ -163,11 +163,7 @@ public class MessageHelper extends BaseController {
                         if (abi != null) file.put(abi, messageObject.getId());
                     }
                 } else {
-                    if (containsHanScript(messageObject.messageOwner.message)) {
-                        message.put("Zuragram", messageObject.getId());
-                    } else {
-                        message.put("nekoupdates", messageObject.getId());
-                    }
+                    message.put("GuGugram", messageObject.getId());
                 }
             }
             if (message.length() != 0) {

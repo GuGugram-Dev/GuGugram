@@ -3,7 +3,8 @@
     <string name="AppNameNeko" translatable="false">@string/Nekogram</string>
     <string name="Nekogram" translatable="false">Nekogram</string>
     <string name="NekogramBeta" translatable="false">Nekogram Beta</string>
-    <string name="NekoSettings">Neko Settings</string>
+    <string name="NekogramEmojiDialogs" translatable="false">&#128566;</string>
+    <string name="NekoSettings">GuGu Settings</string>
     <string name="IPv6">Try connecting through IPv6</string>
     <string name="MessageMenu">Message menu</string>
     <string name="HidePhone">Hide my phone number</string>
@@ -27,7 +28,7 @@
     <string name="TransparentStatusBar">Transparent status bar</string>
     <string name="EnableResidentNotification">Show a resident notification</string>
     <string name="DisableResidentNotification">Disable resident notification</string>
-    <string name="NekogramRunning">Nekogram is running</string>
+    <string name="NekogramRunning">GuGugram is running</string>
     <string name="EventType">Sidebar icon set</string>
     <string name="ChristmasHat">Show christmas hat everyday</string>
     <string name="DependsOnDate">Depends on date</string>
@@ -83,8 +84,8 @@
     <string name="IgnoreBlockedAbout">IT IS NOT REALLY HIDE! Messages are still available to view, but text will be converted to Spoiler and media won\'t auto download.</string>
     <string name="Donate">Donate</string>
     <string name="DonateAbout">Support our development.</string>
-    <string name="TranslationAbout">Help us to translate Nekogram to your language.</string>
-    <string name="Translation">Translate Nekogram</string>
+    <string name="TranslationAbout">Help us to translate GuGugram to your language.</string>
+    <string name="Translation">Translate GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Reset sticker size</string>
     <string name="OfficialChannelUsername">nekoupdates</string>
@@ -101,7 +102,7 @@
     <string name="AutoPauseVideoAbout">When lock screen/switch to background.</string>
     <string name="DisableProximityEvents">Disable proximity events</string>
     <string name="CustomEmojiTypeface">Custom emoji font</string>
-    <string name="Page1Message2">Nekogram is an **unofficial** messaging app\nthat uses Telegram\'s API.</string>
+    <string name="Page1Message2">GuGugram is an **unofficial** messaging app\nthat uses Telegram\'s API.</string>
     <string name="MapDriftingFix">Map drifting fix for Mainland China</string>
     <string name="IncreaseVoiceMessageQuality">HQ voice messages</string>
     <string name="VoiceEnhancements">Voice enhancements</string>
@@ -138,7 +139,7 @@
     <string name="WsEnableTls">Enable TLS</string>
     <string name="WsLocalProxy">Local proxy</string>
     <string name="WsEnableDoh">Enable DoH</string>
-    <string name="UpdateNekogram">Update Nekogram</string>
+    <string name="UpdateNekogram">Update GuGugram</string>
     <string name="TranslationTarget">Target language</string>
     <string name="TranslationTargetApp">Follow app</string>
     <string name="Translator">Translator</string>
@@ -167,6 +168,7 @@
     <string name="MutualContactDescription">This contact is a mutual contact.</string>
     <string name="NoUpdateAvailable">No update available.</string>
     <string name="InviteTextNeko">Hey, I\'m using Nekogram to chat. Join me! Download it here: %1$s</string>
+    <string name="BlockSponsoredMessage">Hide Sponsored Message</string>
     <string name="ShareNekogram">Share Nekogram...</string>
     <string name="NekogramVersion">Nekogram %1$s\nBased on Telegram %2$s\nDesigned by %3$s</string>
     <string name="UpdateInstalling">Installing update...</string>
@@ -192,7 +194,7 @@
     <string name="SaveToDownloadCount_other">Saving %1$d files to downloads</string>
     <string name="ThemesChannel">Themes channel</string>
     <string name="SelectAnIcon">Choose an icon</string>
-    <string name="AppLinkNotVerifiedMessage">For Android 12 and newer, you need to manually add link to verified links in order to open t.me links in Nekogram.</string>
+    <string name="AppLinkNotVerifiedMessage">For Android 12 and newer, you need to manually add link to verified links in order to open t.me links in GuGugram.</string>
     <string name="AppLinkNotVerifiedTitle">App links not verified</string>
     <string name="AutoTranslate">Auto translate</string>
     <string name="AutoTranslateAbout">Automatically translate messages that are in another language.</string>

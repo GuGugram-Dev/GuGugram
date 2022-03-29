@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="NekoSettings">Pengaturan Neko</string>
+    <string name="NekoSettings">Pengaturan GuGu</string>
     <string name="IPv6">Coba sambungkan melalui IPv6</string>
     <string name="MessageMenu">Menu pada pesan</string>
     <string name="HidePhone">Sembunyikan nomor telepon saya</string>
@@ -24,7 +24,7 @@
     <string name="TransparentStatusBar">Bilah status transparan</string>
     <string name="EnableResidentNotification">Tampilkan pemberitahuan tetap</string>
     <string name="DisableResidentNotification">Matikan pemberitahuan tetap</string>
-    <string name="NekogramRunning">Nekogram sedang berjalan</string>
+    <string name="NekogramRunning">GuGugram sedang berjalan</string>
     <string name="EventType">Ikon menu samping</string>
     <string name="ChristmasHat">Tampilkan topi Natal setiap hari</string>
     <string name="DependsOnDate">Tergantung tanggal</string>
@@ -79,8 +79,8 @@
     <string name="About">Tentang</string>
     <string name="IgnoreBlockedAbout">ITU TIDAK BENAR-BENAR TERSEMBUNYI! Pesan masih tersedia untuk dilihat, tetapi teks akan dikonversi ke Spoiler dan media tidak akan mengunduh secara otomatis.</string>
     <string name="Donate">Donasi</string>
-    <string name="DonateAbout">Dukung pengembangan Nekogram.</string>
-    <string name="TranslationAbout">Bantu menerjemahkan Nekogram ke bahasa Anda.</string>
+    <string name="DonateAbout">Dukung pengembangan GuGugram.</string>
+    <string name="TranslationAbout">Bantu menerjemahkan GuGugram ke bahasa Anda.</string>
     <string name="Translation">Terjemahkan Nekogram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Setel ulang ukuran stiker</string>

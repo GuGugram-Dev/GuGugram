@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="NekoSettings">Configuraciones de Neko</string>
+    <string name="NekoSettings">Configuraciones de GuGu</string>
     <string name="IPv6">Intentar conectarse a través de IPv6</string>
     <string name="MessageMenu">Menú contextual</string>
     <string name="HidePhone">Ocultar mi número de teléfono</string>
