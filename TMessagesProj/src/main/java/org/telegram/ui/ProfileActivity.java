@@ -7732,7 +7732,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                                 abi = (!NekoConfig.isDirectApp() ? BuildConfig.BUILD_TYPE : "universal") + " " + Build.SUPPORTED_ABIS[0];
                                 break;
                         }
-                        cell.setText(LocaleController.formatString("NekogramVersion", R.string.NekogramVersion, String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi), String.format(Locale.US, "v%s (%d)", BuildVars.BUILD_VERSION_STRING, BuildVars.BUILD_VERSION), "@Duang"));
+                        cell.setText(LocaleController.formatString("GuGugramVersion", R.string.GuGugramVersion, String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi), String.format(Locale.US, "v%s (%d)", BuildVars.BUILD_VERSION_STRING, BuildVars.BUILD_VERSION), "@Duang"));
                     } catch (Exception e) {
                         FileLog.e(e);
                     }
