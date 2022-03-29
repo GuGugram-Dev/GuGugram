@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <string name="AppNameGuGu" translatable="false">@string/GuGugram</string>
+    <string name="GuGugram" translatable="false">GuGugram</string>
+    <string name="GuGugramBeta" translatable="false">GuGugram Beta</string>
+    <string name="OfficialGuGugramChannelUsername" translatable="false">GuGugram</string>
+    <string name="GuGuSettings">咕设置</string>
+    <string name="GuGugramFlying">GuGugram正在飞</string>
+    <string name="UpdateGuGugram">更新 GuGugram</string>
+    <string name="InviteTextGuGu">嘿，我在用GuGugram聊天. 加入我! 此处下载: %1$s</string>
+    <string name="ShareGuGugram">正在分享 GuGugram...</string>
+    <string name="GuGugramVersion">GuGugram %1$s\nBased on Nekogram %2$s\nDesigned by %3$s</string>
+    <string name="GuGuUpdateInstallingRelaunch">GuGugram会在重启后更新</string>
+</resources>

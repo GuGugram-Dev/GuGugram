@@ -28,7 +28,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-vision:20.1.3'
     implementation 'com.google.android.gms:play-services-wearable:17.1.0'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
-    implementation 'com.googlecode.mp4parser:isoparser:1.1.22'
+    implementation 'com.googlecode.mp4parser:isoparser:1.0.6'
     implementation 'com.stripe:stripe-android:2.0.2'
     implementation 'com.google.mlkit:language-id:17.0.3'
     implementation files('libs/libgsaverification-client.aar')
@@ -57,7 +57,7 @@ android {
     buildToolsVersion '32.0.0'
     ndkVersion "21.4.7075529"
 
-    defaultConfig.applicationId = "tw.nekomimi.nekogram"
+    defaultConfig.applicationId = "com.blxueya.GuGugram"
 
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
@@ -133,7 +133,7 @@ android {
         variant.outputs.all { output ->
             def abi = output.getFilter('ABI')
             if (abi == null) abi = 'universal'
-            outputFileName = "Nekogram-${defaultConfig.versionName}-${defaultConfig.versionCode}-${abi}.apk"
+            outputFileName = "GuGugram-${defaultConfig.versionName}-${defaultConfig.versionCode}-${abi}.apk"
             def abiVersionCode = project.ext.abiCodes.get(abi)
             output.versionCodeOverride = defaultConfig.versionCode * 10 + abiVersionCode
         }
@@ -172,7 +172,7 @@ def patchBundleReleaseManifest = task('patchBundleReleaseManifest').doLast {
     def newManifest = manifest.getText()
     newManifest = newManifest.replace("<uses-permission android:name=\"android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION\" />", "")
     newManifest = newManifest.replace("<uses-permission android:name=\"android.permission.READ_CALL_LOG\" />", "")
-    newManifest = newManifest.replace("nekogram.apks", "nekogram.bundle")
+    newManifest = newManifest.replace("GuGugram.apks", "GuGugram.bundle")
     Files.write(manifest, newManifest.getBytes())
 }
 
