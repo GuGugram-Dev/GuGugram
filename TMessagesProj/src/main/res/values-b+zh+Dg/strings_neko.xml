@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="NekoSettings">喵设置</string>
+    <string name="NekoSettings">咕设置</string>
     <string name="IPv6">优先尝试使用 IPv6 连接</string>
     <string name="MessageMenu">消息菜单</string>
     <string name="HidePhone">隐藏咱的手机号</string>
@@ -74,6 +74,7 @@
     <string name="Translation">翻译 Nekogram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">重置贴纸大小</string>
+    <string name="OfficialChannelUsername">Zuragram</string>
     <string name="RestartAppToTakeEffect">重启应用以生效。</string>
     <string name="DisableAppBarShadow">禁用标题栏阴影</string>
     <string name="MediaPreview">对话列表中的媒体预览</string>
@@ -87,7 +88,7 @@
     <string name="AutoPauseVideoAbout">当锁定屏幕/切换到后台时。</string>
     <string name="DisableProximityEvents">禁用距离传感器事件</string>
     <string name="CustomEmojiTypeface">自定义 Emoji 字体</string>
-    <string name="Page1Message2">Nekogram 是使用 Telegram API\n的**非官方**应用</string>
+    <string name="Page1Message2">GuGugram 是使用 Telegram API\n的**非官方**应用</string>
     <string name="MapDriftingFix">地图定位漂移修复</string>
     <string name="VoiceEnhancements">语音增强</string>
     <string name="VoiceEnhancementsAbout">噪声抑制和语音归一化</string>
