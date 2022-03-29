@@ -221,7 +221,7 @@ public class UpdateHelper extends BaseRemoteHelper {
             var ids = new HashMap<String, Integer>();
             if (json.has("messages")) {
                 var messageJson = json.getJSONObject("messages");
-                var channel = LocaleController.getString("OfficialChannelUsername", R.string.OfficialChannelUsername);
+                var channel = LocaleController.getString("OfficialGuGugramChannelUsername", R.string.OfficialGuGugramChannelUsername);
                 if (messageJson.has(channel)) {
                     ids.put("message", messageJson.getInt(channel));
                 }

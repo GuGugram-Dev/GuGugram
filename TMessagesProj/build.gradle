@@ -58,7 +58,8 @@ android {
     compileSdkVersion 33
     buildToolsVersion '33.0.0'
     ndkVersion "21.4.7075529"
-    namespace 'org.telegram.messenger'
+
+    defaultConfig.applicationId = "com.blxueya.GuGugram"
 
     sourceSets.main.jniLibs.srcDirs = ['./jni/']
 
@@ -139,7 +140,7 @@ android {
         variant.outputs.all { output ->
             def abi = output.getFilter('ABI')
             if (abi == null) abi = 'universal'
-            outputFileName = "Nekogram-${defaultConfig.versionName}-${defaultConfig.versionCode}-${abi}.apk"
+            outputFileName = "GuGugram-${defaultConfig.versionName}-${defaultConfig.versionCode}-${abi}.apk"
             def abiVersionCode = project.ext.abiCodes.get(abi)
             output.versionCodeOverride = defaultConfig.versionCode * 10 + abiVersionCode
         }
@@ -181,7 +182,12 @@ android {
     dependenciesInfo.includeInApk false
 }
 
-task("buildRelease") {
-    dependsOn("assembleRelease")
-    dependsOn("bundlePlay")
+def patchBundleReleaseManifest = task('patchBundleReleaseManifest').doLast {
+    def manifest = Paths.get(project.buildDir.path, 'intermediates',
+            'bundle_manifest', 'release', 'AndroidManifest.xml')
+    def newManifest = manifest.getText()
+    newManifest = newManifest.replace("<uses-permission android:name=\"android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION\" />", "")
+    newManifest = newManifest.replace("<uses-permission android:name=\"android.permission.READ_CALL_LOG\" />", "")
+    newManifest = newManifest.replace("GuGugram.apks", "GuGugram.bundle")
+    Files.write(manifest, newManifest.getBytes())
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="NekoSettings">Neko Ayarları</string>
+    <string name="NekoSettings">GuGu Ayarları</string>
     <string name="IPv6">IPv6 aracılığıyla bağlanmayı dene</string>
     <string name="MessageMenu">Mesaj Menüsü</string>
     <string name="HidePhone">Telefon numaramı gizle</string>
