@@ -34,6 +34,8 @@ import androidx.collection.LongSparseArray;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.util.Consumer;
 
+import com.blxueya.GuGugram.GuGuConfig;
+
 import org.telegram.SQLite.SQLiteCursor;
 import org.telegram.SQLite.SQLiteException;
 import org.telegram.SQLite.SQLitePreparedStatement;
@@ -14950,6 +14952,9 @@ public class MessagesController extends BaseController implements NotificationCe
         }
         TLRPC.Chat chat = getChat(-dialogId);
         if (!ChatObject.isChannel(chat)) {
+            return null;
+        }
+        if (GuGuConfig.hideSponsoredMessage) {
             return null;
         }
         info = new SponsoredMessagesInfo();
