@@ -20901,23 +20901,25 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                             }
                             boolean ignore = false;
                             int count = 0;
-                            for (int a = position - 1; a >= chatAdapter.messagesStartRow; a--) {
-                                int num = a - chatAdapter.messagesStartRow;
-                                if (num < 0 || num >= messages.size()) {
-                                    continue;
+                            if (!GuGuConfig.AlwaysSaveChatOffset){
+                                for (int a = position - 1; a >= chatAdapter.messagesStartRow; a--) {
+                                    int num = a - chatAdapter.messagesStartRow;
+                                    if (num < 0 || num >= messages.size()) {
+                                        continue;
+                                    }
+                                    MessageObject messageObject = messages.get(num);
+                                    if (messageObject.getId() == 0) {
+                                        continue;
+                                    }
+                                    if ((!messageObject.isOut() || messageObject.messageOwner.from_scheduled) && messageObject.isUnread()) {
+                                        ignore = true;
+                                        messageId = 0;
+                                    }
+                                    if (count > 2) {
+                                        break;
+                                    }
+                                    count++;
                                 }
-                                MessageObject messageObject = messages.get(num);
-                                if (messageObject.getId() == 0) {
-                                    continue;
-                                }
-                                if ((!messageObject.isOut() || messageObject.messageOwner.from_scheduled) && messageObject.isUnread()) {
-                                    ignore = true;
-                                    messageId = 0;
-                                }
-                                if (count > 2) {
-                                    break;
-                                }
-                                count++;
                             }
                             if (holder != null && !ignore) {
                                 if (holder.itemView instanceof ChatMessageCell) {
