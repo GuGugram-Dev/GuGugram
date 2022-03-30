@@ -12,5 +12,5 @@
     <string name="GuGuUpdateInstallingRelaunch">GuGugram will relaunch when update completes.</string>
 
     <string name="ForceAllowCopy">Force Allow Copy</string>
-
+    <string name="AlwaysSaveChatOffset">Always Save ChatOffset</string>
 </resources>

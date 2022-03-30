@@ -13,4 +13,5 @@
     <string name="GuGuUpdateInstallingRelaunch">GuGugram会在重启后更新</string>
 
     <string name="ForceAllowCopy">强制复制</string>
+    <string name="AlwaysSaveChatOffset">总是保存聊天偏移量</string>
 </resources>

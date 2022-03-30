@@ -60,6 +60,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
     private int guguSettingsRow;
     private int forceAllowCopyRow;
+    private int alwaysSaveChatOffsetRow;
     private int guguSettings2Row;
 
     public NekoExperimentalSettingsActivity(boolean sensitiveCanChange, boolean sensitiveEnabled) {
@@ -208,6 +209,10 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.ForceAllowCopy);
             }
+        } else if (position == alwaysSaveChatOffsetRow) {
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.AlwaysSaveChatOffset);
+            }
         }
     }
 
@@ -300,6 +305,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
         guguSettingsRow = rowCount++;
         forceAllowCopyRow = rowCount++;
+        alwaysSaveChatOffsetRow = rowCount++;
         guguSettings2Row = rowCount++;
     }
 
@@ -347,6 +353,8 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("ShowRPCError", R.string.ShowRPCError), LocaleController.formatString("ShowRPCErrorException", R.string.ShowRPCErrorException, "FILE_REFERENCE_EXPIRED"), NekoConfig.showRPCError, true, false);
                     } else if (position == forceAllowCopyRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.ForceAllowCopy,true);
+                    } else if (position == alwaysSaveChatOffsetRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.AlwaysSaveChatOffset,true);
                     }
                     break;
                 }
