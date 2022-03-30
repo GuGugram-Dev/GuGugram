@@ -53,6 +53,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blxueya.GuGugram.GuGuConfig;
 import com.google.android.exoplayer2.C;
 
 import org.telegram.messenger.AndroidUtilities;
@@ -1871,7 +1872,7 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
             } else {
                 optionsButton.setVisibility(View.VISIBLE);
             }
-            if (MessagesController.getInstance(currentAccount).isChatNoForwards(messageObject.getChatId())) {
+            if (!GuGuConfig.ForceAllowCopy && MessagesController.getInstance(currentAccount).isChatNoForwards(messageObject.getChatId())) {
                 optionsButton.hideSubItem(1);
                 optionsButton.hideSubItem(2);
                 optionsButton.hideSubItem(5);
