@@ -10,4 +10,7 @@
     <string name="ShareGuGugram">Share GuGugram...</string>
     <string name="GuGugramVersion">GuGugram %1$s\nBased on Nekogram %2$s\nDesigned by %3$s</string>
     <string name="GuGuUpdateInstallingRelaunch">GuGugram will relaunch when update completes.</string>
+
+    <string name="ForceAllowCopy">Force Allow Copy</string>
+
 </resources>
