@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>   
+<resources>
     <string name="AppNameGuGu" translatable="false">@string/GuGugram</string>
     <string name="GuGugram" translatable="false">GuGugram</string>
     <string name="GuGugramBeta" translatable="false">GuGugram Beta</string>
@@ -11,4 +11,6 @@
     <string name="ShareGuGugram">正在分享 GuGugram...</string>
     <string name="GuGugramVersion">GuGugram %1$s\nBased on Nekogram %2$s\nDesigned by %3$s</string>
     <string name="GuGuUpdateInstallingRelaunch">GuGugram会在重启后更新</string>
+
+    <string name="ForceAllowCopy">强制复制</string>
 </resources>

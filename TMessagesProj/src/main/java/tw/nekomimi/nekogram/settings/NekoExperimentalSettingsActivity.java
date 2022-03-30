@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blxueya.GuGugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
 import org.telegram.messenger.BuildConfig;
@@ -55,6 +57,10 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
     private int deleteAccountRow;
     private int deleteAccount2Row;
+
+    private int guguSettingsRow;
+    private int forceAllowCopyRow;
+    private int guguSettings2Row;
 
     public NekoExperimentalSettingsActivity(boolean sensitiveCanChange, boolean sensitiveEnabled) {
         this.sensitiveCanChange = sensitiveCanChange;
@@ -197,6 +203,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.showRPCError);
             }
+        } else if (position == forceAllowCopyRow) {
+            GuGuConfig.toggleForceAllowCopy();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.ForceAllowCopy);
+            }
         }
     }
 
@@ -286,6 +297,10 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         experiment2Row = addRow();
         deleteAccountRow = addRow("deleteAccount");
         deleteAccount2Row = addRow();
+
+        guguSettingsRow = rowCount++;
+        forceAllowCopyRow = rowCount++;
+        guguSettings2Row = rowCount++;
     }
 
     private class ListAdapter extends BaseListAdapter {
@@ -330,6 +345,8 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                         textCell.setTextAndCheck(LocaleController.getString("MapDriftingFix", R.string.MapDriftingFix), NekoConfig.mapDriftingFix, true);
                     } else if (position == showRPCErrorRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("ShowRPCError", R.string.ShowRPCError), LocaleController.formatString("ShowRPCErrorException", R.string.ShowRPCErrorException, "FILE_REFERENCE_EXPIRED"), NekoConfig.showRPCError, true, false);
+                    } else if (position == forceAllowCopyRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.ForceAllowCopy,true);
                     }
                     break;
                 }
@@ -352,13 +369,13 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
         @Override
         public int getItemViewType(int position) {
-            if (position == experiment2Row || position == deleteAccount2Row) {
+            if (position == experiment2Row || position == deleteAccount2Row ||position == guguSettings2Row) {
                 return 1;
             } else if (position == deleteAccountRow) {
                 return 2;
-            } else if (position > emojiRow && position <= showRPCErrorRow) {
+            } else if (position > emojiRow && position <= showRPCErrorRow || (position > guguSettingsRow && position < guguSettingsRow)) {
                 return 3;
-            } else if (position == experimentRow) {
+            } else if (position == experimentRow || position == guguSettingsRow) {
                 return 4;
             } else if (position == emojiRow) {
                 return TextUtils.isEmpty(NekoConfig.customEmojiFontPath) ? 2 : 5;
