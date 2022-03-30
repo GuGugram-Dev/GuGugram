@@ -63,8 +63,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
     private int deleteAccount2Row;
 
     private int guguSettingsRow;
-    private int forceAllowCopyRow;
     private int alwaysSaveChatOffsetRow;
+    private int forceAllowCopyRow;
+    private int hideSponsoredMessageRow;
     private int guguSettings2Row;
 
     NekoExperimentalSettingsActivity(boolean sensitiveCanChange, boolean sensitiveEnabled) {
@@ -230,8 +231,14 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                 ((TextCheckCell) view).setChecked(GuGuConfig.ForceAllowCopy);
             }
         } else if (position == alwaysSaveChatOffsetRow) {
+            GuGuConfig.toggleAlwaysSaveChatOffset();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.AlwaysSaveChatOffset);
+            }
+        } else if (position == hideSponsoredMessageRow) {
+            GuGuConfig.togglehideSponsoredMessage();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.hideSponsoredMessage);
             }
         }
     }
@@ -322,8 +329,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         deleteAccount2Row = rowCount++;
 
         guguSettingsRow = rowCount++;
-        forceAllowCopyRow = rowCount++;
         alwaysSaveChatOffsetRow = rowCount++;
+        forceAllowCopyRow = rowCount++;
+        hideSponsoredMessageRow = rowCount++;
         guguSettings2Row = rowCount++;
     }
 
@@ -379,6 +387,8 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                         textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.ForceAllowCopy,true);
                     } else if (position == alwaysSaveChatOffsetRow) {
                         textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.AlwaysSaveChatOffset,true);
+                    } else if (position == hideSponsoredMessageRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.hideSponsoredMessage), GuGuConfig.hideSponsoredMessage,true);
                     }
                     break;
                 }
