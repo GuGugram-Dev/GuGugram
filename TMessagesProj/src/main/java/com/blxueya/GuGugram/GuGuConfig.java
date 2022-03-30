@@ -13,6 +13,7 @@ public class GuGuConfig {
 
     public static boolean ForceAllowCopy = false;
     public static boolean AlwaysSaveChatOffset = false;
+    public static boolean hideSponsoredMessage = false;
 
     private static boolean configLoaded;
 
@@ -46,6 +47,14 @@ public class GuGuConfig {
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("AlwaysSaveChatOffset", AlwaysSaveChatOffset);
+        editor.commit();
+    }
+
+    public static void togglehideSponsoredMessage() {
+        AlwaysSaveChatOffset = !AlwaysSaveChatOffset;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("hideSponsoredMessage", hideSponsoredMessage);
         editor.commit();
     }
 }
