@@ -984,8 +984,7 @@ public class NekoConfig {
             }
             return color;
         } else {
-            return 0xff11acfa;
-        }
+            return Color.parseColor("#E4C1DB");        }
     }
 
     public static File getTelegramPath() {
