@@ -14,5 +14,6 @@
 
     <string name="ForceAllowCopy">强制複製</string>
     <string name="AlwaysSaveChatOffset">總是保存聊天偏移量</string>
-    <string name="hideSponsoredMessage">隱藏贊助訊息</string>
+    <string name="HideSponsoredMessage">隱藏贊助訊息</string>
+    <string name="ShowSpoilersDirectly">直接显示剧透信息</string>
 </resources>
