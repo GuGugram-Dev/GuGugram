@@ -11,10 +11,11 @@ public class GuGuConfig {
     private static final Object sync = new Object();
 
     public static boolean ForceAllowCopy = false;
-    public static boolean AlwaysSaveChatOffset = false;
     public static boolean HideSponsoredMessage = false;
-    public static boolean ShowSpoilersDirectly = false;
+    public static boolean AlwaysSaveChatOffset = false;
+    public static boolean DisableChatActionSending = false;
     public static boolean ShowForwarderName = false;
+    public static boolean ShowSpoilersDirectly = false;
 
     private static boolean configLoaded;
 
@@ -71,6 +72,14 @@ public class GuGuConfig {
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("ShowForwarderName", ShowForwarderName);
+        editor.commit();
+    }
+
+    public static void toggleDisableChatActionSending() {
+        DisableChatActionSending = !DisableChatActionSending;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("DisableChatActionSending", DisableChatActionSending);
         editor.commit();
     }
 }

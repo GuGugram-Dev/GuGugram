@@ -16,6 +16,7 @@
     <string name="HideSponsoredMessage">隱藏贊助訊息</string>
 
     <string name="AlwaysSaveChatOffset">總是保存聊天偏移量</string>
-    <string name="ShowSpoilersDirectly">直接显示剧透信息</string>
+    <string name="DisableChatActionSending">禁止傳送輸入狀態</string>
+    <string name="ShowSpoilersDirectly">直接顯示劇透訊息</string>
     <string name="ShowForwarderName">顯示轉發者姓名</string>
 </resources>
