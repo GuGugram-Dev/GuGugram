@@ -38,6 +38,8 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ChatObject;
 import org.telegram.messenger.ChatThemeController;
@@ -1144,7 +1146,8 @@ public class DialogCell extends BaseCell {
                                         mess = AndroidUtilities.replaceNewLines(mess);
                                     }
                                     mess = new SpannableStringBuilder(mess);
-                                    MediaDataController.addTextStyleRuns(message, (Spannable) mess, TextStyleSpan.FLAG_STYLE_SPOILER);
+                                    if (!GuGuConfig.ShowSpoilersDirectly)
+                                        MediaDataController.addTextStyleRuns(message, (Spannable) mess, TextStyleSpan.FLAG_STYLE_SPOILER);
                                     stringBuilder = AndroidUtilities.formatSpannable(messageFormat, mess, messageNameString);
                                 } else {
                                     stringBuilder = SpannableStringBuilder.valueOf("");

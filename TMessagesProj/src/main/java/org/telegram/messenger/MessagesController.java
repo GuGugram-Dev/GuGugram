@@ -34,7 +34,7 @@ import androidx.collection.LongSparseArray;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.util.Consumer;
 
-import com.blxueya.GuGugram.GuGuConfig;
+import com.blxueya.gugugram.GuGuConfig;
 
 import org.telegram.SQLite.SQLiteCursor;
 import org.telegram.SQLite.SQLiteException;
@@ -14954,7 +14954,7 @@ public class MessagesController extends BaseController implements NotificationCe
         if (!ChatObject.isChannel(chat)) {
             return null;
         }
-        if (GuGuConfig.hideSponsoredMessage) {
+        if (GuGuConfig.HideSponsoredMessage) {
             return null;
         }
         info = new SponsoredMessagesInfo();

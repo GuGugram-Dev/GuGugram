@@ -149,7 +149,7 @@ import org.telegram.ui.PhotoViewer;
 import org.telegram.ui.PinchToZoomHelper;
 import org.telegram.ui.SecretMediaViewer;
 
-import com.blxueya.GuGugram.GuGuConfig;
+import com.blxueya.gugugram.GuGuConfig;
 
 import tw.nekomimi.nekogram.NekoConfig;
 import tw.nekomimi.nekogram.helpers.MessageHelper;
@@ -275,6 +275,8 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     }
 
     public boolean hasSpoilers() {
+        if(GuGuConfig.ShowSpoilersDirectly)
+            return false;
         if (hasCaptionLayout() && !captionSpoilers.isEmpty() || replyTextLayout != null && !replySpoilers.isEmpty()) {
             return true;
         }

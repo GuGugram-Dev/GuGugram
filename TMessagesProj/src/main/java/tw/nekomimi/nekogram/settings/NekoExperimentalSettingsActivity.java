@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blxueya.GuGugram.GuGuConfig;
+import com.blxueya.gugugram.GuGuConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
@@ -58,6 +58,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
     private int guguSettingsRow;
     private int alwaysSaveChatOffsetRow;
+    private int showSpoilersDirectlyRow;
     private int forceAllowCopyRow;
     private int hideSponsoredMessageRow;
     private int guguSettings2Row;
@@ -204,9 +205,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                 ((TextCheckCell) view).setChecked(GuGuConfig.AlwaysSaveChatOffset);
             }
         } else if (position == hideSponsoredMessageRow) {
-            GuGuConfig.togglehideSponsoredMessage();
+            GuGuConfig.toggleHideSponsoredMessage();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(GuGuConfig.hideSponsoredMessage);
+                ((TextCheckCell) view).setChecked(GuGuConfig.HideSponsoredMessage);
             }
         }
     }
@@ -298,6 +299,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
         guguSettingsRow = rowCount++;
         alwaysSaveChatOffsetRow = rowCount++;
+        showSpoilersDirectlyRow = rowCount++;
         forceAllowCopyRow = rowCount++;
         hideSponsoredMessageRow = rowCount++;
         guguSettings2Row = rowCount++;
@@ -346,7 +348,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                     } else if (position == alwaysSaveChatOffsetRow) {
                         textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.AlwaysSaveChatOffset,true);
                     } else if (position == hideSponsoredMessageRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.hideSponsoredMessage), GuGuConfig.hideSponsoredMessage,true);
+                        textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.HideSponsoredMessage), GuGuConfig.HideSponsoredMessage,true);
+                    } else if (position == showSpoilersDirectlyRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.ShowSpoilersDirectly,true);
                     }
                     break;
                 }
