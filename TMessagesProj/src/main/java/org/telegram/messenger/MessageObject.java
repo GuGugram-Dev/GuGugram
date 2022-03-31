@@ -40,6 +40,8 @@ import androidx.annotation.Nullable;
 import androidx.collection.LongSparseArray;
 import androidx.core.util.Pair;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.browser.Browser;
 import org.telegram.messenger.ringtone.RingtoneDataStore;
@@ -157,7 +159,7 @@ public class MessageObject {
 
     public AtomicReference<WeakReference<View>> viewRef = new AtomicReference<>(null);
 
-    public boolean isSpoilersRevealed;
+    public boolean isSpoilersRevealed = GuGuConfig.ShowSpoilersDirectly;
     public byte[] sponsoredId;
     public int sponsoredChannelPost;
     public TLRPC.ChatInvite sponsoredChatInvite;

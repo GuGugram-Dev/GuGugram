@@ -62,6 +62,64 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197380793185:android:1d6430d42562a4f9409b20",
+        "android_client_info": {
+          "package_name": "com.blxueya.gugugram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197380793185-3oin70711gfib720dgfh8d3ugugfe86k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX8ZWoD3QpUREIaUkZgpQ2nBfW64ZRuX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197380793185-3oin70711gfib720dgfh8d3ugugfe86k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197380793185:android:31dcb4673e58b0e1409b20",
+        "android_client_info": {
+          "package_name": "com.blxueya.gugugram.beta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197380793185-3oin70711gfib720dgfh8d3ugugfe86k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX8ZWoD3QpUREIaUkZgpQ2nBfW64ZRuX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197380793185-3oin70711gfib720dgfh8d3ugugfe86k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
