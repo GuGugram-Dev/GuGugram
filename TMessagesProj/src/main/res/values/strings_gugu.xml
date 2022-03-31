@@ -15,6 +15,7 @@
     <string name="HideSponsoredMessage">Hide Sponsored Message</string>
 
     <string name="AlwaysSaveChatOffset">Always Save ChatOffset</string>
+    <string name="DisableChatActionSending">Disable chat action sending</string>
     <string name="ShowSpoilersDirectly">Show Spoilers Directly</string>
     <string name="ShowForwarderName">Show forwarder name</string>
 </resources>
