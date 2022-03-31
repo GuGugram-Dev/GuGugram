@@ -13,6 +13,8 @@ import android.text.Spanned;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 
 import java.util.ArrayList;
@@ -53,7 +55,7 @@ public class SpoilersTextView extends TextView {
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        isSpoilersRevealed = false;
+        isSpoilersRevealed = GuGuConfig.ShowSpoilersDirectly;
         super.setText(text, type);
     }
 

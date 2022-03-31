@@ -29,6 +29,8 @@ import android.util.Base64;
 import androidx.collection.LongSparseArray;
 import androidx.core.util.Pair;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.browser.Browser;
 import org.telegram.messenger.ringtone.RingtoneDataStore;
@@ -140,7 +142,7 @@ public class MessageObject {
     public boolean isRestrictedMessage;
     public long loadedFileSize;
 
-    public boolean isSpoilersRevealed;
+    public boolean isSpoilersRevealed = GuGuConfig.ShowSpoilersDirectly;
     public byte[] sponsoredId;
     public int sponsoredChannelPost;
     public TLRPC.ChatInvite sponsoredChatInvite;
