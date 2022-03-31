@@ -24,9 +24,9 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved) {
 		return -1;
 	}
 
-    if (!checkGenuine(env)) {
-        return JNI_ERR;
-    }
+    //if (!checkGenuine(env)) {
+    //    return JNI_ERR;
+    //}
 
     if (imageOnJNILoad(vm, env) != JNI_TRUE) {
         return -1;
