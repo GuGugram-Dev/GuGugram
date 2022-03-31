@@ -12,7 +12,9 @@
     <string name="GuGuUpdateInstallingRelaunch">GuGugram will relaunch when update completes.</string>
 
     <string name="ForceAllowCopy">Force Allow Copy</string>
-    <string name="AlwaysSaveChatOffset">Always Save ChatOffset</string>
     <string name="HideSponsoredMessage">Hide Sponsored Message</string>
+
+    <string name="AlwaysSaveChatOffset">Always Save ChatOffset</string>
     <string name="ShowSpoilersDirectly">Show Spoilers Directly</string>
+    <string name="ShowForwarderName">Show forwarder name</string>
 </resources>
