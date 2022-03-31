@@ -64,6 +64,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
     private int guguSettingsRow;
     private int alwaysSaveChatOffsetRow;
+    private int showForwarderNameRow;
     private int showSpoilersDirectlyRow;
     private int forceAllowCopyRow;
     private int hideSponsoredMessageRow;
@@ -241,6 +242,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.HideSponsoredMessage);
             }
+        } else if (position == showForwarderNameRow) {
+            GuGuConfig.toggleShowForwarderName();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.ShowForwarderName);
+            }
         }
     }
 
@@ -331,6 +337,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
         guguSettingsRow = rowCount++;
         alwaysSaveChatOffsetRow = rowCount++;
+        showForwarderNameRow = rowCount++;
         showSpoilersDirectlyRow = rowCount++;
         forceAllowCopyRow = rowCount++;
         hideSponsoredMessageRow = rowCount++;
@@ -393,6 +400,8 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                         textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.HideSponsoredMessage), GuGuConfig.HideSponsoredMessage,true);
                     } else if (position == showSpoilersDirectlyRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.ShowSpoilersDirectly,true);
+                    } else if (position == showForwarderNameRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("ShowForwarderName", R.string.ShowForwarderName), GuGuConfig.ShowForwarderName,true);
                     }
                     break;
                 }
