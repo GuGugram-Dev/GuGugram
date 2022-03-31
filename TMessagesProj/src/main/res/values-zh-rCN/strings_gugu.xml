@@ -13,7 +13,9 @@
     <string name="GuGuUpdateInstallingRelaunch">GuGugram会在重启后更新</string>
 
     <string name="ForceAllowCopy">强制复制</string>
-    <string name="AlwaysSaveChatOffset">总是保存聊天偏移量</string>
     <string name="HideSponsoredMessage">隐藏赞助消息</string>
+
+    <string name="AlwaysSaveChatOffset">总是保存聊天偏移量</string>
     <string name="ShowSpoilersDirectly">直接显示剧透信息</string>
+    <string name="ShowForwarderName">显示转发者姓名</string>
 </resources>
