@@ -57,6 +57,8 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.support.LongSparseIntArray;
 import org.telegram.tgnet.ConnectionsManager;
 import org.telegram.tgnet.TLRPC;
@@ -1864,6 +1866,8 @@ public class NotificationsController extends BaseController {
         }
         StringBuilder stringBuilder = new StringBuilder(text);
         var entities = MessageHelper.checkBlockedUserEntities(messageObject);
+        if (GuGuConfig.ShowSpoilersDirectly)
+            return stringBuilder.toString();
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i) instanceof TLRPC.TL_messageEntitySpoiler) {
                 TLRPC.TL_messageEntitySpoiler spoiler = (TLRPC.TL_messageEntitySpoiler) entities.get(i);
