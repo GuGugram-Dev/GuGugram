@@ -99,7 +99,9 @@
     <string name="CustomEmojiTypeface">自定義 Emoji 字型</string>
     <string name="Page1Message2">GuGugram 是使用 Telegram API\n的**非官方**應用</string>
     <string name="MapDriftingFix">地圖定位漂移修復</string>
-    <string name="IncreaseVoiceMessageQuality">提升語音訊息質量</string>
+    <string name="IncreaseVoiceMessageQuality">高畫質語音留言</string>
+    <string name="VoiceEnhancements">語音增強</string>
+    <string name="VoiceEnhancementsAbout">噪聲抑制和語音歸一化</string>
     <string name="DisableInstantCamera">禁用即時相機</string>
     <string name="OpenAllLinksInInstantView">嘗試將所有連結在即時預覽中開啟</string>
     <string name="DonateThankYou">謝謝！</string>
@@ -119,16 +121,16 @@
     <string name="ProviderMicrosoftTranslator">微軟翻譯</string>
     <string name="TranslationProviderShort">翻譯源</string>
     <string name="ViewSourceCode">檢視原始碼</string>
-    <string name="AvatarAsBackground">把個人頭貼設為背景</string>
-    <string name="BlurAvatarBackground">模糊個人頭貼</string>
-    <string name="DarkenAvatarBackground">個人頭貼黑暗模式</string>
-    <string name="AccentAsNotificationColor">強調色作為通知顏色</string>
-    <string name="SilenceNonContacts">不接收非聯絡人的通知</string>
-    <string name="SilenceNonContactsAbout">來自非您聯繫人的通知將無聲顯示。 您可以在不知道電話號碼的情況下將用戶從他們的個人資料添加到聯繫人。</string>
-    <string name="SelectBetween">選擇</string>
-    <string name="StickerSavedHint">貼圖已儲存到圖庫</string>
+    <string name="AvatarAsBackground">頭像作為背景</string>
+    <string name="BlurAvatarBackground">模糊頭像</string>
+    <string name="DarkenAvatarBackground">深色遮罩</string>
+    <string name="AccentAsNotificationColor">以強調色作為通知顏色</string>
+    <string name="SilenceNonContacts">靜音非聯絡人</string>
+    <string name="SilenceNonContactsAbout">來自非您的聯絡人的通知將無聲地出現。您可以將使用者從他們的個人資料新增到聯絡人中，而無需知道他們的電話號碼。</string>
+    <string name="SelectBetween">選擇之間的</string>
+    <string name="StickerSavedHint">貼紙已儲存到相簿</string>
     <string name="RegistrationDate">註冊日期</string>
-    <string name="WsDescription2">透過 WebSocket 從 Cloudflare 連線到 Telegram，<![CDATA[<a href=\"%s\">技術詳情</a>]]>。</string>
+    <string name="WsDescription">透過 WebSocket 從 Cloudflare 連線到 Telegram。**瞭解更多 **</string>
     <string name="WsEnableTls">啟用 TLS</string>
     <string name="WsLocalProxy">本地代理</string>
     <string name="WsEnableDoh">啟用 DoH</string>
@@ -201,12 +203,14 @@
     <string name="EditEnableMarkdown">啟用 Markdown</string>
     <string name="EditDisableMarkdown">禁用 Markdown</string>
     <string name="DisableMarkdownByDefault">預設禁用 Markdown</string>
-    <string name="CopyTitle">複製標題</string>
     <string name="CopyCallback">複製回撥資料</string>
     <string name="CopyInlineQuery">複製 Inline 請求</string>
     <string name="CopyID">複製 ID</string>
-    <string name="SendCallback">傳送回撥資料</string>
-    <string name="CallbackData">回撥資料</string>
+    <string name="ShowRPCError">顯示所有 RPC 錯誤</string>
+    <string name="ShowRPCErrorException">例外：%s</string>
+    <string name="KeepFormatting">保持文字格式</string>
+    <string name="KeepFormattingAbout">在聊天中複製貼上文字時。</string>
+    <string name="SoonRemovedOption">這個實驗性選項將很快被刪除並預設啟用，如果你對這個選項有問題，請**向我們報告**。</string>
     <!-- Accessibility -->
     <string name="AccessibilitySettings">無障礙設定</string>
 </resources>
