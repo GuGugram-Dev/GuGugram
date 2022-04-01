@@ -63,7 +63,7 @@ public class NekoConfig {
     public static final int DOUBLE_TAP_ACTION_REPLY = 3;
     public static final int DOUBLE_TAP_ACTION_SAVE = 4;
     public static final int DOUBLE_TAP_ACTION_REPEAT = 5;
-    public static final int DOUBLE_TAP_ACTION_EDIT = 6;
+    public static final int DOUBLE_TAP_ACTION_EDIT = 6+1;
 
     private static final String EMOJI_FONT_AOSP = "NotoColorEmoji.ttf";
 
