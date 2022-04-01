@@ -10842,6 +10842,20 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 adminString = adminLabel;
                 adminWidth = (int) Math.ceil(Theme.chat_adminPaint.measureText(adminString));
                 nameWidth -= adminWidth;
+            } else if (GuGuConfig.channelAlias && isMegagroup && currentChat != null && currentMessageObject.isSenderChannel()) {
+                final String channelStr = LocaleController.getString("channelLabel", R.string.channelLabel);
+                if (GuGuConfig.channelAlias) {
+                    String aliasName = GuGuConfig.getChannelAlias(currentMessageObject.messageOwner.from_id.channel_id);
+                    if (aliasName != null) {
+                        adminString = aliasName + " | " + channelStr;
+                    } else {
+                        adminString = channelStr;
+                    }
+                } else {
+                    adminString = channelStr;
+                }
+                adminWidth = (int) Math.ceil(Theme.chat_adminPaint.measureText(adminString));
+                nameWidth -= adminWidth;
             } else {
                 adminString = null;
                 adminWidth = 0;
