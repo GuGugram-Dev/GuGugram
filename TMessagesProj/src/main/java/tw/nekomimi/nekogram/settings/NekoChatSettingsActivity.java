@@ -16,6 +16,8 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.NotificationCenter;
@@ -176,6 +178,8 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             arrayList.add(LocaleController.getString("AddToSavedMessages", R.string.AddToSavedMessages));
             types.add(NekoConfig.DOUBLE_TAP_ACTION_SAVE);
             arrayList.add(LocaleController.getString("Repeat", R.string.Repeat));
+            types.add(GuGuConfig.DOUBLE_TAP_ACTION_REPEATASCOPY);
+            arrayList.add(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy));
             types.add(NekoConfig.DOUBLE_TAP_ACTION_REPEAT);
             arrayList.add(LocaleController.getString("Edit", R.string.Edit));
             types.add(NekoConfig.DOUBLE_TAP_ACTION_EDIT);
@@ -204,27 +208,30 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 NekoConfig.toggleShowRepeat();
                 cell.setChecked(NekoConfig.showRepeat);
             } else if (menuPosition == 4) {
+                GuGuConfig.toggleShowRepeatAsCopy();
+                cell.setChecked(GuGuConfig.showRepeatAsCopy);
+            } else if (menuPosition == 4+1) {
                 NekoConfig.toggleShowPrPr();
                 cell.setChecked(NekoConfig.showPrPr);
-            } else if (menuPosition == 5) {
+            } else if (menuPosition == 5+1) {
                 NekoConfig.toggleShowViewHistory();
                 cell.setChecked(NekoConfig.showViewHistory);
-            } else if (menuPosition == 6) {
+            } else if (menuPosition == 6+1) {
                 NekoConfig.toggleShowTranslate();
                 cell.setChecked(NekoConfig.showTranslate);
-            } else if (menuPosition == 7) {
+            } else if (menuPosition == 7+1) {
                 NekoConfig.toggleShowReport();
                 cell.setChecked(NekoConfig.showReport);
-            } else if (menuPosition == 8) {
+            } else if (menuPosition == 8+1) {
                 NekoConfig.toggleShowAdminActions();
                 cell.setChecked(NekoConfig.showAdminActions);
-            } else if (menuPosition == 9) {
+            } else if (menuPosition == 9+1) {
                 NekoConfig.toggleShowChangePermissions();
                 cell.setChecked(NekoConfig.showChangePermissions);
-            } else if (menuPosition == 10) {
+            } else if (menuPosition == 10+1) {
                 NekoConfig.toggleShowMessageDetails();
                 cell.setChecked(NekoConfig.showMessageDetails);
-            } else if (menuPosition == 11) {
+            } else if (menuPosition == 11+1) {
                 NekoConfig.toggleShowCopyPhoto();
                 cell.setChecked(NekoConfig.showCopyPhoto);
             }
@@ -306,6 +313,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         addRow("showNoQuoteForward");
         addRow("showAddToSavedMessages");
         addRow("showRepeat");
+        addRow("showRepeatAsCopy");
         addRow("showPrPr");
         addRow("showViewHistory");
         addRow("showTranslate");
@@ -465,6 +473,9 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                             case NekoConfig.DOUBLE_TAP_ACTION_REPEAT:
                                 value = LocaleController.getString("Repeat", R.string.Repeat);
                                 break;
+                            case GuGuConfig.DOUBLE_TAP_ACTION_REPEATASCOPY:
+                                value = LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy);
+                                break;
                             case NekoConfig.DOUBLE_TAP_ACTION_EDIT:
                                 value = LocaleController.getString("Edit", R.string.Edit);
                                 break;
@@ -539,20 +550,22 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     } else if (menuPosition == 3) {
                         cell.setTextAndCheck(LocaleController.getString("Repeat", R.string.Repeat), NekoConfig.showRepeat, true);
                     } else if (menuPosition == 4) {
+                        cell.setTextAndCheck(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy),GuGuConfig.showRepeatAsCopy,true);
+                    } else if (menuPosition == 4+1) {
                         cell.setTextAndCheck(LocaleController.getString("Prpr", R.string.Prpr), NekoConfig.showPrPr, true);
-                    } else if (menuPosition == 5) {
+                    } else if (menuPosition == 5+1) {
                         cell.setTextAndCheck(LocaleController.getString("ViewHistory", R.string.ViewHistory), NekoConfig.showViewHistory, true);
-                    } else if (menuPosition == 6) {
+                    } else if (menuPosition == 6+1) {
                         cell.setTextAndCheck(LocaleController.getString("TranslateMessage", R.string.TranslateMessage), NekoConfig.showTranslate, true);
-                    } else if (menuPosition == 7) {
+                    } else if (menuPosition == 7+1) {
                         cell.setTextAndCheck(LocaleController.getString("ReportChat", R.string.ReportChat), NekoConfig.showReport, true);
-                    } else if (menuPosition == 8) {
+                    } else if (menuPosition == 8+1) {
                         cell.setTextAndCheck(LocaleController.getString("EditAdminRights", R.string.EditAdminRights), NekoConfig.showAdminActions, true);
-                    } else if (menuPosition == 9) {
+                    } else if (menuPosition == 9+1) {
                         cell.setTextAndCheck(LocaleController.getString("ChangePermissions", R.string.ChangePermissions), NekoConfig.showChangePermissions, true);
-                    } else if (menuPosition == 10) {
+                    } else if (menuPosition == 10+1) {
                         cell.setTextAndCheck(LocaleController.getString("MessageDetails", R.string.MessageDetails), NekoConfig.showMessageDetails, true);
-                    } else if (menuPosition == 11) {
+                    } else if (menuPosition == 11+1) {
                         cell.setTextAndCheck(LocaleController.getString("CopyPhoto", R.string.CopyPhoto), NekoConfig.showCopyPhoto, false);
                     }
                     break;
