@@ -275,7 +275,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     }
 
     public boolean hasSpoilers() {
-        if(GuGuConfig.ShowSpoilersDirectly)
+        if(GuGuConfig.showSpoilersDirectly)
             return false;
         if (hasCaptionLayout() && !captionSpoilers.isEmpty() || replyTextLayout != null && !replySpoilers.isEmpty()) {
             return true;
@@ -2842,7 +2842,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
 
     private boolean checkTextSelection(MotionEvent event) {
         TextSelectionHelper.ChatListTextSelectionHelper textSelectionHelper = delegate.getTextSelectionHelper();
-        if (textSelectionHelper == null || !GuGuConfig.ForceAllowCopy && MessagesController.getInstance(currentAccount).isChatNoForwards(currentMessageObject.getChatId()) || (currentMessageObject.messageOwner != null && currentMessageObject.messageOwner.noforwards)) {
+        if (textSelectionHelper == null || !GuGuConfig.forceAllowCopy && MessagesController.getInstance(currentAccount).isChatNoForwards(currentMessageObject.getChatId()) || (currentMessageObject.messageOwner != null && currentMessageObject.messageOwner.noforwards)) {
             return false;
         }
         boolean hasTextBlocks = currentMessageObject.textLayoutBlocks != null && !currentMessageObject.textLayoutBlocks.isEmpty();

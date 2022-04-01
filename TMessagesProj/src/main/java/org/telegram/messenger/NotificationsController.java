@@ -1907,7 +1907,7 @@ public class NotificationsController extends BaseController {
         }
         StringBuilder stringBuilder = new StringBuilder(text);
         var entities = MessageHelper.checkBlockedUserEntities(messageObject);
-        if (GuGuConfig.ShowSpoilersDirectly)
+        if (GuGuConfig.showSpoilersDirectly)
             return stringBuilder.toString();
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i) instanceof TLRPC.TL_messageEntitySpoiler) {
