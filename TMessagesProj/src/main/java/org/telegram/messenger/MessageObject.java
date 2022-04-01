@@ -267,6 +267,10 @@ public class MessageObject {
         return getDialogId() < 0;
     }
 
+    public boolean isSenderChannel() {
+        return messageOwner.from_id instanceof TLRPC.TL_peerChannel;
+    }
+
     public TLRPC.TL_messagePeerReaction getRandomUnreadReaction() {
         if (messageOwner.reactions == null || messageOwner.reactions.recent_reactions == null || messageOwner.reactions.recent_reactions.isEmpty()) {
             return null;
