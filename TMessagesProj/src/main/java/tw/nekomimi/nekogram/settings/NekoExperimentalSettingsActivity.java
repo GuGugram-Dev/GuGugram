@@ -391,6 +391,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                     if (position == experimentRow) {
                         headerCell.setText(LocaleController.getString("Experiment", R.string.Experiment));
                     }
+                    if (position == guguSettingsRow);{
+                        headerCell.setText(LocaleController.getString("GuGuSetting", R.string.NekoSettings));
+                    }
                     break;
                 }
                 case 5: {
