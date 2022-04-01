@@ -55,7 +55,7 @@ public class SpoilersTextView extends TextView {
 
     @Override
     public void setText(CharSequence text, BufferType type) {
-        isSpoilersRevealed = GuGuConfig.ShowSpoilersDirectly;
+        isSpoilersRevealed = GuGuConfig.showSpoilersDirectly;
         super.setText(text, type);
     }
 

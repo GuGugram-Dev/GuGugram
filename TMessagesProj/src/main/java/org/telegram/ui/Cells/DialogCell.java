@@ -1031,7 +1031,7 @@ public class DialogCell extends BaseCell {
                             if (chat != null && chat.id > 0 && fromChat == null && (!ChatObject.isChannel(chat) || ChatObject.isMegagroup(chat))) {
                                 if (message.isOutOwner()) {
                                     messageNameString = LocaleController.getString("FromYou", R.string.FromYou);
-                                } else if (message != null && message.messageOwner.fwd_from != null && message.messageOwner.fwd_from.from_name != null && !GuGuConfig.ShowForwarderName) {
+                                } else if (message != null && message.messageOwner.fwd_from != null && message.messageOwner.fwd_from.from_name != null && !GuGuConfig.showForwarderName) {
                                     messageNameString = message.messageOwner.fwd_from.from_name;
                                 } else if (fromUser != null) {
                                     if (useForceThreeLines || SharedConfig.useThreeLinesLayout) {
@@ -1147,7 +1147,7 @@ public class DialogCell extends BaseCell {
                                         mess = AndroidUtilities.replaceNewLines(mess);
                                     }
                                     mess = new SpannableStringBuilder(mess);
-                                    if (!GuGuConfig.ShowSpoilersDirectly)
+                                    if (!GuGuConfig.showSpoilersDirectly)
                                         MediaDataController.addTextStyleRuns(message, (Spannable) mess, TextStyleSpan.FLAG_STYLE_SPOILER);
                                     stringBuilder = AndroidUtilities.formatSpannable(messageFormat, mess, messageNameString);
                                 } else {
