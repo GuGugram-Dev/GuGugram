@@ -21,4 +21,12 @@
 
     <string name="RepeatAsCopy">Repeat As Copy</string>
 
+    <string name="channelLabel">channel</string>
+    <string name="Name">Name</string>
+    <string name="channelAlias">Channel Alias</string>
+    <string name="channelAliasDetails">Require label channel user enabled.</string>
+    <string name="setChannelAliasName">Set Alias</string>
+    <string name="labelChannelUser">Label Channel User</string>
+    <string name="labelChannelUserDetails">If the message sender is \"Channel\", it will be labeled \"Channel\".</string>
+
 </resources>
