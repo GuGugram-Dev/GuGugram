@@ -259,6 +259,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.disableChatActionSending);
             }
+        } else if (position == showSpoilersDirectlyRow) {
+            GuGuConfig.toggleShowSpoilersDirectly();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.showSpoilersDirectly);
+            }
         }
     }
 
