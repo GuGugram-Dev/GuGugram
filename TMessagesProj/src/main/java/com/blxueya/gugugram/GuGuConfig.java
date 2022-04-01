@@ -10,12 +10,12 @@ import org.telegram.messenger.ApplicationLoader;
 public class GuGuConfig {
     private static final Object sync = new Object();
 
-    public static boolean ForceAllowCopy = false;
-    public static boolean HideSponsoredMessage = false;
-    public static boolean AlwaysSaveChatOffset = false;
-    public static boolean DisableChatActionSending = false;
-    public static boolean ShowForwarderName = false;
-    public static boolean ShowSpoilersDirectly = false;
+    public static boolean forceAllowCopy = false;
+    public static boolean hideSponsoredMessage = false;
+    public static boolean alwaysSaveChatOffset = false;
+    public static boolean disableChatActionSending = false;
+    public static boolean showForwarderName = false;
+    public static boolean showSpoilersDirectly = false;
 
     private static boolean configLoaded;
 
@@ -30,56 +30,56 @@ public class GuGuConfig {
             }
             SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
 
-            ForceAllowCopy = preferences.getBoolean("ForceAllowCopy", false);
+            forceAllowCopy = preferences.getBoolean("ForceAllowCopy", false);
 
             configLoaded = true;
         }
     }
 
     public static void toggleForceAllowCopy() {
-        ForceAllowCopy = !ForceAllowCopy;
+        forceAllowCopy = !forceAllowCopy;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("ForceAllowCopy", ForceAllowCopy);
+        editor.putBoolean("ForceAllowCopy", forceAllowCopy);
         editor.commit();
     }
 
     public static void toggleAlwaysSaveChatOffset() {
-        AlwaysSaveChatOffset = !AlwaysSaveChatOffset;
+        alwaysSaveChatOffset = !alwaysSaveChatOffset;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("AlwaysSaveChatOffset", AlwaysSaveChatOffset);
+        editor.putBoolean("AlwaysSaveChatOffset", alwaysSaveChatOffset);
         editor.commit();
     }
 
     public static void toggleHideSponsoredMessage() {
-        HideSponsoredMessage = !HideSponsoredMessage;
+        hideSponsoredMessage = !hideSponsoredMessage;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("HideSponsoredMessage", HideSponsoredMessage);
+        editor.putBoolean("HideSponsoredMessage", hideSponsoredMessage);
         editor.commit();
     }
 
     public static void toggleShowSpoilersDirectly() {
-        ShowSpoilersDirectly = !ShowSpoilersDirectly;
+        showSpoilersDirectly = !showSpoilersDirectly;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("ShowSpoilersDirectly", ShowSpoilersDirectly);
+        editor.putBoolean("ShowSpoilersDirectly", showSpoilersDirectly);
         editor.commit();
     }
     public static void toggleShowForwarderName() {
-        ShowForwarderName = !ShowForwarderName;
+        showForwarderName = !showForwarderName;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("ShowForwarderName", ShowForwarderName);
+        editor.putBoolean("ShowForwarderName", showForwarderName);
         editor.commit();
     }
 
     public static void toggleDisableChatActionSending() {
-        DisableChatActionSending = !DisableChatActionSending;
+        disableChatActionSending = !disableChatActionSending;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("DisableChatActionSending", DisableChatActionSending);
+        editor.putBoolean("DisableChatActionSending", disableChatActionSending);
         editor.commit();
     }
 }

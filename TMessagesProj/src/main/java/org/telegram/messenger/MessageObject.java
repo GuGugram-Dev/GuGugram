@@ -159,7 +159,7 @@ public class MessageObject {
 
     public AtomicReference<WeakReference<View>> viewRef = new AtomicReference<>(null);
 
-    public boolean isSpoilersRevealed = GuGuConfig.ShowSpoilersDirectly;
+    public boolean isSpoilersRevealed = GuGuConfig.showSpoilersDirectly;
     public byte[] sponsoredId;
     public int sponsoredChannelPost;
     public TLRPC.ChatInvite sponsoredChatInvite;

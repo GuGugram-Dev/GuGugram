@@ -1901,7 +1901,7 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
             } else {
                 optionsButton.setVisibility(View.VISIBLE);
             }
-            if (!GuGuConfig.ForceAllowCopy && MessagesController.getInstance(currentAccount).isChatNoForwards(messageObject.getChatId())) {
+            if (!GuGuConfig.forceAllowCopy && MessagesController.getInstance(currentAccount).isChatNoForwards(messageObject.getChatId())) {
                 optionsButton.hideSubItem(1);
                 optionsButton.hideSubItem(2);
                 optionsButton.hideSubItem(5);
