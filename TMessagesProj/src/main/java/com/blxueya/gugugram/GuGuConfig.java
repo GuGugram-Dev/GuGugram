@@ -36,6 +36,13 @@ public class GuGuConfig {
             SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
 
             forceAllowCopy = preferences.getBoolean("forceAllowCopy", false);
+            hideSponsoredMessage = preferences.getBoolean("hideSponsoredMessage",false);
+            channelAlias = preferences.getBoolean("channelAlias",false);
+            alwaysSaveChatOffset = preferences.getBoolean("alwaysSaveChatOffset",false);
+            disableChatActionSending = preferences.getBoolean("disableChatActionSending",false);
+            showForwarderName = preferences.getBoolean("showForwarderName",false);
+            showSpoilersDirectly = preferences.getBoolean("showSpoilersDirectly",false);
+            showRepeatAsCopy = preferences.getBoolean("showRepeatAsCopy",false);
 
             configLoaded = true;
         }
