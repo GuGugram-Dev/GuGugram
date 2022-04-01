@@ -17,6 +17,10 @@ public class GuGuConfig {
     public static boolean showForwarderName = false;
     public static boolean showSpoilersDirectly = false;
 
+    public static boolean showRepeatAsCopy = true;
+    public static final int DOUBLE_TAP_ACTION_REPEATASCOPY = 6;
+
+
     private static boolean configLoaded;
 
     static {
@@ -80,6 +84,14 @@ public class GuGuConfig {
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("DisableChatActionSending", disableChatActionSending);
+        editor.commit();
+    }
+
+    public static void toggleShowRepeatAsCopy() {
+        showRepeatAsCopy = !showRepeatAsCopy;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("guguconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("showRepeatAsCopy", showRepeatAsCopy);
         editor.commit();
     }
 }
