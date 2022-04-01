@@ -140,7 +140,7 @@ public class MessageObject {
     public boolean isRestrictedMessage;
     public long loadedFileSize;
 
-    public boolean isSpoilersRevealed = GuGuConfig.ShowSpoilersDirectly;
+    public boolean isSpoilersRevealed = GuGuConfig.showSpoilersDirectly;
     public byte[] sponsoredId;
     public int sponsoredChannelPost;
     public TLRPC.ChatInvite sponsoredChatInvite;

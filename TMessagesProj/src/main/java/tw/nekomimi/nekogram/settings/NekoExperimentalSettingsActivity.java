@@ -231,27 +231,27 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         } else if (position == forceAllowCopyRow) {
             GuGuConfig.toggleForceAllowCopy();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(GuGuConfig.ForceAllowCopy);
+                ((TextCheckCell) view).setChecked(GuGuConfig.forceAllowCopy);
             }
         } else if (position == alwaysSaveChatOffsetRow) {
             GuGuConfig.toggleAlwaysSaveChatOffset();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(GuGuConfig.AlwaysSaveChatOffset);
+                ((TextCheckCell) view).setChecked(GuGuConfig.alwaysSaveChatOffset);
             }
         } else if (position == hideSponsoredMessageRow) {
             GuGuConfig.toggleHideSponsoredMessage();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(GuGuConfig.HideSponsoredMessage);
+                ((TextCheckCell) view).setChecked(GuGuConfig.hideSponsoredMessage);
             }
         } else if (position == showForwarderNameRow) {
             GuGuConfig.toggleShowForwarderName();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(GuGuConfig.ShowForwarderName);
+                ((TextCheckCell) view).setChecked(GuGuConfig.showForwarderName);
             }
         } else if (position == disableChatActionSendingRow) {
             GuGuConfig.toggleDisableChatActionSending();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(GuGuConfig.DisableChatActionSending);
+                ((TextCheckCell) view).setChecked(GuGuConfig.disableChatActionSending);
             }
         }
     }
@@ -400,17 +400,17 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                     } else if (position == keepFormattingRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("KeepFormatting", R.string.KeepFormatting), LocaleController.getString("KeepFormattingAbout", R.string.KeepFormattingAbout), NekoConfig.keepFormatting, true, true);
                     } else if (position == forceAllowCopyRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.ForceAllowCopy,true);
+                        textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.forceAllowCopy,true);
                     } else if (position == alwaysSaveChatOffsetRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.AlwaysSaveChatOffset,true);
+                        textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.alwaysSaveChatOffset,true);
                     } else if (position == hideSponsoredMessageRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.HideSponsoredMessage), GuGuConfig.HideSponsoredMessage,true);
+                        textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.HideSponsoredMessage), GuGuConfig.hideSponsoredMessage,true);
                     } else if (position == showSpoilersDirectlyRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.ShowSpoilersDirectly,true);
+                        textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly,true);
                     } else if (position == showForwarderNameRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("ShowForwarderName", R.string.ShowForwarderName), GuGuConfig.ShowForwarderName,true);
+                        textCell.setTextAndCheck(LocaleController.getString("ShowForwarderName", R.string.ShowForwarderName), GuGuConfig.showForwarderName,true);
                     } else if (position == disableChatActionSendingRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("DisableChatActionSending", R.string.DisableChatActionSending), GuGuConfig.DisableChatActionSending,true);
+                        textCell.setTextAndCheck(LocaleController.getString("DisableChatActionSending", R.string.DisableChatActionSending), GuGuConfig.disableChatActionSending,true);
                     }
                     break;
                 }
