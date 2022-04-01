@@ -19,4 +19,6 @@
     <string name="DisableChatActionSending">禁止发送输入状态</string>
     <string name="ShowSpoilersDirectly">直接显示剧透信息</string>
     <string name="ShowForwarderName">显示转发者姓名</string>
+
+    <string name="RepeatAsCopy">复读(无引用)</string>
 </resources>

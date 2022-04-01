@@ -1494,6 +1494,7 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
 
         @Override
         public boolean hasDoubleTap(View view, int position) {
+            boolean allowRepeat;
             if (NekoConfig.doubleTapAction == NekoConfig.DOUBLE_TAP_ACTION_NONE || !(view instanceof ChatMessageCell)) {
                 return false;
             }
@@ -1555,8 +1556,13 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                     case NekoConfig.DOUBLE_TAP_ACTION_SAVE:
                         return !message.isSponsored() && chatMode != MODE_SCHEDULED && !message.needDrawBluredPreview() && !message.isLiveLocation() && message.type != 16 && !getMessagesController().isChatNoForwards(currentChat) && !UserObject.isUserSelf(currentUser);
                     case NekoConfig.DOUBLE_TAP_ACTION_REPEAT:
-                        boolean allowRepeat = allowChatActions &&
+                        allowRepeat = allowChatActions &&
                                 (!isThreadChat() && !noforwards ||
+                                        getMessageHelper().getMessageForRepeat(message, messageGroup) != null);
+                        return allowRepeat && !message.isSponsored() && chatMode != MODE_SCHEDULED && !message.needDrawBluredPreview() && !message.isLiveLocation() && message.type != 16;
+                    case GuGuConfig.DOUBLE_TAP_ACTION_REPEATASCOPY:
+                        allowRepeat = allowChatActions &&
+                                (!isThreadChat() ||
                                         getMessageHelper().getMessageForRepeat(message, messageGroup) != null);
                         return allowRepeat && !message.isSponsored() && chatMode != MODE_SCHEDULED && !message.needDrawBluredPreview() && !message.isLiveLocation() && message.type != 16;
                     case NekoConfig.DOUBLE_TAP_ACTION_EDIT:
@@ -1613,6 +1619,9 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                         break;
                     case NekoConfig.DOUBLE_TAP_ACTION_REPEAT:
                         processSelectedOption(94);
+                        break;
+                    case GuGuConfig.DOUBLE_TAP_ACTION_REPEATASCOPY:
+                        processSelectedOption(110);
                         break;
                     case NekoConfig.DOUBLE_TAP_ACTION_EDIT:
                         processSelectedOption(12);
@@ -21825,6 +21834,17 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                                 }
                             }
                         }
+                        if (GuGuConfig.showRepeatAsCopy) {
+                            if (!selectedObject.isSponsored() && chatMode != MODE_SCHEDULED && !selectedObject.needDrawBluredPreview() && !selectedObject.isLiveLocation() && selectedObject.type != 16) {
+                                boolean allowRepeat = allowChatActions ||
+                                        (!isThreadChat() || getMessageHelper().getMessageForRepeat(selectedObject, selectedObjectGroup) != null);
+                                if (allowRepeat){
+                                    items.add(LocaleController.getString("Repeat", R.string.RepeatAsCopy));
+                                    options.add(94);
+                                    icons.add(R.drawable.msg_repeat);
+                                }
+                            }
+                        }
                         if (chatMode != MODE_SCHEDULED) {
                             if (NekoConfig.showPrPr && allowChatActions && selectedObject.isFromUser()) {
                                 items.add(LocaleController.getString("Prpr", R.string.Prpr));
@@ -23952,7 +23972,13 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                 if (checkSlowMode(chatActivityEnterView.getSendButton())) {
                     return;
                 }
-                processRepeatMessage(false);
+                processRepeatMessage(false,false);
+                break;
+            } case 110: {
+                if (checkSlowMode(chatActivityEnterView.getSendButton())) {
+                    return;
+                }
+                processRepeatMessage(false,true);
                 break;
             } case 97: {
                 if (selectedParticipant == null) {
@@ -24039,13 +24065,16 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
     private boolean processSelectedOptionLongClick(int option) {
         switch (option) {
             case 94: {
-                return processRepeatMessage(true);
+                return processRepeatMessage(true,false);
+            }
+            case 110: {
+                return processRepeatMessage(true,true);
             }
         }
         return false;
     }
 
-    public boolean processRepeatMessage(boolean longClick) {
+    public boolean processRepeatMessage(boolean longClick,boolean isRepeatascopy) {
         if (longClick || isThreadChat() || getMessagesController().isChatNoForwards(currentChat) || selectedObject.messageOwner.noforwards) {
             var messageObject = getMessageHelper().getMessageForRepeat(selectedObject, selectedObjectGroup);
             if (messageObject != null) {
@@ -24103,7 +24132,11 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
             } else {
                 messages.add(selectedObject);
             }
-            forwardMessages(messages, false, false, true, 0);
+            if (isRepeatascopy){
+                forwardMessages(messages, true, false, true, 0);
+            }else {
+                forwardMessages(messages, false, false, true, 0);
+            }
         }
         return false;
     }
