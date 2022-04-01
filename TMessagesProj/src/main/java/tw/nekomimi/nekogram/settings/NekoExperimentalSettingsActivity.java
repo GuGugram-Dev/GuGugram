@@ -65,6 +65,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
     private int guguSettingsRow;
     private int forceAllowCopyRow;
     private int hideSponsoredMessageRow;
+    private int channelAliasRow;
     private int alwaysSaveChatOffsetRow;
     private int disableChatActionSendingRow;
     private int showForwarderNameRow;
@@ -233,6 +234,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.forceAllowCopy);
             }
+        } else if (position == channelAliasRow) {
+            GuGuConfig.toggleChannelAlias();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.channelAlias);
+            }
         } else if (position == alwaysSaveChatOffsetRow) {
             GuGuConfig.toggleAlwaysSaveChatOffset();
             if (view instanceof TextCheckCell) {
@@ -344,6 +350,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         guguSettingsRow = rowCount++;
         forceAllowCopyRow = rowCount++;
         hideSponsoredMessageRow = rowCount++;
+        channelAliasRow = rowCount++;
         alwaysSaveChatOffsetRow = rowCount++;
         disableChatActionSendingRow = rowCount++;
         showForwarderNameRow = rowCount++;
@@ -400,7 +407,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                     } else if (position == keepFormattingRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("KeepFormatting", R.string.KeepFormatting), LocaleController.getString("KeepFormattingAbout", R.string.KeepFormattingAbout), NekoConfig.keepFormatting, true, true);
                     } else if (position == forceAllowCopyRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.forceAllowCopy,true);
+                        textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.forceAllowCopy, true);
+                    } else if (position == channelAliasRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("channelAlias",R.string.channelAlias),GuGuConfig.channelAlias,true);
                     } else if (position == alwaysSaveChatOffsetRow) {
                         textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.alwaysSaveChatOffset,true);
                     } else if (position == hideSponsoredMessageRow) {
