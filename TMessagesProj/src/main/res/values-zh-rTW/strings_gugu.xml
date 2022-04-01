@@ -10,15 +10,23 @@
     <string name="InviteTextGuGu">嘿，我在用 GuGugram 聊天. 加入我! 此處下載: %1$s</string>
     <string name="ShareGuGugram">正在分享 GuGugram...</string>
     <string name="GuGugramVersion">GuGugram %1$s\nBased on Nekogram %2$s\nDesigned by %3$s</string>
-    <string name="GuGuUpdateInstallingRelaunch">GuGugram會在重啟後更新</string>
+    <string name="GuGuUpdateInstallingRelaunch">GuGugram 會在重啟後更新</string>
 
-    <string name="ForceAllowCopy">强制複製</string>
+    <string name="ForceAllowCopy">強制複製</string>
     <string name="HideSponsoredMessage">隱藏贊助訊息</string>
 
-    <string name="AlwaysSaveChatOffset">總是保存聊天偏移量</string>
+    <string name="AlwaysSaveChatOffset">總是儲存聊天偏移量</string>
     <string name="DisableChatActionSending">禁止傳送輸入狀態</string>
-    <string name="ShowSpoilersDirectly">直接顯示劇透訊息</string>
+    <string name="ShowSpoilersDirectly">直接顯示劇透資訊</string>
     <string name="ShowForwarderName">顯示轉發者姓名</string>
 
-    <string name="RepeatAsCopy">復讀(無引用)</string>
+    <string name="RepeatAsCopy">復讀 (無引用)</string>
+
+    <string name="channelLabel">頻道身份</string>
+    <string name="channelAlias">頻道別名</string>
+    <string name="labelChannelUser">標記頻道匿名身份別名</string>
+    <string name="setChannelAliasName">標記別名</string>
+    <string name="channelAliasDetails">需啟用標記頻道匿名身份別名</string>
+    <string name="Name">輸入別名</string>
+    <string name="labelChannelUserDetails">以頻道匿名身份發言的使用者將標記為“頻道身份”</string>
 </resources>
