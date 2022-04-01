@@ -404,7 +404,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                 return 1;
             } else if (position == deleteAccountRow) {
                 return 2;
-            } else if (position > emojiRow && position <= showRPCErrorRow || (position > guguSettingsRow && position < guguSettingsRow)) {
+            } else if (position > emojiRow && position <= showRPCErrorRow || (position > guguSettingsRow && position < guguSettings2Row)) {
                 return 3;
             } else if (position == experimentRow || position == guguSettingsRow) {
                 return 4;
