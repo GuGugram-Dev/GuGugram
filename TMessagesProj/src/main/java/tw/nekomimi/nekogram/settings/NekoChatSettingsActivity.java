@@ -178,9 +178,9 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             arrayList.add(LocaleController.getString("AddToSavedMessages", R.string.AddToSavedMessages));
             types.add(NekoConfig.DOUBLE_TAP_ACTION_SAVE);
             arrayList.add(LocaleController.getString("Repeat", R.string.Repeat));
-            types.add(GuGuConfig.DOUBLE_TAP_ACTION_REPEATASCOPY);
-            arrayList.add(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy));
             types.add(NekoConfig.DOUBLE_TAP_ACTION_REPEAT);
+            arrayList.add(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy));
+            types.add(GuGuConfig.DOUBLE_TAP_ACTION_REPEATASCOPY);
             arrayList.add(LocaleController.getString("Edit", R.string.Edit));
             types.add(NekoConfig.DOUBLE_TAP_ACTION_EDIT);
             PopupHelper.show(arrayList, LocaleController.getString("DoubleTapAction", R.string.DoubleTapAction), types.indexOf(NekoConfig.doubleTapAction), getParentActivity(), view, i -> {
