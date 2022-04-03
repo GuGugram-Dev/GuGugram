@@ -21825,7 +21825,7 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                         if (NekoConfig.showRepeat) {
                             if (!selectedObject.isSponsored() && chatMode != MODE_SCHEDULED && !selectedObject.needDrawBluredPreview() && !selectedObject.isLiveLocation() && selectedObject.type != 16) {
                                 boolean allowRepeat = allowChatActions &&
-                                        (!isThreadChat() && !noforwards ||
+                                        (!isThreadChat() && !noforwards &&
                                                 getMessageHelper().getMessageForRepeat(selectedObject, selectedObjectGroup) != null);
                                 if (allowRepeat) {
                                     items.add(LocaleController.getString("Repeat", R.string.Repeat));
@@ -21836,10 +21836,10 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                         }
                         if (GuGuConfig.showRepeatAsCopy) {
                             if (!selectedObject.isSponsored() && chatMode != MODE_SCHEDULED && !selectedObject.needDrawBluredPreview() && !selectedObject.isLiveLocation() && selectedObject.type != 16) {
-                                boolean allowRepeat = allowChatActions ||
-                                        (!isThreadChat() || getMessageHelper().getMessageForRepeat(selectedObject, selectedObjectGroup) != null);
+                                boolean allowRepeat = allowChatActions &&
+                                        (!isThreadChat() && getMessageHelper().getMessageForRepeat(selectedObject, selectedObjectGroup) != null);
                                 if (allowRepeat){
-                                    items.add(LocaleController.getString("Repeat", R.string.RepeatAsCopy));
+                                    items.add(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy));
                                     options.add(94);
                                     icons.add(R.drawable.msg_repeat);
                                 }
