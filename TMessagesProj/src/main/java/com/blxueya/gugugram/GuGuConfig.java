@@ -6,6 +6,10 @@ import android.content.SharedPreferences;
 
 import org.telegram.messenger.ApplicationLoader;
 
+import java.util.HashMap;
+
+import tw.nekomimi.nekogram.helpers.remote.AnalyticsHelper;
+
 @SuppressLint("ApplySharedPref")
 public class GuGuConfig {
     private static final Object sync = new Object();
@@ -23,6 +27,14 @@ public class GuGuConfig {
     public static final int DOUBLE_TAP_ACTION_REPEATASCOPY = 6;
 
     private static boolean configLoaded;
+
+    // analytics
+    private static final SharedPreferences.OnSharedPreferenceChangeListener listener = (preferences, key) -> {
+        var map = new HashMap<String, String>(1);
+        map.put("key", key);
+        AnalyticsHelper.trackEvent("GuGu config changed", map);
+    };
+
 
     static {
         loadConfig();
@@ -43,6 +55,8 @@ public class GuGuConfig {
             showForwarderName = preferences.getBoolean("showForwarderName",false);
             showSpoilersDirectly = preferences.getBoolean("showSpoilersDirectly",false);
             showRepeatAsCopy = preferences.getBoolean("showRepeatAsCopy",false);
+
+            preferences.registerOnSharedPreferenceChangeListener(listener);
 
             configLoaded = true;
         }
