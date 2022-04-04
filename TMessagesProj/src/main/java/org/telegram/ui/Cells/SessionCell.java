@@ -27,7 +27,6 @@ import androidx.core.content.ContextCompat;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
-import org.telegram.messenger.ImageLocation;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.R;
@@ -45,8 +44,6 @@ import org.telegram.ui.Components.DotDividerSpan;
 import org.telegram.ui.Components.FlickerLoadingView;
 import org.telegram.ui.Components.LayoutHelper;
 
-import java.util.Locale;
-
 public class SessionCell extends FrameLayout {
 
     private TextView nameTextView;
@@ -62,7 +59,7 @@ public class SessionCell extends FrameLayout {
     FlickerLoadingView globalGradient;
     LinearLayout linearLayout;
 
-    private int currentAccount = UserConfig.selectedAccount;
+    private final int currentAccount = UserConfig.selectedAccount;
 
     public SessionCell(Context context, int type) {
         super(context);
@@ -316,7 +313,7 @@ public class SessionCell extends FrameLayout {
         } else if (platform.contains("macos")) {
             iconId = R.drawable.device_desktop_osx;
             colorKey = Theme.key_avatar_backgroundCyan;
-        } else if (session.app_name.contains("Nekogram")) {
+        } else if (session.app_name.contains("GuGugram")) {
             iconId = R.drawable.notification;
             colorKey = Theme.key_avatar_backgroundBlue;
         } else if (platform.contains("android")) {
