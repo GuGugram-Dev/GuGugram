@@ -27,7 +27,7 @@ public class NotificationsService extends Service {
         ApplicationLoader.postInitApplication();
 
         if (NekoConfig.residentNotification) {
-            NotificationChannelCompat channel = new NotificationChannelCompat.Builder("nekogram", NotificationManagerCompat.IMPORTANCE_DEFAULT)
+            NotificationChannelCompat channel = new NotificationChannelCompat.Builder("gugugram", NotificationManagerCompat.IMPORTANCE_DEFAULT)
                     .setName(LocaleController.getString("GuGugramFlying", R.string.GuGugramFlying))
                     .setLightsEnabled(false)
                     .setVibrationEnabled(false)
@@ -36,7 +36,7 @@ public class NotificationsService extends Service {
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
             notificationManager.createNotificationChannel(channel);
             startForeground(38264,
-                    new NotificationCompat.Builder(this, "nekogram")
+                    new NotificationCompat.Builder(this, "gugugram")
                             .setSmallIcon(R.drawable.notification)
                             .setColor(NekoConfig.getNotificationColor())
                             .setColorized(true)
