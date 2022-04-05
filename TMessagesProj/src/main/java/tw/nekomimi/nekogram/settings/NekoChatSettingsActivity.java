@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,11 +25,13 @@ import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
 import org.telegram.ui.ActionBar.ActionBarMenu;
 import org.telegram.ui.ActionBar.ActionBarMenuItem;
+import org.telegram.ui.ActionBar.AlertDialog;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Cells.HeaderCell;
 import org.telegram.ui.Cells.TextCheckCell;
 import org.telegram.ui.Cells.TextCheckbox2Cell;
 import org.telegram.ui.Cells.TextSettingsCell;
+import org.telegram.ui.Components.EditTextBoldCursor;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.RecyclerListView;
 import org.telegram.ui.Components.SeekBarView;
@@ -55,6 +58,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
     private int disableGreetingStickerRow;
     private int disableMarkdownByDefaultRow;
     private int doubleTapActionRow;
+    private int textStyleRow;
     private int maxRecentStickersRow;
     private int chat2Row;
 
@@ -162,6 +166,8 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.disableVoiceMessageAutoPlay);
             }
+        } else if (position == textStyleRow) {
+            showTextStyleAlert();
         } else if (position == doubleTapActionRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();
@@ -284,6 +290,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         disableGreetingStickerRow = rowCount++;
         disableMarkdownByDefaultRow = rowCount++;
         doubleTapActionRow = rowCount++;
+        textStyleRow = rowCount++;
         maxRecentStickersRow = rowCount++;
         chat2Row = rowCount++;
 
@@ -301,6 +308,126 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         messageMenuRow = rowCount++;
         rowCount += 13;
         messageMenu2Row = rowCount++;
+    }
+
+    public void showTextStyleAlert() {
+        if (getParentActivity() == null) {
+            return;
+        }
+
+        Context context = getParentActivity();
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(LocaleController.getString("TextStyle", R.string.TextStyle));
+
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+
+        LinearLayout linearLayoutInviteContainer = new LinearLayout(context);
+        linearLayoutInviteContainer.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.addView(linearLayoutInviteContainer, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
+        for (int a = 0; a < 10; a++) {
+            TextCheckCell textCell = new TextCheckCell(getParentActivity());
+            textCell.setTag(a);
+            switch (a) {
+                case 0: {
+                    textCell.setTextAndCheck(LocaleController.getString("Bold", R.string.Bold), GuGuConfig.showTextBold.Bool(), false);
+                    break;
+                }
+                case 1: {
+                    textCell.setTextAndCheck(LocaleController.getString("Italic", R.string.Italic), GuGuConfig.showTextItalic.Bool(), false);
+                    break;
+                }
+                case 2: {
+                    textCell.setTextAndCheck(LocaleController.getString("Mono", R.string.Mono), GuGuConfig.showTextMono.Bool(), false);
+                    break;
+                }
+                case 3: {
+                    textCell.setTextAndCheck(LocaleController.getString("Strike", R.string.Strike), GuGuConfig.showTextStrikethrough.Bool(), false);
+                    break;
+                }
+                case 4: {
+                    textCell.setTextAndCheck(LocaleController.getString("Underline", R.string.Underline), GuGuConfig.showTextUnderline.Bool(), false);
+                    break;
+                }
+                case 5: {
+                    textCell.setTextAndCheck(LocaleController.getString("Spoiler", R.string.Spoiler), GuGuConfig.showTextSpoiler.Bool(), false);
+                    break;
+                }
+                case 6: {
+                    textCell.setTextAndCheck(LocaleController.getString("CreateLink", R.string.CreateLink), GuGuConfig.showTextCreateLink.Bool(), false);
+                    break;
+                }
+                case 7: {
+                    textCell.setTextAndCheck(LocaleController.getString("CreateMention", R.string.CreateMention), GuGuConfig.showTextCreateMention.Bool(), false);
+                    break;
+                }
+                case 8: {
+                    textCell.setTextAndCheck(LocaleController.getString("Regular", R.string.Regular), GuGuConfig.showTextRegular.Bool(), false);
+                    break;
+                }
+                case 9: {
+                    textCell.setTextAndCheck(LocaleController.getString("TextUndoRedo", R.string.TextUndoRedo), GuGuConfig.showTextUndoRedo.Bool(), false);
+                }
+                case 10: {
+                    textCell.setTextAndCheck(EditTextBoldCursor.disableMarkdown ? LocaleController.getString("EditEnableMarkdown", R.string.EditEnableMarkdown) : LocaleController.getString("EditDisableMarkdown", R.string.EditDisableMarkdown),GuGuConfig.showTextMarkdown.Bool(),false);
+                }
+            }
+            textCell.setTag(a);
+            textCell.setBackground(Theme.getSelectorDrawable(false));
+            linearLayout.addView(textCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
+            textCell.setOnClickListener(v2 -> {
+                Integer tag = (Integer) v2.getTag();
+                switch (tag) {
+                    case 0: {
+                        textCell.setChecked(GuGuConfig.showTextBold.toggleConfigBool());
+                        break;
+                    }
+                    case 1: {
+                        textCell.setChecked(GuGuConfig.showTextItalic.toggleConfigBool());
+                        break;
+                    }
+                    case 2: {
+                        textCell.setChecked(GuGuConfig.showTextMono.toggleConfigBool());
+                        break;
+                    }
+                    case 3: {
+                        textCell.setChecked(GuGuConfig.showTextStrikethrough.toggleConfigBool());
+                        break;
+                    }
+                    case 4: {
+                        textCell.setChecked(GuGuConfig.showTextUnderline.toggleConfigBool());
+                        break;
+                    }
+                    case 5: {
+                        textCell.setChecked(GuGuConfig.showTextSpoiler.toggleConfigBool());
+                        break;
+                    }
+                    case 6: {
+                        textCell.setChecked(GuGuConfig.showTextCreateLink.toggleConfigBool());
+                        break;
+                    }
+                    case 7: {
+                        textCell.setChecked(GuGuConfig.showTextCreateMention.toggleConfigBool());
+                        break;
+                    }
+                    case 8: {
+                        textCell.setChecked(GuGuConfig.showTextRegular.toggleConfigBool());
+                        break;
+                    }
+                    case 9: {
+                        textCell.setChecked(GuGuConfig.showTextUndoRedo.toggleConfigBool());
+                        break;
+                    }
+                    case 10: {
+                        textCell.setChecked(GuGuConfig.showTextMarkdown.toggleConfigBool());
+                    }
+                }
+            });
+
+        }
+        builder.setPositiveButton(LocaleController.getString("OK", R.string.OK), null);
+        builder.setView(linearLayout);
+        showDialog(builder.create());
     }
 
     @Override
@@ -428,6 +555,8 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                         textCell.setTextAndValue(LocaleController.getString("StickerSize", R.string.StickerSize), String.valueOf(Math.round(NekoConfig.stickerSize)), true);
                     } else if (position == messageMenuRow) {
                         textCell.setText(LocaleController.getString("MessageMenu", R.string.MessageMenu), false);
+                    } else if (position == textStyleRow) {
+                        textCell.setText(LocaleController.getString("TextStyle", R.string.TextStyle), true);
                     } else if (position == doubleTapActionRow) {
                         String value;
                         switch (NekoConfig.doubleTapAction) {
@@ -561,7 +690,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         public int getItemViewType(int position) {
             if (position == chat2Row || position == stickerSize2Row || position == messageMenu2Row || position == media2Row) {
                 return 1;
-            } else if (position == doubleTapActionRow || position == maxRecentStickersRow) {
+            } else if (position == textStyleRow || position == doubleTapActionRow || position == maxRecentStickersRow) {
                 return 2;
             } else if ((position > chatRow && position < doubleTapActionRow) ||
                     (position > mediaRow && position < media2Row)
