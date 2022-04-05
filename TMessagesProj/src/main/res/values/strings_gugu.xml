@@ -13,7 +13,6 @@
 
     <string name="ForceAllowCopy">Force Allow Copy</string>
     <string name="HideSponsoredMessage">Hide Sponsored Message</string>
-
     <string name="AlwaysSaveChatOffset">Always Save ChatOffset</string>
     <string name="DisableChatActionSending">Disable chat action sending</string>
     <string name="ShowSpoilersDirectly">Show Spoilers Directly</string>
@@ -28,5 +27,8 @@
     <string name="setChannelAliasName">Set Alias</string>
     <string name="labelChannelUser">Label Channel User</string>
     <string name="labelChannelUserDetails">If the message sender is \"Channel\", it will be labeled \"Channel\".</string>
+
+    <string name="TextStyle">Text Style</string>
+    <string name="TextUndoRedo">Undo/Redo</string>
 
 </resources>
