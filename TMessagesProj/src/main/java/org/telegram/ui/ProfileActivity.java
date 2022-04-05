@@ -260,14 +260,14 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     TimerDrawable autoDeleteItemDrawable;
 
     private View scrimView = null;
-    private Paint scrimPaint = new Paint(Paint.ANTI_ALIAS_FLAG) {
+    private final Paint scrimPaint = new Paint(Paint.ANTI_ALIAS_FLAG) {
         @Override
         public void setAlpha(int a) {
             super.setAlpha(a);
             fragmentView.invalidate();
         }
     };
-    private Paint actionBarBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint actionBarBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private ActionBarPopupWindow scrimPopupWindow;
     private Theme.ResourcesProvider resourcesProvider;
 
@@ -282,7 +282,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
     private boolean doNotSetForeground;
 
-    private boolean[] isOnline = new boolean[1];
+    private final boolean[] isOnline = new boolean[1];
 
     private boolean callItemVisible;
     private boolean videoCallItemVisible;
@@ -335,7 +335,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private Animator searchViewTransition;
     private boolean searchMode;
 
-    private HashMap<Integer, Integer> positionToOffset = new HashMap<>();
+    private final HashMap<Integer, Integer> positionToOffset = new HashMap<>();
 
     private float avatarX;
     private float avatarY;
@@ -350,12 +350,12 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private float listViewVelocityY;
     private ValueAnimator expandAnimator;
     private float currentExpanAnimatorFracture;
-    private float[] expandAnimatorValues = new float[]{0f, 1f};
+    private final float[] expandAnimatorValues = new float[]{0f, 1f};
     private boolean isInLandscapeMode;
     private boolean allowPullingDown;
     private boolean isPulledDown;
 
-    private Paint whitePaint = new Paint();
+    private final Paint whitePaint = new Paint();
 
     private boolean isBot;
 
@@ -408,7 +408,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
     private final static int aliasChannelName = 43;
 
-    private Rect rect = new Rect();
+    private final Rect rect = new Rect();
 
     private TextCell setAvatarCell;
 
@@ -518,7 +518,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         }
     };
 
-    private PhotoViewer.PhotoViewerProvider provider = new PhotoViewer.EmptyPhotoViewerProvider() {
+    private final PhotoViewer.PhotoViewerProvider provider = new PhotoViewer.EmptyPhotoViewerProvider() {
 
         @Override
         public PhotoViewer.PlaceProviderObject getPlaceForPhoto(MessageObject messageObject, TLRPC.FileLocation fileLocation, int index, boolean needPreview) {
@@ -580,7 +580,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         private final RectF rect = new RectF();
         private final Paint placeholderPaint;
 
-        private ImageReceiver foregroundImageReceiver;
+        private final ImageReceiver foregroundImageReceiver;
         private float foregroundAlpha;
         private ImageReceiver.BitmapHolder drawableHolder;
 
@@ -692,7 +692,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private class TopView extends View {
 
         private int currentColor;
-        private Paint paint = new Paint();
+        private final Paint paint = new Paint();
 
         public TopView(Context context) {
             super(context);
@@ -1055,7 +1055,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
     private class NestedFrameLayout extends SizeNotifierFrameLayout implements NestedScrollingParent3 {
 
-        private NestedScrollingParentHelper nestedScrollingParentHelper;
+        private final NestedScrollingParentHelper nestedScrollingParentHelper;
 
         public NestedFrameLayout(Context context) {
             super(context);
@@ -2064,7 +2064,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
             }
 
             private boolean ignoreLayout;
-            private Paint grayPaint = new Paint();
+            private final Paint grayPaint = new Paint();
 
             @Override
             public boolean hasOverlappingRendering() {
@@ -2145,7 +2145,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     isPulledDown = true;
                     NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.needCheckSystemBarColors, true);
                     if (otherItem != null) {
-                        if (GuGuConfig.forceAllowCopy || !getMessagesController().isChatNoForwards(currentChat)) {
+                        if (GuGuConfig.forceAllowCopy.Bool() || !getMessagesController().isChatNoForwards(currentChat)) {
                             otherItem.showSubItem(gallery_menu_save);
                         } else {
                             otherItem.hideSubItem(gallery_menu_save);
@@ -4423,7 +4423,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private AnimatorSet headerShadowAnimatorSet;
     private float mediaHeaderAnimationProgress;
     private boolean mediaHeaderVisible;
-    private Property<ActionBar, Float> ACTIONBAR_HEADER_PROGRESS = new AnimationProperties.FloatProperty<ActionBar>("animationProgress") {
+    private final Property<ActionBar, Float> ACTIONBAR_HEADER_PROGRESS = new AnimationProperties.FloatProperty<ActionBar>("animationProgress") {
         @Override
         public void setValue(ActionBar object, float value) {
             mediaHeaderAnimationProgress = value;
@@ -4823,7 +4823,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 if (allowPullingDown && (openingAvatar || expandProgress >= 0.33f)) {
                     if (!isPulledDown) {
                         if (otherItem != null) {
-                            if (GuGuConfig.forceAllowCopy || !getMessagesController().isChatNoForwards(currentChat)) {
+                            if (GuGuConfig.forceAllowCopy.Bool() || !getMessagesController().isChatNoForwards(currentChat)) {
                                 otherItem.showSubItem(gallery_menu_save);
                             } else {
                                 otherItem.hideSubItem(gallery_menu_save);
@@ -5491,10 +5491,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
     @Override
     public boolean needDelayOpenAnimation() {
-        if (playProfileAnimation == 0) {
-            return true;
-        }
-        return false;
+        return playProfileAnimation == 0;
     }
 
     @Override
@@ -6923,7 +6920,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     if (!TextUtils.isEmpty(chat.username)) {
                         otherItem.addSubItem(share, R.drawable.msg_share, LocaleController.getString("BotShare", R.string.BotShare));
                     }
-                    if (GuGuConfig.channelAlias) {
+                    if (GuGuConfig.channelAlias.Bool()) {
                         otherItem.addSubItem(aliasChannelName, R.drawable.ic_ab_fave, LocaleController.getString("setChannelAliasName", R.string.setChannelAliasName));
                     }
                     if (chatInfo != null && chatInfo.linked_chat_id != 0) {
@@ -6963,7 +6960,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         } else {
             otherItem.addSubItem(gallery_menu_save, R.drawable.msg_gallery, LocaleController.getString("SaveToGallery", R.string.SaveToGallery));
         }
-        if (!GuGuConfig.forceAllowCopy && getMessagesController().isChatNoForwards(currentChat)) {
+        if (!GuGuConfig.forceAllowCopy.Bool() && getMessagesController().isChatNoForwards(currentChat)) {
             otherItem.hideSubItem(gallery_menu_save);
         }
 
@@ -7648,7 +7645,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 VIEW_TYPE_ADDTOGROUP_INFO = 17,
                 VIEW_TYPE_PREMIUM_TEXT_CELL = 18;
 
-        private Context mContext;
+        private final Context mContext;
 
         public ListAdapter(Context context) {
             mContext = context;
@@ -8326,12 +8323,12 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
         private class SearchResult {
 
-            private String searchTitle;
-            private Runnable openRunnable;
-            private String rowName;
+            private final String searchTitle;
+            private final Runnable openRunnable;
+            private final String rowName;
             private String[] path;
-            private int iconResId;
-            private int guid;
+            private final int iconResId;
+            private final int guid;
             private int num;
 
             public SearchResult(int g, String search, int icon, Runnable open) {
@@ -8489,13 +8486,13 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 new SearchResult(403, LocaleController.getString("TelegramFAQ", R.string.TelegramFAQ), LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.msg_help, () -> Browser.openUrl(getParentActivity(), LocaleController.getString("TelegramFaqUrl", R.string.TelegramFaqUrl))),
                 new SearchResult(404, LocaleController.getString("PrivacyPolicy", R.string.PrivacyPolicy), LocaleController.getString("SettingsHelp", R.string.SettingsHelp), R.drawable.msg_help, () -> Browser.openUrl(getParentActivity(), LocaleController.getString("PrivacyPolicyUrl", R.string.PrivacyPolicyUrl))),
         };
-        private ArrayList<MessagesController.FaqSearchResult> faqSearchArray = new ArrayList<>();
+        private final ArrayList<MessagesController.FaqSearchResult> faqSearchArray = new ArrayList<>();
 
-        private Context mContext;
+        private final Context mContext;
         private ArrayList<CharSequence> resultNames = new ArrayList<>();
         private ArrayList<SearchResult> searchResults = new ArrayList<>();
         private ArrayList<MessagesController.FaqSearchResult> faqSearchResults = new ArrayList<>();
-        private ArrayList<Object> recentSearches = new ArrayList<>();
+        private final ArrayList<Object> recentSearches = new ArrayList<>();
         private boolean searchWas;
         private Runnable searchRunnable;
         private String lastSearchString;
