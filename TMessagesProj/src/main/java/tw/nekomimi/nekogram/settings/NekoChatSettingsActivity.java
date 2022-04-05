@@ -206,8 +206,8 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 NekoConfig.toggleShowRepeat();
                 cell.setChecked(NekoConfig.showRepeat);
             } else if (menuPosition == 4) {
-                GuGuConfig.toggleShowRepeatAsCopy();
-                cell.setChecked(GuGuConfig.showRepeatAsCopy);
+                GuGuConfig.showRepeatAsCopy.toggleConfigBool();
+                cell.setChecked(GuGuConfig.showRepeatAsCopy.Bool());
             } else if (menuPosition == 4+1) {
                 NekoConfig.toggleShowPrPr();
                 cell.setChecked(NekoConfig.showPrPr);
@@ -521,7 +521,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     } else if (menuPosition == 3) {
                         cell.setTextAndCheck(LocaleController.getString("Repeat", R.string.Repeat), NekoConfig.showRepeat, true);
                     } else if (menuPosition == 4) {
-                        cell.setTextAndCheck(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy),GuGuConfig.showRepeatAsCopy,true);
+                        cell.setTextAndCheck(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy),GuGuConfig.showRepeatAsCopy.Bool(),true);
                     } else if (menuPosition == 4+1) {
                         cell.setTextAndCheck(LocaleController.getString("Prpr", R.string.Prpr), NekoConfig.showPrPr, true);
                     } else if (menuPosition == 5+1) {
