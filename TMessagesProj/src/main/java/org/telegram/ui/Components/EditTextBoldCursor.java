@@ -45,6 +45,8 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.lsposed.hiddenapibypass.HiddenApiBypass;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildVars;
@@ -79,7 +81,7 @@ public class EditTextBoldCursor extends EditTextEffects {
     private GradientDrawable gradientDrawable;
     private SubstringLayoutAnimator hintAnimator;
 
-    private Runnable invalidateRunnable = new Runnable() {
+    private final Runnable invalidateRunnable = new Runnable() {
         @Override
         public void run() {
             invalidate();
@@ -98,7 +100,7 @@ public class EditTextBoldCursor extends EditTextEffects {
     private int ignoreBottomCount;
     private int scrollY;
     private float lineSpacingExtra;
-    private Rect rect = new Rect();
+    private final Rect rect = new Rect();
     private StaticLayout hintLayout;
     private CharSequence hint;
     private StaticLayout errorLayout;
@@ -146,7 +148,7 @@ public class EditTextBoldCursor extends EditTextEffects {
     boolean drawInMaim;
     ShapeDrawable cursorDrawable;
 
-    private List<TextWatcher> registeredTextWatchers = new ArrayList<>();
+    private final List<TextWatcher> registeredTextWatchers = new ArrayList<>();
     private boolean isTextWatchersSuppressed = false;
 
     private static Method canUndoMethod;
@@ -485,7 +487,7 @@ public class EditTextBoldCursor extends EditTextEffects {
         invalidate();
     }
 
-    private Rect padding = new Rect();
+    private final Rect padding = new Rect();
     public void setLineColors(int color, int active, int error) {
         lineVisible = true;
         getContext().getResources().getDrawable(R.drawable.search_dark).getPadding(padding);
@@ -1033,7 +1035,12 @@ public class EditTextBoldCursor extends EditTextEffects {
             };
             callback.onCreateActionMode(floatingActionMode, floatingActionMode.getMenu());
             extendActionMode(floatingActionMode, floatingActionMode.getMenu());
-            addUndoRedo(floatingActionMode.getMenu());
+            if (GuGuConfig.showTextUndoRedo.Bool()){
+                addUndoRedo(floatingActionMode.getMenu());
+            }
+            if (GuGuConfig.showTextMarkdown.Bool()){
+                addMarkDown(floatingActionMode.getMenu());
+            }
             floatingActionMode.invalidate();
             getViewTreeObserver().addOnPreDrawListener(floatingToolbarPreDrawListener);
             invalidate();
@@ -1052,6 +1059,10 @@ public class EditTextBoldCursor extends EditTextEffects {
                 menu.add(R.id.menu_undoredo, android.R.id.redo, 3, LocaleController.getString("EditRedo", R.string.EditRedo));
             }
         }
+
+    }
+
+    private void addMarkDown(Menu menu) {
         if (showDisableMarkdown) {
             menu.add(R.id.menu_groupbolditalic, R.id.menu_markdown, 20, disableMarkdown ? LocaleController.getString("EditEnableMarkdown", R.string.EditEnableMarkdown) : LocaleController.getString("EditDisableMarkdown", R.string.EditDisableMarkdown));
         }

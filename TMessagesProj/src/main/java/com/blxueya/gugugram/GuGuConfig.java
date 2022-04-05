@@ -49,7 +49,18 @@ public class GuGuConfig {
     public static ConfigItem showRepeatAsCopy = addConfig("showRepeatAsCopy",configTypeBool,true);
     public static final int DOUBLE_TAP_ACTION_REPEATASCOPY = 6;
 
-
+    // Text Style
+    public static ConfigItem showTextBold = addConfig("TextBold", configTypeBool, true);
+    public static ConfigItem showTextItalic = addConfig("TextItalic", configTypeBool, true);
+    public static ConfigItem showTextMono = addConfig("TextMonospace", configTypeBool, true);
+    public static ConfigItem showTextStrikethrough = addConfig("TextStrikethrough", configTypeBool, true);
+    public static ConfigItem showTextUnderline = addConfig("TextUnderline", configTypeBool, true);
+    public static ConfigItem showTextSpoiler = addConfig("TextSpoiler", configTypeBool, true);
+    public static ConfigItem showTextCreateLink = addConfig("TextLink", configTypeBool, true);
+    public static ConfigItem showTextCreateMention = addConfig("TextCreateMention", configTypeBool, true);
+    public static ConfigItem showTextRegular = addConfig("TextRegular", configTypeBool, true);
+    public static ConfigItem showTextUndoRedo = addConfig("showTextUndoRedo",configTypeBool,true);
+    public static ConfigItem showTextMarkdown = addConfig("showTextMarkdown",configTypeBool,false);
 
     // analytics
     private static final SharedPreferences.OnSharedPreferenceChangeListener listener = (preferences, key) -> {
