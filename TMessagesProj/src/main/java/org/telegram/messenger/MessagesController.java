@@ -6790,7 +6790,7 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public boolean sendTyping(long dialogId, int threadMsgId, int action, String emojicon, int classGuid) {
-        if (GuGuConfig.disableChatActionSending) {
+        if (GuGuConfig.disableChatActionSending.Bool()) {
             return true;
         }
         if (action < 0 || action >= sendingTypings.length || dialogId == 0) {
@@ -14933,7 +14933,7 @@ public class MessagesController extends BaseController implements NotificationCe
         if (!ChatObject.isChannel(chat)) {
             return null;
         }
-        if (GuGuConfig.hideSponsoredMessage) {
+        if (GuGuConfig.hideSponsoredMessage.Bool()) {
             return null;
         }
         info = new SponsoredMessagesInfo();

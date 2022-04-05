@@ -67,19 +67,19 @@ public class SpoilerEffect extends Drawable {
     public final static float[] ALPHAS = {
             0.3f, 0.6f, 1.0f
     };
-    private Paint[] particlePaints = new Paint[ALPHAS.length];
+    private final Paint[] particlePaints = new Paint[ALPHAS.length];
 
-    private Stack<Particle> particlesPool = new Stack<>();
+    private final Stack<Particle> particlesPool = new Stack<>();
     private int maxParticles;
     float[][] particlePoints = new float[ALPHAS.length][MAX_PARTICLES_PER_ENTITY * 2];
-    private float[] particleRands = new float[RAND_REPEAT];
-    private int[] renderCount = new int[ALPHAS.length];
+    private final float[] particleRands = new float[RAND_REPEAT];
+    private final int[] renderCount = new int[ALPHAS.length];
 
-    private static Path tempPath = new Path();
+    private static final Path tempPath = new Path();
 
     private RectF visibleRect;
 
-    private ArrayList<Particle> particles = new ArrayList<>();
+    private final ArrayList<Particle> particles = new ArrayList<>();
     private View mParent;
 
     private long lastDrawTime;
@@ -92,7 +92,7 @@ public class SpoilerEffect extends Drawable {
     private Runnable onRippleEndCallback;
     private ValueAnimator rippleAnimator;
 
-    private List<RectF> spaces = new ArrayList<>();
+    private final List<RectF> spaces = new ArrayList<>();
     private List<Long> keyPoints;
     private int mAlpha = 0xFF;
 
@@ -100,8 +100,8 @@ public class SpoilerEffect extends Drawable {
 
     private boolean invalidateParent;
     private boolean suppressUpdates;
-    private boolean isLowDevice;
-    private boolean enableAlpha;
+    private final boolean isLowDevice;
+    private final boolean enableAlpha;
 
     private int lastColor;
     public boolean drawPoints;
@@ -592,7 +592,7 @@ public class SpoilerEffect extends Drawable {
      * @param spoilers     Spoilers list to populate
      */
     public static void addSpoilers(@Nullable View v, Layout textLayout, @Nullable Stack<SpoilerEffect> spoilersPool, List<SpoilerEffect> spoilers) {
-        if(GuGuConfig.showSpoilersDirectly) return;
+        if(GuGuConfig.showSpoilersDirectly.Bool()) return;
         if (textLayout.getText() instanceof Spanned){
             addSpoilers(v, textLayout, (Spanned) textLayout.getText(), spoilersPool, spoilers);
         }
