@@ -100,45 +100,45 @@ import java.util.List;
 
 public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.NotificationCenterDelegate, DownloadController.FileDownloadProgressListener {
 
-    private final ActionBar actionBar;
-    private final View actionBarShadow;
-    private final View playerShadow;
+    private ActionBar actionBar;
+    private View actionBarShadow;
+    private View playerShadow;
     private boolean searchWas;
     private boolean searching;
 
-    private final RecyclerListView listView;
-    private final LinearLayoutManager layoutManager;
-    private final ListAdapter listAdapter;
-    private final LinearLayout emptyView;
-    private final ImageView emptyImageView;
-    private final TextView emptyTitleTextView;
-    private final TextView emptySubtitleTextView;
+    private RecyclerListView listView;
+    private LinearLayoutManager layoutManager;
+    private ListAdapter listAdapter;
+    private LinearLayout emptyView;
+    private ImageView emptyImageView;
+    private TextView emptyTitleTextView;
+    private TextView emptySubtitleTextView;
 
-    private final FrameLayout playerLayout;
-    private final CoverContainer coverContainer;
-    private final ClippingTextViewSwitcher titleTextView;
-    private final RLottieImageView prevButton;
-    private final RLottieImageView nextButton;
-    private final ClippingTextViewSwitcher authorTextView;
-    private final ActionBarMenuItem optionsButton;
-    private final LineProgressView progressView;
-    private final SeekBarView seekBarView;
-    private final SimpleTextView timeTextView;
-    private final ActionBarMenuItem playbackSpeedButton;
-    private final ActionBarMenuSubItem[] speedItems = new ActionBarMenuSubItem[4];
-    private final TextView durationTextView;
-    private final ActionBarMenuItem repeatButton;
-    private final ActionBarMenuSubItem repeatSongItem;
-    private final ActionBarMenuSubItem repeatListItem;
-    private final ActionBarMenuSubItem shuffleListItem;
-    private final ActionBarMenuSubItem reverseOrderItem;
-    private final ImageView playButton;
-    private final PlayPauseDrawable playPauseDrawable;
-    private final FrameLayout blurredView;
-    private final BackupImageView bigAlbumConver;
-    private final ActionBarMenuItem searchItem;
+    private FrameLayout playerLayout;
+    private CoverContainer coverContainer;
+    private ClippingTextViewSwitcher titleTextView;
+    private RLottieImageView prevButton;
+    private RLottieImageView nextButton;
+    private ClippingTextViewSwitcher authorTextView;
+    private ActionBarMenuItem optionsButton;
+    private LineProgressView progressView;
+    private SeekBarView seekBarView;
+    private SimpleTextView timeTextView;
+    private ActionBarMenuItem playbackSpeedButton;
+    private ActionBarMenuSubItem[] speedItems = new ActionBarMenuSubItem[4];
+    private TextView durationTextView;
+    private ActionBarMenuItem repeatButton;
+    private ActionBarMenuSubItem repeatSongItem;
+    private ActionBarMenuSubItem repeatListItem;
+    private ActionBarMenuSubItem shuffleListItem;
+    private ActionBarMenuSubItem reverseOrderItem;
+    private ImageView playButton;
+    private PlayPauseDrawable playPauseDrawable;
+    private FrameLayout blurredView;
+    private BackupImageView bigAlbumConver;
+    private ActionBarMenuItem searchItem;
     private boolean blurredAnimationInProgress;
-    private final View[] buttons = new View[5];
+    private View[] buttons = new View[5];
 
     private boolean draggingSeekBar;
 
@@ -165,9 +165,9 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
     private int lastTime;
     private int lastDuration;
 
-    private final int TAG;
+    private int TAG;
 
-    private final LaunchActivity parentActivity;
+    private LaunchActivity parentActivity;
     int rewindingState;
     float rewindingProgress = -1;
 
@@ -250,7 +250,7 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
 
         containerView = new FrameLayout(context) {
 
-            private final RectF rect = new RectF();
+            private RectF rect = new RectF();
             private boolean ignoreLayout = false;
             private int lastMeasturedHeight;
             private int lastMeasturedWidth;
@@ -1999,7 +1999,7 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
 
     private class ListAdapter extends RecyclerListView.SelectionAdapter {
 
-        private final Context context;
+        private Context context;
         private ArrayList<MessageObject> searchResult = new ArrayList<>();
         private Runnable searchRunnable;
 
