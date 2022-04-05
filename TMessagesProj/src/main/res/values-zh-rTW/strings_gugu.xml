@@ -29,4 +29,7 @@
     <string name="channelAliasDetails">需啟用標記頻道匿名身份別名</string>
     <string name="Name">輸入別名</string>
     <string name="labelChannelUserDetails">以頻道匿名身份發言的使用者將標記為“頻道身份”</string>
+    
+    <string name="TextStyle">文字樣式</string>
+    <string name="TextUndoRedo">撤銷/重做</string>
 </resources>
