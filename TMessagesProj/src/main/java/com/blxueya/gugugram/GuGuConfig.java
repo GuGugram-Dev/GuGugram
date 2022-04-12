@@ -37,6 +37,7 @@ public class GuGuConfig {
     private static final ArrayList<ConfigItem> configs = new ArrayList<>();
 
     // configs
+    public static ConfigItem invertedNotification = addConfig("invertedNotification",configTypeBool,false);
     public static ConfigItem forceAllowCopy = addConfig("forceAllowCopy",configTypeBool,false);
     public static ConfigItem hideSponsoredMessage = addConfig("hideSponsoredMessage",configTypeBool,false);
     public static ConfigItem channelAlias = addConfig("channelAlias",configTypeBool,false);

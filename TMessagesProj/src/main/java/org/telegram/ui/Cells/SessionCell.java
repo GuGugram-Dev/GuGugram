@@ -25,6 +25,8 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
 import org.telegram.messenger.LocaleController;
@@ -314,7 +316,11 @@ public class SessionCell extends FrameLayout {
             iconId = R.drawable.device_desktop_osx;
             colorKey = Theme.key_avatar_backgroundCyan;
         } else if (session.app_name.contains("GuGugram")) {
-            iconId = R.drawable.notification;
+            if (GuGuConfig.invertedNotification.Bool()){
+                iconId = R.drawable.notification_inverted;
+            }else{
+                iconId = R.drawable.notification;
+            }
             colorKey = Theme.key_avatar_backgroundBlue;
         } else if (platform.contains("android")) {
             iconId = deviceModel.contains("tab") ? R.drawable.device_tablet_android : R.drawable.device_phone_android;
@@ -380,8 +386,12 @@ public class SessionCell extends FrameLayout {
     public void showStub(FlickerLoadingView globalGradient) {
         this.globalGradient = globalGradient;
         showStub = true;
-
-        Drawable iconDrawable = ContextCompat.getDrawable(ApplicationLoader.applicationContext, R.drawable.notification).mutate();
+        Drawable iconDrawable;
+        if (GuGuConfig.invertedNotification.Bool()){
+            iconDrawable = ContextCompat.getDrawable(ApplicationLoader.applicationContext, R.drawable.notification_inverted).mutate();
+        }else{
+            iconDrawable = ContextCompat.getDrawable(ApplicationLoader.applicationContext, R.drawable.notification).mutate();
+        }
         iconDrawable.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_avatar_text), PorterDuff.Mode.SRC_IN));
         CombinedDrawable combinedDrawable = new CombinedDrawable(Theme.createCircleDrawable(AndroidUtilities.dp(42), Theme.getColor(Theme.key_avatar_backgroundBlue)), iconDrawable);
         imageView.setImageDrawable(combinedDrawable);
