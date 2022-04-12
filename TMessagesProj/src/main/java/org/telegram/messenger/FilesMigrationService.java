@@ -23,14 +23,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.graphics.ColorUtils;
 
-import com.google.android.exoplayer2.util.Log;
+import com.blxueya.gugugram.GuGuConfig;
 
 import org.telegram.ui.ActionBar.BaseFragment;
 import org.telegram.ui.ActionBar.BottomSheet;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.StickerImageView;
-import org.telegram.ui.DialogsActivity;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -62,10 +61,16 @@ public class FilesMigrationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         NotificationsController.checkOtherNotificationsChannel();
+        int iconid;
+        if (GuGuConfig.invertedNotification.Bool()){
+            iconid = R.drawable.notification_inverted;
+        }else{
+            iconid = R.drawable.notification;
+        }
         Notification notification = new Notification.Builder(this, NotificationsController.OTHER_NOTIFICATIONS_CHANNEL)
                 .setContentTitle(getText(R.string.MigratingFiles))
                 .setAutoCancel(false)
-                .setSmallIcon(R.drawable.notification)
+                .setSmallIcon(iconid)
                 .build();
 
         isRunning = true;
@@ -175,11 +180,17 @@ public class FilesMigrationService extends Service {
         long time = System.currentTimeMillis();
         if (time - lastUpdateTime > 20 || movedFilesCount >= totalFilesCount - 1) {
             int currentCount = movedFilesCount;
+            int iconid;
+            if (GuGuConfig.invertedNotification.Bool()){
+                iconid = R.drawable.notification_inverted;
+            }else{
+                iconid = R.drawable.notification;
+            }
             AndroidUtilities.runOnUIThread(() -> {
                 Notification notification = new Notification.Builder(FilesMigrationService.this, NotificationsController.OTHER_NOTIFICATIONS_CHANNEL)
                         .setContentTitle(getText(R.string.MigratingFiles))
                         .setContentText(String.format("%s/%s", currentCount, totalFilesCount))
-                        .setSmallIcon(R.drawable.notification)
+                        .setSmallIcon(iconid)
                         .setAutoCancel(false)
                         .setProgress(totalFilesCount, currentCount, false)
                         .build();
