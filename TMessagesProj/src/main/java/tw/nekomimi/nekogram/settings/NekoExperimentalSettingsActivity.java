@@ -63,6 +63,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
     private int deleteAccount2Row;
 
     private int guguSettingsRow;
+    private int invertedNotificationRow;
     private int forceAllowCopyRow;
     private int hideSponsoredMessageRow;
     private int channelAliasRow;
@@ -229,6 +230,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.keepFormatting);
             }
+        } else if (position == invertedNotificationRow){
+            GuGuConfig.invertedNotification.toggleConfigBool();
+            if (view instanceof TextCheckCell){
+                ((TextCheckCell) view).setChecked(GuGuConfig.invertedNotification.Bool());
+            }
         } else if (position == forceAllowCopyRow) {
             GuGuConfig.forceAllowCopy.toggleConfigBool();
             if (view instanceof TextCheckCell) {
@@ -353,6 +359,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         deleteAccount2Row = rowCount++;
 
         guguSettingsRow = rowCount++;
+        invertedNotificationRow = rowCount++;
         forceAllowCopyRow = rowCount++;
         hideSponsoredMessageRow = rowCount++;
         channelAliasRow = rowCount++;
@@ -411,6 +418,8 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("ShowRPCError", R.string.ShowRPCError), LocaleController.formatString("ShowRPCErrorException", R.string.ShowRPCErrorException, "FILE_REFERENCE_EXPIRED"), NekoConfig.showRPCError, true, false);
                     } else if (position == keepFormattingRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("KeepFormatting", R.string.KeepFormatting), LocaleController.getString("KeepFormattingAbout", R.string.KeepFormattingAbout), NekoConfig.keepFormatting, true, true);
+                    } else if (position == invertedNotificationRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("invertedNotification", R.string.invertedNotification), GuGuConfig.invertedNotification.Bool(), true);
                     } else if (position == forceAllowCopyRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.forceAllowCopy.Bool(), true);
                     } else if (position == channelAliasRow) {

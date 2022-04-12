@@ -22,6 +22,8 @@ import androidx.core.app.NotificationChannelCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildConfig;
 import org.telegram.messenger.FileLoader;
@@ -250,9 +252,15 @@ public final class ApkInstaller {
                 var notificationManager = NotificationManagerCompat.from(context);
                 notificationManager.createNotificationChannel(channel);
                 var pendingIntent = PendingIntent.getActivity(context, 0, startIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                int iconid;
+                if (GuGuConfig.invertedNotification.Bool()){
+                    iconid = R.drawable.notification_inverted;
+                }else{
+                    iconid = R.drawable.notification;
+                }
                 notificationManager.notify(8732833,
                         new NotificationCompat.Builder(context, "updated")
-                                .setSmallIcon(R.drawable.notification)
+                                .setSmallIcon(iconid)
                                 .setColor(NekoConfig.getNotificationColor())
                                 .setShowWhen(false)
                                 .setContentText(LocaleController.getString("UpdateInstalledNotification", R.string.UpdateInstalledNotification))

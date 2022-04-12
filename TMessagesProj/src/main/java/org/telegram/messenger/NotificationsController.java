@@ -3683,8 +3683,14 @@ public class NotificationsController extends BaseController {
             intent.putExtra("currentAccount", currentAccount);
             PendingIntent contentIntent = PendingIntent.getActivity(ApplicationLoader.applicationContext, 0, intent, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
 
+            int iconid;
+            if (GuGuConfig.invertedNotification.Bool()){
+                iconid = R.drawable.notification_inverted;
+            }else{
+                iconid = R.drawable.notification;
+            }
             mBuilder.setContentTitle(name)
-                    .setSmallIcon(R.drawable.notification)
+                    .setSmallIcon(iconid)
                     .setAutoCancel(true)
                     .setNumber(total_unread_count)
                     .setContentIntent(contentIntent)
@@ -4397,10 +4403,15 @@ public class NotificationsController extends BaseController {
             wearableExtender.setBridgeTag("tgaccount" + selfUserId);
 
             long date = ((long) messageObjects.get(0).messageOwner.date) * 1000;
-
+            int iconid;
+            if (GuGuConfig.invertedNotification.Bool()){
+                iconid = R.drawable.notification_inverted;
+            }else{
+                iconid = R.drawable.notification;
+            }
             NotificationCompat.Builder builder = new NotificationCompat.Builder(ApplicationLoader.applicationContext)
                     .setContentTitle(name)
-                    .setSmallIcon(R.drawable.notification)
+                    .setSmallIcon(iconid)
                     .setContentText(text.toString())
                     .setAutoCancel(true)
                     .setNumber(messageObjects.size())

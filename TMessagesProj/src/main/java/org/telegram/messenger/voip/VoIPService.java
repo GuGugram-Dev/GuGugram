@@ -81,7 +81,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.google.android.exoplayer2.util.Log;
+import com.blxueya.gugugram.GuGuConfig;
 
 import org.json.JSONObject;
 import org.telegram.messenger.AccountInstance;
@@ -109,7 +109,6 @@ import org.telegram.messenger.UserObject;
 import org.telegram.messenger.Utilities;
 import org.telegram.messenger.XiaomiUtilities;
 import org.telegram.tgnet.ConnectionsManager;
-import org.telegram.tgnet.RequestDelegate;
 import org.telegram.tgnet.TLObject;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.ui.ActionBar.BottomSheet;
@@ -2860,7 +2859,11 @@ public class VoIPService extends Service implements SensorEventListener, AudioMa
 			builder.setSmallIcon(isMicMute() ? R.drawable.voicechat_muted : R.drawable.voicechat_active);
 		} else {
 			builder.setContentTitle(LocaleController.getString("VoipOutgoingCall", R.string.VoipOutgoingCall));
-			builder.setSmallIcon(R.drawable.notification);
+			if (GuGuConfig.invertedNotification.Bool()){
+				builder.setSmallIcon(R.drawable.notification_inverted);
+			}else {
+				builder.setSmallIcon(R.drawable.notification);
+			}
 		}
 		if (Build.VERSION.SDK_INT < 31) {
 			Intent endIntent = new Intent(this, VoIPActionsReceiver.class);
@@ -3488,7 +3491,11 @@ public class VoIPService extends Service implements SensorEventListener, AudioMa
 			if (groupCall != null) {
 				bldr.setSmallIcon(isMicMute() ? R.drawable.voicechat_muted : R.drawable.voicechat_active);
 			} else {
-				bldr.setSmallIcon(R.drawable.notification);
+				if (GuGuConfig.invertedNotification.Bool()){
+					bldr.setSmallIcon(R.drawable.notification_inverted);
+				}else {
+					bldr.setSmallIcon(R.drawable.notification);
+				}
 			}
 			startForeground(ID_ONGOING_CALL_NOTIFICATION, bldr.build());
 		}
@@ -3897,10 +3904,16 @@ public class VoIPService extends Service implements SensorEventListener, AudioMa
 	private void showIncomingNotification(String name, CharSequence subText, TLObject userOrChat, boolean video, int additionalMemberCount) {
 		Intent intent = new Intent(this, LaunchActivity.class);
 		intent.setAction("voip");
+		int iconid;
+		if (GuGuConfig.invertedNotification.Bool()){
+			iconid = R.drawable.notification_inverted;
+		}else{
+			iconid = R.drawable.notification;
+		}
 		Notification.Builder builder = new Notification.Builder(this)
 				.setContentTitle(video ? LocaleController.getString("VoipInVideoCallBranding", R.string.VoipInVideoCallBranding) : LocaleController.getString("VoipInCallBranding", R.string.VoipInCallBranding))
 				.setContentText(name)
-				.setSmallIcon(R.drawable.notification)
+				.setSmallIcon(iconid)
 				.setSubText(subText)
 				.setContentIntent(PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE));
 		Uri soundProviderUri = Uri.parse("content://" + BuildConfig.APPLICATION_ID + ".call_sound_provider/start_ringing");

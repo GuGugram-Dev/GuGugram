@@ -17,6 +17,8 @@ import androidx.core.app.NotificationChannelCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import tw.nekomimi.nekogram.NekoConfig;
 
 public class NotificationsService extends Service {
@@ -35,9 +37,15 @@ public class NotificationsService extends Service {
                     .build();
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
             notificationManager.createNotificationChannel(channel);
+            int iconid;
+            if (GuGuConfig.invertedNotification.Bool()){
+                iconid = R.drawable.notification_inverted;
+            }else{
+                iconid = R.drawable.notification;
+            }
             startForeground(38264,
                     new NotificationCompat.Builder(this, "gugugram")
-                            .setSmallIcon(R.drawable.notification)
+                            .setSmallIcon(iconid)
                             .setColor(NekoConfig.getNotificationColor())
                             .setColorized(true)
                             .setShowWhen(false)
