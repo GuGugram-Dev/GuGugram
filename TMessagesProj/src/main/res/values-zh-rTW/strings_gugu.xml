@@ -12,6 +12,8 @@
     <string name="GuGugramVersion">GuGugram %1$s\nBased on Nekogram %2$s\nDesigned by %3$s</string>
     <string name="GuGuUpdateInstallingRelaunch">GuGugram 會在重啟後更新</string>
 
+    <string name="invertedNotification">反色通知圖標</string>
+
     <string name="ForceAllowCopy">強制複製</string>
     <string name="HideSponsoredMessage">隱藏贊助訊息</string>
 
