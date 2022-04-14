@@ -21860,7 +21860,7 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                                         (!isThreadChat() && getMessageHelper().getMessageForRepeat(selectedObject, selectedObjectGroup) != null);
                                 if (allowRepeat){
                                     items.add(LocaleController.getString("RepeatAsCopy", R.string.RepeatAsCopy));
-                                    options.add(94);
+                                    options.add(110);
                                     icons.add(R.drawable.msg_repeat);
                                 }
                             }
