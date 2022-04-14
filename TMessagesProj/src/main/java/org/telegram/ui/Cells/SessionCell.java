@@ -281,13 +281,6 @@ public class SessionCell extends FrameLayout {
         } else if (platform.contains("macos")) {
             iconId = R.drawable.device_desktop_osx;
             colorKey = Theme.key_avatar_backgroundCyan;
-        } else if (session.app_name.contains("GuGugram")) {
-            if (GuGuConfig.invertedNotification.Bool()){
-                iconId = R.drawable.notification_inverted;
-            }else{
-                iconId = R.drawable.notification;
-            }
-            colorKey = Theme.key_avatar_backgroundBlue;
         } else if (platform.contains("android")) {
             iconId = deviceModel.contains("tab") ? R.drawable.device_tablet_android : R.drawable.device_phone_android;
             colorKey = Theme.key_avatar_backgroundGreen;
