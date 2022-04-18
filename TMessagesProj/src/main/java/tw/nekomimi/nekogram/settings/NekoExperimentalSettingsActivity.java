@@ -340,16 +340,16 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         deleteAccountRow = addRow("deleteAccount");
         deleteAccount2Row = addRow();
 
-        guguSettingsRow = rowCount++;
-        invertedNotificationRow = rowCount++;
-        forceAllowCopyRow = rowCount++;
-        hideSponsoredMessageRow = rowCount++;
-        channelAliasRow = rowCount++;
-        alwaysSaveChatOffsetRow = rowCount++;
-        disableChatActionSendingRow = rowCount++;
-        showForwarderNameRow = rowCount++;
-        showSpoilersDirectlyRow = rowCount++;
-        guguSettings2Row = rowCount++;
+        guguSettingsRow = addRow("gugusettings");
+        invertedNotificationRow = addRow("invertedNotification");
+        forceAllowCopyRow = addRow("forceAllowCopy");
+        hideSponsoredMessageRow = addRow("hideSponsoredMessage");
+        channelAliasRow = addRow("channelAlias");
+        alwaysSaveChatOffsetRow = addRow("alwaysSaveChatOffset");
+        disableChatActionSendingRow = addRow("disableChatActionSending");
+        showForwarderNameRow =addRow("showForwarderName");
+        showSpoilersDirectlyRow = addRow("showSpoilersDirectly");
+        guguSettings2Row = addRow();
     }
 
     private class ListAdapter extends BaseListAdapter {
