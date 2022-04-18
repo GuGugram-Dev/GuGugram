@@ -299,6 +299,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         disableJumpToNextRow = addRow("disableJumpToNext");
         disableGreetingStickerRow = addRow("disableGreetingSticker");
         disableMarkdownByDefaultRow = addRow("disableMarkdownByDefault");
+        textStyleRow = addRow("textStyleRow");
         doubleTapActionRow = addRow("doubleTapAction");
         maxRecentStickersRow = addRow("maxRecentStickers");
         chat2Row = addRow();

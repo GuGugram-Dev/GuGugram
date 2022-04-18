@@ -60,6 +60,7 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.view.inputmethod.EditorInfo;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.EditText;

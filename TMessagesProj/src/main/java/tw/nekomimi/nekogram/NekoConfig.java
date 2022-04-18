@@ -67,7 +67,7 @@ public class NekoConfig {
 
     private static final Object sync = new Object();
     public static boolean useIPv6 = false;
-    public static boolean showHiddenFeature = BuildConfig.DEBUG;
+    public static boolean showHiddenFeature = true;
 
     public static boolean useSystemEmoji = SharedConfig.useSystemEmoji;
     public static boolean ignoreBlocked = false;
