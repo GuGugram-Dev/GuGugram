@@ -1735,7 +1735,7 @@ public class LaunchActivity extends BasePermissionsActivity implements ActionBar
                                                 }
                                             } else if (path.startsWith("addstickers/")) {
                                                 sticker = path.replace("addstickers/", "");
-                                            } else if (path.startsWith("nekosettings/")) {
+                                            } else if (path.startsWith("nekosettings/") || path.startsWith("gugusettings/") ) {
                                                 SettingsHelper.processDeepLink(data, fragment -> {
                                                     AndroidUtilities.runOnUIThread(() -> presentFragment(fragment, false, false));
                                                     if (AndroidUtilities.isTablet()) {
@@ -1745,7 +1745,7 @@ public class LaunchActivity extends BasePermissionsActivity implements ActionBar
                                                     } else {
                                                         drawerLayoutContainer.setAllowOpenDrawer(true, false);
                                                     }
-                                                }, () -> showBulletin(factory -> factory.createErrorBulletin(LocaleController.getString("UnknownNekoSettingsOption", R.string.UnknownNekoSettingsOption))), true);
+                                                }, () -> showBulletin(factory -> factory.createErrorBulletin(LocaleController.getString("UnknownSettingsOption", R.string.UnknownSettingsOption))), true);
                                             } else if (path.startsWith("msg/") || path.startsWith("share/")) {
                                                 message = data.getQueryParameter("url");
                                                 if (message == null) {
