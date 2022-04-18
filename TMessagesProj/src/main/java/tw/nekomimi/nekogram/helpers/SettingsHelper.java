@@ -24,7 +24,7 @@ public class SettingsHelper {
             return;
         }
         var segments = uri.getPathSegments();
-        if (segments.isEmpty() || segments.size() > 2 || !"nekosettings".equals(segments.get(0))) {
+        if (segments.isEmpty() || segments.size() > 2 || !"gugusettings".equals(segments.get(0))) {
             unknown.run();
             return;
         }
