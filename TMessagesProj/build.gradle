@@ -1,6 +1,7 @@
+import org.eclipse.jgit.internal.storage.file.FileRepository
+
 import java.nio.file.Files
 import java.nio.file.Paths
-import org.eclipse.jgit.internal.storage.file.FileRepository
 
 plugins {
     id 'com.android.application'
@@ -127,7 +128,7 @@ android {
         }
     }
 
-    defaultConfig.versionCode = 2622
+    defaultConfig.versionCode = 2623
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
