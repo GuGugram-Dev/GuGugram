@@ -34,11 +34,11 @@ public class SettingsHelper {
         }
         var segments = uri.getPathSegments();
         if (me) {
-            if (segments.isEmpty() || segments.size() > 2 || !"nekosettings".equals(segments.get(0))) {
+            if ( (segments.isEmpty() || segments.size() > 2 || !"nekosettings".equals(segments.get(0)) ) || ( (segments.isEmpty() || segments.size() > 2 || !"gugusettings".equals(segments.get(0))) ) ) {
                 unknown.run();
                 return;
             }
-        } else if (segments.size() > 1 || !"neko".equals(uri.getHost())) {
+        } else if (( segments.size() > 1 || !"neko".equals(uri.getHost()) ) || (segments.size() > 1 || !"gugu".equals(uri.getHost())) ) {
             unknown.run();
             return;
         }
