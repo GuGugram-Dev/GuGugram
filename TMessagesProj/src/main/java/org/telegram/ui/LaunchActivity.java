@@ -1735,7 +1735,7 @@ public class LaunchActivity extends BasePermissionsActivity implements ActionBar
                                                 }
                                             } else if (path.startsWith("addstickers/")) {
                                                 sticker = path.replace("addstickers/", "");
-                                            } else if (path.startsWith("nekosettings/") || path.startsWith("gugusettings/") ) {
+                                            } else if (path.startsWith("gugusettings/")) {
                                                 SettingsHelper.processDeepLink(data, fragment -> {
                                                     AndroidUtilities.runOnUIThread(() -> presentFragment(fragment, false, false));
                                                     if (AndroidUtilities.isTablet()) {
@@ -1745,7 +1745,7 @@ public class LaunchActivity extends BasePermissionsActivity implements ActionBar
                                                     } else {
                                                         drawerLayoutContainer.setAllowOpenDrawer(true, false);
                                                     }
-                                                }, () -> showBulletin(factory -> factory.createErrorBulletin(LocaleController.getString("UnknownSettingsOption", R.string.UnknownSettingsOption))), true);
+                                                }, () -> showBulletin(factory -> factory.createErrorBulletin(LocaleController.getString("UnknownGuGuSettingsOption", R.string.UnknownGuGuSettingsOption))), true);
                                             } else if (path.startsWith("msg/") || path.startsWith("share/")) {
                                                 message = data.getQueryParameter("url");
                                                 if (message == null) {
@@ -2073,7 +2073,7 @@ public class LaunchActivity extends BasePermissionsActivity implements ActionBar
                                         checkAppUpdate(true);
                                     } else if (url.startsWith("tg:donate") || url.startsWith("tg://donate")) {
                                         open_settings = 101;
-                                    } else if (url.startsWith("tg:neko") || url.startsWith("tg://neko")) {
+                                    } else if (url.startsWith("tg:gugu") || url.startsWith("tg://gugu")) {
                                         SettingsHelper.processDeepLink(url, fragment -> {
                                             AndroidUtilities.runOnUIThread(() -> presentFragment(fragment, false, false));
                                             if (AndroidUtilities.isTablet()) {
@@ -2083,7 +2083,7 @@ public class LaunchActivity extends BasePermissionsActivity implements ActionBar
                                             } else {
                                                 drawerLayoutContainer.setAllowOpenDrawer(true, false);
                                             }
-                                        }, () -> showBulletin(factory -> factory.createErrorBulletin(LocaleController.getString("UnknownNekoSettingsOption", R.string.UnknownNekoSettingsOption))));
+                                        }, () -> showBulletin(factory -> factory.createErrorBulletin(LocaleController.getString("UnknownGuGuSettingsOption", R.string.UnknownGuGuSettingsOption))));
                                     } else if ((url.startsWith("tg:search") || url.startsWith("tg://search"))) {
                                         url = url.replace("tg:search", "tg://telegram.org").replace("tg://search", "tg://telegram.org");
                                         data = Uri.parse(url);
