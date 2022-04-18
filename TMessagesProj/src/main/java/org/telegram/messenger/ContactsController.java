@@ -304,13 +304,13 @@ public class ContactsController extends BaseController {
     }
 
     public String getInviteText(int contacts) {
-        return LocaleController.formatString("InviteTextNeko", R.string.InviteTextNeko, "https://nekogram.app/download");
+        return LocaleController.formatString("InviteTextNeko", R.string.InviteTextNeko, "https://github.com/blxueya/GuGugram/releases");
     }
 
     public void checkAppAccount() {
         AccountManager am = AccountManager.get(ApplicationLoader.applicationContext);
         try {
-            Account[] accounts = am.getAccountsByType("tw.nekomimi.nekogram");
+            Account[] accounts = am.getAccountsByType("com.blxueya.gugugram");
             systemAccount = null;
             for (int a = 0; a < accounts.length; a++) {
                 Account acc = accounts[a];
@@ -343,7 +343,7 @@ public class ContactsController extends BaseController {
             readContacts();
             if (systemAccount == null) {
                 try {
-                    systemAccount = new Account("" + getUserConfig().getClientUserId(), "tw.nekomimi.nekogram");
+                    systemAccount = new Account("" + getUserConfig().getClientUserId(), "com.blxueya.gugugram");
                     am.addAccountExplicitly(systemAccount, "", null);
                 } catch (Exception ignore) {
 
@@ -356,7 +356,7 @@ public class ContactsController extends BaseController {
         try {
             systemAccount = null;
             AccountManager am = AccountManager.get(ApplicationLoader.applicationContext);
-            Account[] accounts = am.getAccountsByType("tw.nekomimi.nekogram");
+            Account[] accounts = am.getAccountsByType("com.blxueya.gugugram");
             for (int a = 0; a < accounts.length; a++) {
                 Account acc = accounts[a];
                 boolean found = false;
@@ -432,7 +432,7 @@ public class ContactsController extends BaseController {
                 AndroidUtilities.runOnUIThread(() -> {
                     AccountManager am = AccountManager.get(ApplicationLoader.applicationContext);
                     try {
-                        Account[] accounts = am.getAccountsByType("tw.nekomimi.nekogram");
+                        Account[] accounts = am.getAccountsByType("com.blxueya.gugugram");
                         systemAccount = null;
                         for (int a = 0; a < accounts.length; a++) {
                             Account acc = accounts[a];
@@ -450,7 +450,7 @@ public class ContactsController extends BaseController {
 
                     }
                     try {
-                        systemAccount = new Account("" + getUserConfig().getClientUserId(), "tw.nekomimi.nekogram");
+                        systemAccount = new Account("" + getUserConfig().getClientUserId(), "com.blxueya.gugugram");
                         am.addAccountExplicitly(systemAccount, "", null);
                     } catch (Exception ignore) {
 

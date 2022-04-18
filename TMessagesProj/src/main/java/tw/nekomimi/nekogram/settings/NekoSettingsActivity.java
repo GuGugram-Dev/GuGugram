@@ -99,7 +99,7 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements No
             if (LocaleController.isRTL && x <= AndroidUtilities.dp(84) || !LocaleController.isRTL && x >= view.getMeasuredWidth() - AndroidUtilities.dp(84)) {
                 Browser.openUrl(getParentActivity(), String.format("https://github.com/blxueya/GuGugram/commit/%s", BuildConfig.COMMIT_ID));
             } else {
-                Browser.openUrl(getParentActivity(), "https://gitlab.com/Nekogram/Nekogram");
+                Browser.openUrl(getParentActivity(), "https://github.com/blxueya/GuGugram");
             }
         } else if (position == checkUpdateRow) {
             ((LaunchActivity) getParentActivity()).checkAppUpdate(true);
