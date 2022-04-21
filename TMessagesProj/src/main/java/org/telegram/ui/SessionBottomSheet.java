@@ -19,6 +19,8 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
 import org.telegram.messenger.LocaleController;
@@ -343,6 +345,14 @@ public class SessionBottomSheet extends BottomSheet {
         } else if (platform.contains("macos")) {
             iconId = R.raw.mac_30;
             colorKey = Theme.key_avatar_backgroundCyan;
+        } else if (session.app_name.contains("GuGugram")) {
+            animation = false;
+            if (GuGuConfig.invertedNotification.Bool()) {
+                iconId = R.drawable.notification_inverted;
+            }else {
+                iconId = R.drawable.notification;
+            }
+            colorKey = Theme.key_avatar_backgroundBlue;
         } else if (platform.contains("android")) {
             iconId = R.raw.android_30;
             colorKey = Theme.key_avatar_backgroundGreen;
