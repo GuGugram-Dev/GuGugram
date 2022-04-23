@@ -3,7 +3,9 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-  <group android:scaleX="0.484"
+  <group
+      android:name="gugu"
+      android:scaleX="0.484"
       android:scaleY="0.484"
       android:translateX="17.7"
       android:translateY="17.36389">
