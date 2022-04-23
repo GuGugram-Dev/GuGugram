@@ -53,10 +53,15 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
 
     private int chatRow;
     private int ignoreBlockedRow;
+    private int channelAliasRow;
+    private int showForwarderNameRow;
     private int hideKeyboardOnChatScrollRow;
     private int tryToOpenAllLinksInIVRow;
+    private int alwaysSaveChatOffsetRow;
     private int disableJumpToNextRow;
     private int disableGreetingStickerRow;
+    private int disableChatActionSendingRow;
+    private int showSpoilersDirectlyRow;
     private int disableMarkdownByDefaultRow;
     private int doubleTapActionRow;
     private int textStyleRow;
@@ -116,10 +121,20 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.ignoreBlocked);
             }
+        } else if (position == channelAliasRow) {
+            GuGuConfig.channelAlias.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.channelAlias.Bool());
+            }
         } else if (position == disablePhotoSideActionRow) {
             NekoConfig.toggleDisablePhotoSideAction();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.disablePhotoSideAction);
+            }
+        } else if (position == showForwarderNameRow) {
+            GuGuConfig.showForwarderName.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.showForwarderName.Bool());
             }
         } else if (position == hideKeyboardOnChatScrollRow) {
             NekoConfig.toggleHideKeyboardOnChatScroll();
@@ -152,6 +167,11 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.autoPauseVideo);
             }
+        } else if (position == alwaysSaveChatOffsetRow) {
+            GuGuConfig.alwaysSaveChatOffset.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.alwaysSaveChatOffset.Bool());
+            }
         } else if (position == disableJumpToNextRow) {
             NekoConfig.toggleDisableJumpToNextChannel();
             if (view instanceof TextCheckCell) {
@@ -161,6 +181,11 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             NekoConfig.toggleDisableGreetingSticker();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.disableGreetingSticker);
+            }
+        } else if (position == disableChatActionSendingRow) {
+            GuGuConfig.disableChatActionSending.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.disableChatActionSending.Bool());
             }
         } else if (position == disableVoiceMessageAutoPlayRow) {
             NekoConfig.toggleDisableVoiceMessageAutoPlay();
@@ -192,11 +217,17 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 NekoConfig.setDoubleTapAction(types.get(i));
                 listAdapter.notifyItemChanged(doubleTapActionRow);
             });
+        } else if (position == showSpoilersDirectlyRow) {
+            GuGuConfig.showSpoilersDirectly.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.showSpoilersDirectly.Bool());
+            }
         } else if (position == disableMarkdownByDefaultRow) {
             NekoConfig.toggleDisableMarkdownByDefault();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.disableMarkdownByDefault);
             }
+
         } else if (position > messageMenuRow && position < messageMenu2Row) {
             TextCheckbox2Cell cell = ((TextCheckbox2Cell) view);
             int menuPosition = position - messageMenuRow - 1;
@@ -286,10 +317,15 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
 
         chatRow = addRow("chat");
         ignoreBlockedRow = addRow("ignoreBlocked");
+        channelAliasRow = addRow("channelAlias");
+        showForwarderNameRow =addRow("showForwarderName");
         hideKeyboardOnChatScrollRow = addRow("hideKeyboardOnChatScroll");
         tryToOpenAllLinksInIVRow = addRow("tryToOpenAllLinksInIV");
+        alwaysSaveChatOffsetRow = addRow("alwaysSaveChatOffset");
         disableJumpToNextRow = addRow("disableJumpToNext");
         disableGreetingStickerRow = addRow("disableGreetingSticker");
+        disableChatActionSendingRow = addRow("disableChatActionSending");
+        showSpoilersDirectlyRow = addRow("showSpoilersDirectly");
         disableMarkdownByDefaultRow = addRow("disableMarkdownByDefault");
         textStyleRow = addRow("textStyleRow");
         doubleTapActionRow = addRow("doubleTapAction");
@@ -603,8 +639,12 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     textCell.setEnabled(true, null);
                     if (position == ignoreBlockedRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("IgnoreBlocked", R.string.IgnoreBlocked), LocaleController.getString("IgnoreBlockedAbout", R.string.IgnoreBlockedAbout), NekoConfig.ignoreBlocked, true, true);
+                    } else if (position == channelAliasRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("channelAlias",R.string.channelAlias),GuGuConfig.channelAlias.Bool(), true);
                     } else if (position == disablePhotoSideActionRow) {
                         textCell.setTextAndCheck(LocaleController.getString("DisablePhotoViewerSideAction", R.string.DisablePhotoViewerSideAction), NekoConfig.disablePhotoSideAction, true);
+                    } else if (position == showForwarderNameRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("ShowForwarderName", R.string.ShowForwarderName), GuGuConfig.showForwarderName.Bool(),true);
                     } else if (position == hideKeyboardOnChatScrollRow) {
                         textCell.setTextAndCheck(LocaleController.getString("HideKeyboardOnChatScroll", R.string.HideKeyboardOnChatScroll), NekoConfig.hideKeyboardOnChatScroll, true);
                     } else if (position == rearVideoMessagesRow) {
@@ -617,12 +657,18 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                         textCell.setTextAndCheck(LocaleController.getString("OpenAllLinksInInstantView", R.string.OpenAllLinksInInstantView), NekoConfig.tryToOpenAllLinksInIV, true);
                     } else if (position == autoPauseVideoRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("AutoPauseVideo", R.string.AutoPauseVideo), LocaleController.getString("AutoPauseVideoAbout", R.string.AutoPauseVideoAbout), NekoConfig.autoPauseVideo, true, false);
+                    } else if (position == alwaysSaveChatOffsetRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("AlwaysSaveChatOffset", R.string.AlwaysSaveChatOffset), GuGuConfig.alwaysSaveChatOffset.Bool(),true);
                     } else if (position == disableJumpToNextRow) {
                         textCell.setTextAndCheck(LocaleController.getString("DisableJumpToNextChannel", R.string.DisableJumpToNextChannel), NekoConfig.disableJumpToNextChannel, true);
                     } else if (position == disableGreetingStickerRow) {
                         textCell.setTextAndCheck(LocaleController.getString("DisableGreetingSticker", R.string.DisableGreetingSticker), NekoConfig.disableGreetingSticker, true);
+                    } else if (position == disableChatActionSendingRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("DisableChatActionSending", R.string.DisableChatActionSending), GuGuConfig.disableChatActionSending.Bool(),true);
                     } else if (position == disableVoiceMessageAutoPlayRow) {
                         textCell.setTextAndCheck(LocaleController.getString("DisableVoiceMessagesAutoPlay", R.string.DisableVoiceMessagesAutoPlay), NekoConfig.disableVoiceMessageAutoPlay, true);
+                    } else if (position == showSpoilersDirectlyRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly.Bool(),true);
                     } else if (position == disableMarkdownByDefaultRow) {
                         textCell.setTextAndCheck(LocaleController.getString("DisableMarkdownByDefault", R.string.DisableMarkdownByDefault), NekoConfig.disableMarkdownByDefault, true);
                     } else if (position == hqVoiceMessageRow) {
