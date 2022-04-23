@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
@@ -42,6 +44,7 @@ public class NekoAppearanceSettings extends BaseNekoSettingsActivity {
 
     private int appearanceRow;
     private int useSystemEmojiRow;
+    private int invertedNotificationRow;
     private int transparentStatusBarRow;
     private int mediaPreviewRow;
     private int appBarShadowRow;
@@ -98,6 +101,11 @@ public class NekoAppearanceSettings extends BaseNekoSettingsActivity {
             NekoConfig.toggleUseSystemEmoji();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.useSystemEmoji);
+            }
+        } else if (position == invertedNotificationRow){
+            GuGuConfig.invertedNotification.toggleConfigBool();
+            if (view instanceof TextCheckCell){
+                ((TextCheckCell) view).setChecked(GuGuConfig.invertedNotification.Bool());
             }
         } else if (position == eventTypeRow) {
             ArrayList<String> arrayList = new ArrayList<>();
@@ -224,6 +232,7 @@ public class NekoAppearanceSettings extends BaseNekoSettingsActivity {
 
         appearanceRow = addRow("appearance");
         useSystemEmojiRow = addRow("useSystemEmoji");
+        invertedNotificationRow = addRow("invertedNotification");
         transparentStatusBarRow = Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? addRow("transparentStatusBar") : -1;
         mediaPreviewRow = addRow("mediaPreview");
         appBarShadowRow = addRow("appBarShadow");
@@ -309,6 +318,8 @@ public class NekoAppearanceSettings extends BaseNekoSettingsActivity {
                         textCell.setTextAndCheck(LocaleController.getString("TransparentStatusBar", R.string.TransparentStatusBar), SharedConfig.noStatusBar, true);
                     } else if (position == useSystemEmojiRow) {
                         textCell.setTextAndCheck(LocaleController.getString("EmojiUseDefault", R.string.EmojiUseDefault), NekoConfig.useSystemEmoji, true);
+                    } else if (position == invertedNotificationRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("invertedNotification", R.string.invertedNotification), GuGuConfig.invertedNotification.Bool(), true);
                     } else if (position == newYearRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ChristmasHat", R.string.ChristmasHat), NekoConfig.newYear, true);
                     } else if (position == avatarAsDrawerBackgroundRow) {
