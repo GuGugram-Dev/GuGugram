@@ -270,7 +270,7 @@ public class NekoConfig {
             translationProvider = preferences.getString("translationProvider2", isChineseUser ? Translator.PROVIDER_LINGO : Translator.PROVIDER_GOOGLE);
             disablePhotoSideAction = preferences.getBoolean("disablePhotoSideAction", true);
             openArchiveOnPull = preferences.getBoolean("openArchiveOnPull", false);
-            showHiddenFeature = preferences.getBoolean("showHiddenFeature5", BuildConfig.DEBUG);
+            showHiddenFeature = preferences.getBoolean("showHiddenFeature5",true);
             hideKeyboardOnChatScroll = preferences.getBoolean("hideKeyboardOnChatScroll", false);
             avatarAsDrawerBackground = preferences.getBoolean("avatarAsDrawerBackground", false);
             avatarBackgroundBlur = preferences.getBoolean("avatarBackgroundBlur", false);
