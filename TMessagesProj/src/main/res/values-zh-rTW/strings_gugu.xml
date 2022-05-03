@@ -5,6 +5,7 @@
     <string name="GuGugramBeta" translatable="false">GuGugram Beta</string>
     <string name="OfficialGuGugramChannelUsername" translatable="false">GuGugram</string>
     <string name="GuGuSettings">咕設定</string>
+    <string name="UnknownGuGuSettingsOption">沒有這樣的咕設定選項。</string>
     <string name="GuGugramFlying">GuGugram正在飛</string>
     <string name="UpdateGuGugram">更新 GuGugram</string>
     <string name="InviteTextGuGu">嘿，我在用 GuGugram 聊天. 加入我! 此處下載: %1$s</string>
@@ -34,4 +35,5 @@
     
     <string name="TextStyle">文字樣式</string>
     <string name="TextUndoRedo">撤銷/重做</string>
+    
 </resources>
