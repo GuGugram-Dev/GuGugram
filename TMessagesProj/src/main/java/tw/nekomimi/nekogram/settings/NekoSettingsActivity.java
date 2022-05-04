@@ -97,9 +97,9 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements No
             Browser.openUrl(getParentActivity(), "https://neko.crowdin.com/nekogram");
         } else if (position == sourceCodeRow) {
             if (LocaleController.isRTL && x <= AndroidUtilities.dp(84) || !LocaleController.isRTL && x >= view.getMeasuredWidth() - AndroidUtilities.dp(84)) {
-                Browser.openUrl(getParentActivity(), String.format("https://github.com/blxueya/GuGugram/commit/%s", BuildConfig.COMMIT_ID));
+                Browser.openUrl(getParentActivity(), String.format("https://github.com/GuGugram-Dev/GuGugram/commit/%s", BuildConfig.COMMIT_ID));
             } else {
-                Browser.openUrl(getParentActivity(), "https://github.com/blxueya/GuGugram");
+                Browser.openUrl(getParentActivity(), "https://github.com/GuGugram-Dev/GuGugram");
             }
         } else if (position == checkUpdateRow) {
             ((LaunchActivity) getParentActivity()).checkAppUpdate(true);
