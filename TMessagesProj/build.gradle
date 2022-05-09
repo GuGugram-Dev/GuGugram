@@ -144,7 +144,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "tw.nekomimi.nekogram"
+        applicationId "com.blxueya.gugugram"
         minSdkVersion 21
         targetSdkVersion 32
         versionName "8.7.4.2"
