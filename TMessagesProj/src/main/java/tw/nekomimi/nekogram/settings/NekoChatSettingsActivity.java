@@ -387,7 +387,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         addRow("showNoQuoteForward");
         addRow("showAddToSavedMessages");
         addRow("showRepeat");
-        addRow("showRepeatAsCopy")
+        addRow("showRepeatAsCopy");
         addRow("showPrPr");
         addRow("showViewHistory");
         addRow("showTranslate");
@@ -720,8 +720,6 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                         textCell.setTextAndCheck(LocaleController.getString("DisableVoiceMessagesAutoPlay", R.string.DisableVoiceMessagesAutoPlay), NekoConfig.disableVoiceMessageAutoPlay, true);
                     } else if (position == showSpoilersDirectlyRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly.Bool(),true);
-                    } else if (position == hqVoiceMessageRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("IncreaseVoiceMessageQuality", R.string.IncreaseVoiceMessageQuality), NekoConfig.increaseVoiceMessageQuality, true);
                     } else if (position == voiceEnhancementsRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("VoiceEnhancements", R.string.VoiceEnhancements), LocaleController.getString("VoiceEnhancementsAbout", R.string.VoiceEnhancementsAbout), NekoConfig.voiceEnhancements, true, true);
                     } else if (position == hideTimeOnStickerRow) {

@@ -58,6 +58,7 @@ android {
     compileSdkVersion 33
     buildToolsVersion '33.0.0'
     ndkVersion "21.4.7075529"
+    namespace 'org.telegram.messenger'
 
     defaultConfig.applicationId = "com.blxueya.gugugram"
 
@@ -147,7 +148,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "tw.nekomimi.nekogram"
+        applicationId "com.blxueya.gugugram"
         minSdkVersion 21
         targetSdkVersion 33
         versionName "8.8.2"
