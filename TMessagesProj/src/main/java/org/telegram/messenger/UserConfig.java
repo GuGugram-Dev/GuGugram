@@ -13,6 +13,8 @@ import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.util.Base64;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.tgnet.SerializedData;
 import org.telegram.tgnet.TLRPC;
 
@@ -95,7 +97,7 @@ public class UserConfig extends BaseController {
 
     public static boolean hasPremiumOnAccounts() {
         for (int a = 0; a < MAX_ACCOUNT_COUNT; a++) {
-            if (AccountInstance.getInstance(a).getUserConfig().isClientActivated() && AccountInstance.getInstance(a).getUserConfig().getUserConfig().isPremium()) {
+            if (AccountInstance.getInstance(a).getUserConfig().isClientActivated() && (AccountInstance.getInstance(a).getUserConfig().getUserConfig().isPremium() || GuGuConfig.LocalPremium.Bool())) {
                 return true;
             }
         }

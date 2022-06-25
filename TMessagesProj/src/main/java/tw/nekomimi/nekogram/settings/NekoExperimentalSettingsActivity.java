@@ -61,6 +61,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
     private int guguSettingsRow;
     private int forceAllowCopyRow;
     private int hideSponsoredMessageRow;
+    private int localPremiumRow;
     private int guguSettings2Row;
 
     public NekoExperimentalSettingsActivity(boolean sensitiveCanChange, boolean sensitiveEnabled) {
@@ -215,6 +216,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.hideSponsoredMessage.Bool());
             }
+        } else if (position == localPremiumRow) {
+            GuGuConfig.LocalPremium.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.LocalPremium.Bool());
+            }
         }
     }
 
@@ -308,6 +314,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         guguSettingsRow = addRow("gugusettings");
         forceAllowCopyRow = addRow("forceAllowCopy");
         hideSponsoredMessageRow = addRow("hideSponsoredMessage");
+        localPremiumRow = addRow("LocalPremium");
         guguSettings2Row = addRow();
     }
 
@@ -357,6 +364,8 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                         textCell.setTextAndCheck(LocaleController.getString("ForceAllowCopy", R.string.ForceAllowCopy), GuGuConfig.forceAllowCopy.Bool(), true);
                     } else if (position == hideSponsoredMessageRow) {
                         textCell.setTextAndCheck(LocaleController.getString("hideSponsoredMessage", R.string.HideSponsoredMessage), GuGuConfig.hideSponsoredMessage.Bool(),true);
+                    } else if (position == localPremiumRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("LocalPremium",R.string.LocalPremium),GuGuConfig.LocalPremium.Bool(),true);
                     }
                     break;
                 }

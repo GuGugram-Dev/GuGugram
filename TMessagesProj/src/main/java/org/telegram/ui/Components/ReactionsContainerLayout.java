@@ -35,6 +35,8 @@ import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.DocumentObject;
 import org.telegram.messenger.ImageLocation;
@@ -592,7 +594,7 @@ public class ReactionsContainerLayout extends FrameLayout implements Notificatio
 
     private void checkPremiumReactions(List<TLRPC.TL_availableReaction> reactions) {
         premiumLockedReactions.clear();
-        if (UserConfig.getInstance(currentAccount).isPremium()) {
+        if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool()) {
             return;
         }
         try {

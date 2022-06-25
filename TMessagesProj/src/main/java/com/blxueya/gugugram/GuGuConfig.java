@@ -45,6 +45,7 @@ public class GuGuConfig {
     public static ConfigItem disableChatActionSending = addConfig("disableChatActionSending",configTypeBool,false);
     public static ConfigItem showForwarderName = addConfig("showForwarderName",configTypeBool,false);
     public static ConfigItem showSpoilersDirectly = addConfig("showSpoilersDirectly",configTypeBool,false);
+    public static ConfigItem LocalPremium = addConfig("LocalPremium",configTypeBool,false);
 
     // extra
     public static ConfigItem showRepeatAsCopy = addConfig("showRepeatAsCopy",configTypeBool,true);

@@ -23,6 +23,8 @@ import androidx.core.graphics.ColorUtils;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MediaDataController;
@@ -290,7 +292,7 @@ public class PremiumFeatureBottomSheet extends BottomSheet implements Notificati
         buttonContainer.setBackgroundColor(getThemedColor(Theme.key_dialogBackground));
         linearLayout.addView(buttonContainer, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 68, Gravity.BOTTOM));
 
-        if (UserConfig.getInstance(currentAccount).isPremium()) {
+        if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool() ) {
             premiumButtonView.setOverlayText(LocaleController.getString("OK", R.string.OK), false, false);
         }
 
@@ -341,7 +343,7 @@ public class PremiumFeatureBottomSheet extends BottomSheet implements Notificati
         if (id == NotificationCenter.billingProductDetailsUpdated || id == NotificationCenter.premiumPromoUpdated) {
             setButtonText();
         } else if (id == NotificationCenter.currentUserPremiumStatusChanged) {
-            if (UserConfig.getInstance(currentAccount).isPremium()) {
+            if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool()) {
                 premiumButtonView.setOverlayText(LocaleController.getString("OK", R.string.OK), false, true);
             } else {
                 premiumButtonView.clearOverlayText();

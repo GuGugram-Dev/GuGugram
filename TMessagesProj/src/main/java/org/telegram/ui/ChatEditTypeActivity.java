@@ -23,6 +23,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ChatObject;
 import org.telegram.messenger.LocaleController;
@@ -153,7 +155,7 @@ public class ChatEditTypeActivity extends BaseFragment implements NotificationCe
             req.channel = new TLRPC.TL_inputChannelEmpty();
             getConnectionsManager().sendRequest(req, (response, error) -> AndroidUtilities.runOnUIThread(() -> {
                 canCreatePublic = error == null || !error.text.equals("CHANNELS_ADMIN_PUBLIC_TOO_MUCH");
-                if (!canCreatePublic && getUserConfig().isPremium()) {
+                if (!canCreatePublic && getUserConfig().isPremium() || GuGuConfig.LocalPremium.Bool()) {
                     loadAdminedChannels();
                 }
             }));
@@ -640,7 +642,7 @@ public class ChatEditTypeActivity extends BaseFragment implements NotificationCe
         if (sectionCell2 == null) {
             return;
         }
-        if (!isPrivate && !canCreatePublic && getUserConfig().isPremium()) {
+        if (!isPrivate && !canCreatePublic && getUserConfig().isPremium() || GuGuConfig.LocalPremium.Bool()) {
             typeInfoCell.setText(LocaleController.getString("ChangePublicLimitReached", R.string.ChangePublicLimitReached));
             typeInfoCell.setTag(Theme.key_windowBackgroundWhiteRedText4);
             typeInfoCell.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteRedText4));

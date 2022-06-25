@@ -15,6 +15,8 @@ import android.view.Gravity;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ContactsController;
 import org.telegram.messenger.Emoji;
@@ -117,7 +119,7 @@ public class DrawerUserCell extends FrameLayout implements NotificationCenter.No
             text = Emoji.replaceEmoji(text, textView.getPaint().getFontMetricsInt(), AndroidUtilities.dp(20), false);
         } catch (Exception ignore) {}
         textView.setText(text);
-        if (MessagesController.getInstance(account).isPremiumUser(user)) {
+        if (MessagesController.getInstance(account).isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) {
             textView.setDrawablePadding(AndroidUtilities.dp(6));
             textView.setRightDrawable(PremiumGradient.getInstance().premiumStarDrawableMini);
         } else {
