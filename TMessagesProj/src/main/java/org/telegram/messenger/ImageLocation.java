@@ -1,5 +1,7 @@
 package org.telegram.messenger;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.tgnet.TLObject;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.ui.ActionBar.Theme;
@@ -124,7 +126,7 @@ public class ImageLocation {
         }
         if (type == TYPE_VIDEO_THUMB) {
             int currentAccount = UserConfig.selectedAccount;
-            if (MessagesController.getInstance(currentAccount).isPremiumUser(user) && user.photo.has_video) {
+            if ((MessagesController.getInstance(currentAccount).isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) && user.photo.has_video) {
                 final TLRPC.UserFull userFull = MessagesController.getInstance(currentAccount).getUserFull(user.id);
                 if (userFull != null && userFull.profile_photo !=null && userFull.profile_photo.video_sizes != null && !userFull.profile_photo.video_sizes.isEmpty()) {
                     TLRPC.VideoSize videoSize = userFull.profile_photo.video_sizes.get(0);

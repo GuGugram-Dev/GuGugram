@@ -181,7 +181,6 @@ import org.telegram.ui.Components.SharedMediaLayout;
 import org.telegram.ui.Components.SizeNotifierFrameLayout;
 import org.telegram.ui.Components.StickerEmptyView;
 import org.telegram.ui.Components.TimerDrawable;
-import org.telegram.ui.Components.TranslateAlert;
 import org.telegram.ui.Components.UndoView;
 import org.telegram.ui.Components.voip.VoIPHelper;
 
@@ -209,8 +208,8 @@ import tw.nekomimi.nekogram.DatacenterActivity;
 import tw.nekomimi.nekogram.NekoConfig;
 import tw.nekomimi.nekogram.helpers.LanguageDetectorTimeout;
 import tw.nekomimi.nekogram.settings.NekoSettingsActivity;
-import tw.nekomimi.nekogram.translator.popupwrapper.AutoTranslatePopupWrapper;
 import tw.nekomimi.nekogram.translator.Translator;
+import tw.nekomimi.nekogram.translator.popupwrapper.AutoTranslatePopupWrapper;
 
 public class ProfileActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate, DialogsActivity.DialogsActivityDelegate, SharedMediaLayout.SharedMediaPreloaderDelegate, ImageUpdater.ImageUpdaterDelegate, SharedMediaLayout.Delegate {
 
@@ -6557,7 +6556,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     } else if (user.verified) {
                         rightIcon = getVerifiedCrossfadeDrawable();
                         nameTextViewRightDrawableContentDescription = LocaleController.getString("AccDescrVerified", R.string.AccDescrVerified);
-                    } else if (getMessagesController().isPremiumUser(user)) {
+                    } else if (getMessagesController().isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) {
                         rightIconIsPremium = true;
                         rightIcon = getPremiumCrossfadeDrawable();
                         nameTextViewRightDrawableContentDescription = LocaleController.getString("AccDescrPremium", R.string.AccDescrPremium);
@@ -6572,7 +6571,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     rightIcon = getScamDrawable(user.scam ? 0 : 1);
                 } else if (user.verified) {
                     rightIcon = getVerifiedCrossfadeDrawable();
-                } else if (getMessagesController().isPremiumUser(user)) {
+                } else if (getMessagesController().isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) {
                     rightIconIsPremium = true;
                     rightIcon = getPremiumCrossfadeDrawable();
                 }
@@ -6581,7 +6580,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 if (a == 0) {
                     nameTextView[a].setCanHideRightDrawable(rightIconIsPremium);
                 }
-                if (!user.self && getMessagesController().isPremiumUser(user)) {
+                if (!user.self && getMessagesController().isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) {
                     final SimpleTextView textView = nameTextView[a];
                     nameTextView[a].setRightDrawableOnClick(v -> {
                         PremiumPreviewBottomSheet premiumPreviewBottomSheet = new PremiumPreviewBottomSheet(ProfileActivity.this, currentAccount, user);

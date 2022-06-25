@@ -17,6 +17,7 @@
 
     <string name="ForceAllowCopy">强制复制</string>
     <string name="HideSponsoredMessage">隐藏赞助消息</string>
+    <string name="LocalPremium">本地会员</string>
 
     <string name="AlwaysSaveChatOffset">总是保存聊天偏移量</string>
     <string name="DisableChatActionSending">禁止发送输入状态</string>

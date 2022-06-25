@@ -20,13 +20,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.DialogObject;
 import org.telegram.messenger.Emoji;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.UserObject;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.UserObject;
@@ -496,7 +497,7 @@ public class UserCell extends FrameLayout implements NotificationCenter.Notifica
             }
             nameTextView.setText(name);
         }
-        if (currentUser != null && MessagesController.getInstance(currentAccount).isPremiumUser(currentUser)) {
+        if (currentUser != null && MessagesController.getInstance(currentAccount).isPremiumUser(currentUser) || GuGuConfig.LocalPremium.Bool()) {
             nameTextView.setRightDrawable(PremiumGradient.getInstance().premiumStarDrawableMini);
             nameTextView.setRightDrawableTopPadding(-AndroidUtilities.dp(0.5f));
         } else {

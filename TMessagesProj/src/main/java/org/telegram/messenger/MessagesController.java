@@ -444,7 +444,7 @@ public class MessagesController extends BaseController implements NotificationCe
 
     public void lockFiltersInternal() {
         boolean changed = false;
-        if (!getUserConfig().isPremium() && dialogFilters.size() - 1 > dialogFiltersLimitDefault) {
+        if ((!getUserConfig().isPremium() || ! GuGuConfig.LocalPremium.Bool()) && dialogFilters.size() - 1 > dialogFiltersLimitDefault) {
             int n = dialogFilters.size() - 1 - dialogFiltersLimitDefault;
             ArrayList<DialogFilter> filtersSortedById = new ArrayList<>(dialogFilters);
             Collections.reverse(filtersSortedById);
@@ -468,11 +468,11 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public int getCaptionMaxLengthLimit() {
-        return getUserConfig().isPremium() ? captionLengthLimitPremium : captionLengthLimitDefault;
+        return getUserConfig().isPremium() || GuGuConfig.LocalPremium.Bool() ? captionLengthLimitPremium : captionLengthLimitDefault ;
     }
 
     public int getAboutLimit() {
-        return getUserConfig().isPremium() ? aboutLengthLimitPremium : aboutLengthLimitDefault;
+        return getUserConfig().isPremium() || GuGuConfig.LocalPremium.Bool() ? aboutLengthLimitPremium : aboutLengthLimitDefault;
     }
 
     public boolean isPremiumUser(TLRPC.User currentUser) {

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
-import android.text.SpannableStringBuilder;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
@@ -15,13 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ChatObject;
-import org.telegram.messenger.FileLoader;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.R;
@@ -36,7 +35,6 @@ import org.telegram.ui.Cells.GroupCreateUserCell;
 import org.telegram.ui.Cells.HeaderCell;
 import org.telegram.ui.Cells.ShadowSectionCell;
 import org.telegram.ui.Components.BottomSheetWithRecyclerListView;
-import org.telegram.ui.Components.ColoredImageSpan;
 import org.telegram.ui.Components.FlickerLoadingView;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.RecyclerItemsEnterAnimator;
@@ -176,7 +174,7 @@ public class LimitReachedBottomSheet extends BottomSheetWithRecyclerListView {
             return false;
         });
         premiumButtonView.buttonLayout.setOnClickListener(v -> {
-            if (UserConfig.getInstance(currentAccount).isPremium() || MessagesController.getInstance(currentAccount).premiumLocked || isVeryLargeFile) {
+            if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool() || MessagesController.getInstance(currentAccount).premiumLocked || isVeryLargeFile) {
                 dismiss();
                 return;
             }
@@ -206,7 +204,7 @@ public class LimitReachedBottomSheet extends BottomSheetWithRecyclerListView {
     }
 
     public void updatePremiumButtonText() {
-        if (UserConfig.getInstance(currentAccount).isPremium() || MessagesController.getInstance(currentAccount).premiumLocked || isVeryLargeFile) {
+        if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool() || MessagesController.getInstance(currentAccount).premiumLocked || isVeryLargeFile) {
             premiumButtonView.buttonTextView.setText(LocaleController.getString(R.string.OK));
             premiumButtonView.hideIcon();
         } else {
@@ -395,7 +393,7 @@ public class LimitReachedBottomSheet extends BottomSheetWithRecyclerListView {
             if (premiumLocked) {
                 descriptionStr = limitParams.descriptionStrLocked;
             } else {
-                descriptionStr = (UserConfig.getInstance(currentAccount).isPremium() || isVeryLargeFile) ? limitParams.descriptionStrPremium : limitParams.descriptionStr;
+                descriptionStr = (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool() || isVeryLargeFile) ? limitParams.descriptionStrPremium : limitParams.descriptionStr;
             }
             int defaultLimit = limitParams.defaultLimit;
             int premiumLimit = limitParams.premiumLimit;
@@ -422,7 +420,7 @@ public class LimitReachedBottomSheet extends BottomSheetWithRecyclerListView {
                 currentValue = pinnedCount;
             }
 
-            if (UserConfig.getInstance(currentAccount).isPremium() || isVeryLargeFile) {
+            if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool() || isVeryLargeFile) {
                 currentValue = premiumLimit;
                 position = 1f;
             } else {
@@ -445,7 +443,7 @@ public class LimitReachedBottomSheet extends BottomSheetWithRecyclerListView {
             if (premiumLocked) {
                 limitPreviewView.setPremiumLocked();
             } else {
-                if (UserConfig.getInstance(currentAccount).isPremium() || isVeryLargeFile) {
+                if (UserConfig.getInstance(currentAccount).isPremium() || GuGuConfig.LocalPremium.Bool() || isVeryLargeFile) {
                     limitPreviewView.premiumCount.setVisibility(View.GONE);
                     if (type == TYPE_LARGE_FILE) {
                         limitPreviewView.defaultCount.setText("2 GB");

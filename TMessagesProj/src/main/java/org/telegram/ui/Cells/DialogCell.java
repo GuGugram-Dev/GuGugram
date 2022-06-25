@@ -87,7 +87,6 @@ import java.util.List;
 import java.util.Stack;
 
 import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.accessibility.AccConfig;
 
 public class DialogCell extends BaseCell {
 
@@ -839,7 +838,7 @@ public class DialogCell extends BaseCell {
                         } else {
                             drawVerified = user.verified;
                         }
-                        drawPremium = MessagesController.getInstance(currentAccount).isPremiumUser(user) && UserConfig.getInstance(currentAccount).clientUserId != user.id && user.id != 0;
+                        drawPremium = (MessagesController.getInstance(currentAccount).isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) && UserConfig.getInstance(currentAccount).clientUserId != user.id && user.id != 0;
                     }
                 }
             }
