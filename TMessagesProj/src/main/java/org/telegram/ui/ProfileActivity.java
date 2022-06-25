@@ -6921,7 +6921,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         otherItem.addSubItem(share, R.drawable.msg_share, LocaleController.getString("BotShare", R.string.BotShare));
                     }
                     if (GuGuConfig.channelAlias.Bool()) {
-                        otherItem.addSubItem(aliasChannelName, R.drawable.ic_ab_fave, LocaleController.getString("setChannelAliasName", R.string.setChannelAliasName));
+                        otherItem.addSubItem(aliasChannelName, R.drawable.msg_channel, LocaleController.getString("setChannelAliasName", R.string.setChannelAliasName));
                     }
                     if (chatInfo != null && chatInfo.linked_chat_id != 0) {
                         otherItem.addSubItem(view_discussion, R.drawable.msg_discussion, LocaleController.getString("ViewDiscussion", R.string.ViewDiscussion));
