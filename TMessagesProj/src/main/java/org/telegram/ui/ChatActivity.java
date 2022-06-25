@@ -872,6 +872,7 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
     private final static int OPTION_CLEAR_FILE = 92;
     private final static int OPTION_SAVE_MESSAGE = 93;
     private final static int OPTION_REPEAT = 94;
+    private final static int OPTION_REPEATASCOPY = 110;
     private final static int OPTION_ADMIN_RIGHTS = 97;
     private final static int OPTION_PERMISSIONS = 98;
     private final static int OPTION_SEND_NOW = 100;
