@@ -77,8 +77,8 @@
     <string name="IgnoreBlockedAbout">Насправді вміст не буде повністю приховано! Повідомлення будуть показуватися, але текст буде сховано під засвіт, а медіа не будуть автоматично завантажуватись.</string>
     <string name="Donate">Підтримати</string>
     <string name="DonateAbout">Підтримайте нашу розробку.</string>
-    <string name="TranslationAbout">Допоможіть нам перекласти Nekogram на вашу мову.</string>
-    <string name="Translation">Перекласти Nekogram</string>
+    <string name="TranslationAbout">Допоможіть нам перекласти GuGugram на вашу мову.</string>
+    <string name="Translation">Перекласти GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Скинути розмір наліпок</string>
     <string name="RestartAppToTakeEffect">Перезапустіть додаток для застосування змін.</string>

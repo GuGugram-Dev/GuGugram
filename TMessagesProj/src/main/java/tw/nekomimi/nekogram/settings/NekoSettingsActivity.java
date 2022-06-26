@@ -94,7 +94,7 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements No
         } else if (position == channelRow) {
             getMessagesController().openByUserName(LocaleController.getString("OfficialGuGugramChannelUsername", R.string.OfficialGuGugramChannelUsername), this, 1);
         } else if (position == translationRow) {
-            Browser.openUrl(getParentActivity(), "https://neko.crowdin.com/nekogram");
+            Browser.openUrl(getParentActivity(), "https://github.com/GuGugram-dev/GuGugram/tree/i18n");
         } else if (position == sourceCodeRow) {
             if (LocaleController.isRTL && x <= AndroidUtilities.dp(84) || !LocaleController.isRTL && x >= view.getMeasuredWidth() - AndroidUtilities.dp(84)) {
                 Browser.openUrl(getParentActivity(), String.format("https://github.com/GuGugram-Dev/GuGugram/commit/%s", BuildConfig.COMMIT_ID));

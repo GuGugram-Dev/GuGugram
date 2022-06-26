@@ -77,8 +77,8 @@
     <string name="IgnoreBlockedAbout">Det er IKKE RIGTIG HIDE! Beskeder er stadig tilgængelige til at se, men tekst vil blive konverteret til Spoiler og medier vil ikke automatisk downloade.</string>
     <string name="Donate">Donér</string>
     <string name="DonateAbout">Støt vores udvikling.</string>
-    <string name="TranslationAbout">Hjælp os med at oversætte Nekogram til dit sprog.</string>
-    <string name="Translation">Oversæt Nekogram</string>
+    <string name="TranslationAbout">Hjælp os med at oversætte GuGugram til dit sprog.</string>
+    <string name="Translation">Oversæt GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Nulstil klistermærkets størrelse</string>
     <string name="RestartAppToTakeEffect">Genstart app\'en for at træde i kraft.</string>

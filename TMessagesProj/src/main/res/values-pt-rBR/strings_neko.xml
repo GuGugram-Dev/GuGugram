@@ -77,8 +77,8 @@
     <string name="IgnoreBlockedAbout">NÃO É REALMENTE OCULTO! As mensagens ainda ficarão disponíveis para visualização, mas o texto será convertido para spoiler e não haverá o download automático de mídias.</string>
     <string name="Donate">Doar</string>
     <string name="DonateAbout">Apoie o nosso desenvolvimento.</string>
-    <string name="TranslationAbout">Ajude-nos a traduzir o Nekogram para o seu idioma.</string>
-    <string name="Translation">Traduzir Nekogram</string>
+    <string name="TranslationAbout">Ajude-nos a traduzir o GuGugram para o seu idioma.</string>
+    <string name="Translation">Traduzir GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Redefinir tamanho do sticker</string>
     <string name="OfficialChannelUsername">nekoupdates</string>
