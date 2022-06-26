@@ -61,8 +61,8 @@
     <string name="About">Om</string>
     <string name="Donate">Donere</string>
     <string name="DonateAbout">Støtte til utvikling.</string>
-    <string name="TranslationAbout">Hjelp oss å oversette Nekogram til ditt språk.</string>
-    <string name="Translation">Oversett Nekogram</string>
+    <string name="TranslationAbout">Hjelp oss å oversette GuGugram til ditt språk.</string>
+    <string name="Translation">Oversett GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Tilbakestill klistremerke</string>
     <string name="RestartAppToTakeEffect">Start appen på nytt for å tre i kraft.</string>

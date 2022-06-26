@@ -70,8 +70,8 @@
     <string name="IgnoreBlockedAbout">ES IST NICHT WIRKLICH VERSTECKT! Nachrichten sind immer noch verfügbar, aber Text wird in Spoiler konvertiert und Medien werden nicht automatisch heruntergeladen.</string>
     <string name="Donate">Spenden</string>
     <string name="DonateAbout">Unterstützen Sie unsere Entwicklung.</string>
-    <string name="TranslationAbout">Helfen Sie uns, Nekogram in Ihre Sprache zu übersetzen.</string>
-    <string name="Translation">Nekogram übersetzen</string>
+    <string name="TranslationAbout">Helfen Sie uns, GuGugram in Ihre Sprache zu übersetzen.</string>
+    <string name="Translation">GuGugram übersetzen</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Stickergröße zurücksetzen</string>
     <string name="RestartAppToTakeEffect">App neu starten, um Änderungen wirksam zu machen.</string>

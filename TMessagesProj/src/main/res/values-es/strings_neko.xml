@@ -70,8 +70,8 @@
     <string name="IgnoreBlockedAbout">¡NO ESTÁ REALMENTE OCULTO! Los mensajes todavía están disponibles para ver, pero el texto se convertirá en Spoiler y los medios no se descargarán automáticamente.</string>
     <string name="Donate">Donar</string>
     <string name="DonateAbout">Apoya nuestro desarrollo.</string>
-    <string name="TranslationAbout">Ayúdanos a traducir Nekogram a tu idioma.</string>
-    <string name="Translation">Traducir Nekogram</string>
+    <string name="TranslationAbout">Ayúdanos a traducir GuGugram a tu idioma.</string>
+    <string name="Translation">Traducir GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Restablecer tamaño del sticker</string>
     <string name="RestartAppToTakeEffect">Reiniciar la app para que tenga efecto.</string>

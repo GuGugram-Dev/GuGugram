@@ -70,8 +70,8 @@
     <string name="IgnoreBlockedAbout">NÓ KHÔNG THỰC SỰ ẨN! Tin nhắn vẫn có sẵn để xem, nhưng văn bản sẽ được chuyển đổi thành Spoiler và phương tiện sẽ không tự động tải xuống.</string>
     <string name="Donate">Ủng hộ</string>
     <string name="DonateAbout">Hỗ trợ sự phát triển của chúng tôi.</string>
-    <string name="TranslationAbout">Hãy giúp chúng tôi dịch Nekogram sang ngôn ngữ của bạn.</string>
-    <string name="Translation">Dịch Nekogram</string>
+    <string name="TranslationAbout">Hãy giúp chúng tôi dịch GuGugram sang ngôn ngữ của bạn.</string>
+    <string name="Translation">Dịch GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Đặt lại kích thước nhãn dán</string>
     <string name="RestartAppToTakeEffect">Khởi động lại ứng dụng để có hiệu lực.</string>

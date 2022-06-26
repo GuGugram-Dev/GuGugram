@@ -74,8 +74,8 @@
     <string name="IgnoreBlockedAbout">並不是真正的隱藏！仍然可以檢視訊息，但文字將被轉換為黑幕，媒體也不會自動下載。</string>
     <string name="Donate">捐贈</string>
     <string name="DonateAbout">支援我們的開發。</string>
-    <string name="TranslationAbout">幫助我們將 Nekogram 翻譯成您的語言。</string>
-    <string name="Translation">翻譯 Nekogram</string>
+    <string name="TranslationAbout">幫助我們將 GuGugram 翻譯成您的語言。</string>
+    <string name="Translation">翻譯 GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">重置貼紙大小</string>
     <string name="OfficialChannelUsername">Zuragram</string>

@@ -70,8 +70,8 @@
     <string name="IgnoreBlockedAbout">НА САМОМ ДЕЛЕ ЭТО НЕ СКРЫТИЕ! Сообщения по-прежнему доступны для просмотра, но текст будет преобразован в спойлер, а медиафайлы не будут загружаться автоматически.</string>
     <string name="Donate">Поддержать Nekogram</string>
     <string name="DonateAbout">Поддержите разработку проекта.</string>
-    <string name="TranslationAbout">Помогите перевести Nekogram на ваш язык.</string>
-    <string name="Translation">Помочь перевести Neko</string>
+    <string name="TranslationAbout">Помогите перевести GuGugram на ваш язык.</string>
+    <string name="Translation">Помочь перевести GuGu</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Сбросить размер стикера</string>
     <string name="OfficialChannelUsername">nekoupdates</string>

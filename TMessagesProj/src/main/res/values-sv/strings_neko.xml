@@ -70,8 +70,8 @@
     <string name="IgnoreBlockedAbout">DET ÄR INTE RIKTIGT DÖLJA! Meddelanden är fortfarande tillgängliga för visning, men text konverteras till Spoiler och media laddas inte ner automatiskt.</string>
     <string name="Donate">Donera</string>
     <string name="DonateAbout">Stöd vår utveckling.</string>
-    <string name="TranslationAbout">Hjälp oss att översätta Nekogram till ditt språk.</string>
-    <string name="Translation">Översätt Nekogram</string>
+    <string name="TranslationAbout">Hjälp oss att översätta GuGugram till ditt språk.</string>
+    <string name="Translation">Översätt GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Återställ klistermärkesstorlek</string>
     <string name="RestartAppToTakeEffect">Starta om appen för att träda i kraft.</string>

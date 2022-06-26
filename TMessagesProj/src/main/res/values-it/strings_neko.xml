@@ -70,8 +70,8 @@
     <string name="IgnoreBlockedAbout">NON SONO DAVVERO NASCOSTI! I messaggi sono ancora visibili, ma il testo sarà convertito in spoiler e i media non saranno scaricati automaticamente.</string>
     <string name="Donate">Dona</string>
     <string name="DonateAbout">Supporta lo sviluppo.</string>
-    <string name="TranslationAbout">Aiutaci a tradurre Nekogram nella tua lingua.</string>
-    <string name="Translation">Traduci Nekogram</string>
+    <string name="TranslationAbout">Aiutaci a tradurre GuGugram nella tua lingua.</string>
+    <string name="Translation">Traduci GuGugram</string>
     <string name="GooglePlay">Google Play</string>
     <string name="ResetStickerSize">Ripristina dimensione sticker</string>
     <string name="RestartAppToTakeEffect">Riavvia l\'app per applicare le modifiche.</string>
