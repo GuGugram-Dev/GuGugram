@@ -330,6 +330,7 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
     private RadialProgressView progressBar;
     private ActionBarMenuSubItem addContactItem;
     private ActionBarMenuSubItem clearHistoryItem;
+    private ActionBarMenuSubItem toTheBeginning;
     private ClippingImageView animatingImageView;
     private RecyclerListView chatListView;
     private ChatListItemAnimator chatListItemAnimator;
@@ -1318,6 +1319,7 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
     private final static int save_to = 25;
     private final static int auto_delete_timer = 26;
     private final static int change_colors = 27;
+    private final static int to_the_beginning = 28;
 
     private final static int show_pinned = 28;
     private final static int delete_history = 29;
@@ -2518,6 +2520,8 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
                     } catch (Exception e) {
                         FileLog.e(e);
                     }
+                } else if (id == to_the_beginning) {
+                    scrollToMessageId(1, 0, false, 0, true, 0);
                 } else if (id == report) {
                     AlertsCreator.createReportAlert(getParentActivity(), dialog_id, 0, ChatActivity.this, themeDelegate, null);
                 } else if (id == star) {
@@ -3094,6 +3098,8 @@ ChatActivity extends BaseFragment implements NotificationCenter.NotificationCent
             if (currentEncryptedChat != null) {
                 timeItem2 = headerItem.addSubItem(chat_enc_timer, R.drawable.msg_autodelete, LocaleController.getString("SetTimer", R.string.SetTimer), themeDelegate);
             }
+
+            toTheBeginning = headerItem.addSubItem(to_the_beginning, R.drawable.msg_go_up, LocaleController.getString("ToTheBeginning", R.string.ToTheBeginning));
 
             clearHistoryItem = headerItem.addSubItem(clear_history, R.drawable.msg_clear, LocaleController.getString("ClearHistory", R.string.ClearHistory), themeDelegate);
 

@@ -37,4 +37,5 @@
     <string name="TextStyle">文本样式</string>
     <string name="TextUndoRedo">撤销/重做</string>
 
+    <string name="ToTheBeginning">回到开头</string>
 </resources>
