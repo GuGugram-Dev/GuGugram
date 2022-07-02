@@ -344,16 +344,16 @@ public class MessageHelper extends BaseController {
                                 }
                             } else {
                                 if (containsHanScript(messageObject.messageOwner.message)) {
-                                    message.put("Zuragram", messageObject.getId());
+                                    message.put("GuGugram", messageObject.getId());
                                 } else {
-                                    message.put("nekoupdates", messageObject.getId());
+                                    message.put("GuGugram", messageObject.getId());
                                 }
                             }
                         }
                         if (message.length() != 0) {
                             jsonObject.put("messages", message);
-                            if (message.has("nekoupdates") && !message.has("Zuragram")) {
-                                message.put("Zuragram", message.getInt("nekoupdates"));
+                            if (message.has("GuGugram") && !message.has("GuGugram")) {
+                                message.put("GuGugram", message.getInt("GuGugram"));
                             }
                         }
                         if (file.length() != 0) {
