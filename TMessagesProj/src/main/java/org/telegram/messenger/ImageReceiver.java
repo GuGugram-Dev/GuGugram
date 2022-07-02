@@ -363,7 +363,7 @@ public class ImageReceiver implements NotificationCenter.NotificationCenterDeleg
             if (user.photo != null) {
                 strippedBitmap = user.photo.strippedBitmap;
                 hasStripped = user.photo.stripped_thumb != null;
-                if (animationEnabled && MessagesController.getInstance(currentAccount).isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) && user.photo.has_video) {
+                if (animationEnabled && (MessagesController.getInstance(currentAccount).isPremiumUser(user) || GuGuConfig.LocalPremium.Bool()) && user.photo.has_video) {
                     final TLRPC.UserFull userFull = MessagesController.getInstance(currentAccount).getUserFull(user.id);
                     if (userFull == null) {
                         MessagesController.getInstance(currentAccount).loadFullUser(user, currentGuid, false);
