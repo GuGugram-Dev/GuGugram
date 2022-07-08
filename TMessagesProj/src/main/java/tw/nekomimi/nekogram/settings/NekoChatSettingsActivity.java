@@ -78,6 +78,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
     private int markdown2Row;
 
     private int mediaRow;
+    private int hqVoiceMessageRow;
     private int voiceEnhancementsRow;
     private int disablePhotoSideActionRow;
     private int rearVideoMessagesRow;
@@ -279,6 +280,12 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 NekoConfig.toggleShowCopyPhoto();
                 cell.setChecked(NekoConfig.showCopyPhoto);
             }
+        } else if (position == hqVoiceMessageRow) {
+            NekoConfig.toggleIncreaseVoiceMessageQuality();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(NekoConfig.increaseVoiceMessageQuality);
+            }
+            showRestartBulletin();
         } else if (position == voiceEnhancementsRow) {
             NekoConfig.toggleVoiceEnhancements();
             if (view instanceof TextCheckCell) {
@@ -372,6 +379,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         markdown2Row = addRow();
 
         mediaRow = addRow("media");
+        hqVoiceMessageRow = addRow("hqVoiceMessage");
         voiceEnhancementsRow = VoiceEnhancementsHelper.isAvailable() ? addRow("voiceEnhancements") : -1;
         disablePhotoSideActionRow = addRow("disablePhotoSideAction");
         rearVideoMessagesRow = addRow("rearVideoMessages");
@@ -719,6 +727,8 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                         textCell.setTextAndCheck(LocaleController.getString("DisableVoiceMessagesAutoPlay", R.string.DisableVoiceMessagesAutoPlay), NekoConfig.disableVoiceMessageAutoPlay, true);
                     } else if (position == showSpoilersDirectlyRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly.Bool(),true);
+                    } else if (position == hqVoiceMessageRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("IncreaseVoiceMessageQuality", R.string.IncreaseVoiceMessageQuality), NekoConfig.increaseVoiceMessageQuality, true);
                     } else if (position == voiceEnhancementsRow) {
                         textCell.setTextAndValueAndCheck(LocaleController.getString("VoiceEnhancements", R.string.VoiceEnhancements), LocaleController.getString("VoiceEnhancementsAbout", R.string.VoiceEnhancementsAbout), NekoConfig.voiceEnhancements, true, true);
                     } else if (position == hideTimeOnStickerRow) {

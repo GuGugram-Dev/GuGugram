@@ -314,7 +314,7 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         guguSettingsRow = addRow("gugusettings");
         forceAllowCopyRow = addRow("forceAllowCopy");
         hideSponsoredMessageRow = addRow("hideSponsoredMessage");
-        localPremiumRow = addRow("LocalPremium");
+        localPremiumRow = addRow("localPremium");
         guguSettings2Row = addRow();
     }
 
