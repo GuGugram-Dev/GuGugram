@@ -9,10 +9,6 @@
 #include <stdbool.h>
 #include <android/log.h>
 
-#if __has_include("genuine.h")
-#include "genuine.h"
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -51,8 +47,6 @@ void genuine_log_print(int prio, const char *fmt, ...);
 char *getGenuinePackageName();
 
 bool setGenuine(JNIEnv *env, int genuine);
-
-int getGenuine();
 
 int getSdk();
 
