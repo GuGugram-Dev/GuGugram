@@ -1177,7 +1177,7 @@ public class FilterTabsView extends FrameLayout {
             delegate.onPageSelected(tab, scrollingForward);
         }
         scrollToChild(position);
-        if (NekoConfig.hideAllTab && showAllChatsTab && !currentTabIsDefault())
+        if (NekoConfig.hideAllTab && !currentTabIsDefault())
             toggleAllTabs(false);
     }
 
@@ -1414,11 +1414,14 @@ public class FilterTabsView extends FrameLayout {
         if (!tabs.isEmpty()) {
             int width = MeasureSpec.getSize(widthMeasureSpec) - AndroidUtilities.dp(7) - AndroidUtilities.dp(7);
             Tab firstTab = findDefaultTab();
-            firstTab.setTitle(LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
-            int tabWith = firstTab.getWidth(false);
-            firstTab.setTitle(allTabsWidth > width ? LocaleController.getString("FilterAllChatsShort", R.string.FilterAllChatsShort) : LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
-            int trueTabsWidth = allTabsWidth - tabWith;
-            trueTabsWidth += firstTab.getWidth(false);
+            int tabWith = 0;
+            int trueTabsWidth = allTabsWidth ;
+            if (showAllChatsTab) {
+                tabWith = firstTab.getWidth(false);
+                trueTabsWidth = allTabsWidth - tabWith;
+                firstTab.setTitle(allTabsWidth > width ? LocaleController.getString("FilterAllChatsShort", R.string.FilterAllChatsShort) : LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
+                trueTabsWidth += firstTab.getWidth(false);
+            }
             int prevWidth = additionalTabWidth;
             additionalTabWidth = trueTabsWidth < width ? (width - trueTabsWidth) / tabs.size() : 0;
             if (prevWidth != additionalTabWidth) {
@@ -1506,6 +1509,8 @@ public class FilterTabsView extends FrameLayout {
             manualScrollingToId = -1;
             currentPosition = position;
             selectedTabId = id;
+            if (NekoConfig.hideAllTab && showAllChatsTab)
+                toggleAllTabs(false);
         }
     }
 
@@ -1580,7 +1585,8 @@ public class FilterTabsView extends FrameLayout {
                 invalidated = true;
                 requestLayout();
                 allTabsWidth = 0;
-                findDefaultTab().setTitle(LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
+                if (showAllChatsTab)
+                    findDefaultTab().setTitle(LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
                 for (int b = 0; b < N; b++) {
                     allTabsWidth += tabs.get(b).getWidth(true) + FolderIconHelper.getPaddingTab();
                 }
@@ -1611,7 +1617,8 @@ public class FilterTabsView extends FrameLayout {
             listView.setItemAnimator(itemAnimator);
             adapter.notifyDataSetChanged();
             allTabsWidth = 0;
-            findDefaultTab().setTitle(LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
+            if (showAllChatsTab)
+                findDefaultTab().setTitle(LocaleController.getString("FilterAllChats", R.string.FilterAllChats));
             for (int b = 0, N = tabs.size(); b < N; b++) {
                 allTabsWidth += tabs.get(b).getWidth(true) + FolderIconHelper.getPaddingTab();
             }
@@ -1665,6 +1672,11 @@ public class FilterTabsView extends FrameLayout {
             int idx1 = fromIndex;
             int idx2 = toIndex;
             int count = tabs.size();
+            if (!showAllChatsTab) {
+                idx1++;
+                idx2++;
+                count++;
+            }
             if (idx1 < 0 || idx2 < 0 || idx1 >= count || idx2 >= count) {
                 return;
             }

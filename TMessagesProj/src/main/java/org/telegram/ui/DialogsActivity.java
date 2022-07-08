@@ -4350,7 +4350,6 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                     animatedUpdateItems = false;
                 }
                 canShowFilterTabsView = true;
-                boolean updateCurrentTab = filterTabsView.isEmpty();
                 updateFilterTabsVisibility(animated);
                 int id = filterTabsView.getCurrentTabId();
                 int stableId = filterTabsView.getCurrentTabStableId();
@@ -4359,12 +4358,25 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 }
                 filterTabsView.removeTabs();
                 for (int a = 0, N = filters.size(); a < N; a++) {
+                    MessagesController.DialogFilter dialogFilter = filters.get(a);
                     if (filters.get(a).isDefault()) {
-                        filterTabsView.addTab(a, 0, LocaleController.getString("FilterAllChats", R.string.FilterAllChats), "\uD83D\uDCAC", true,  filters.get(a).locked);
+                        if (filterTabsView.showAllChatsTab)
+                            filterTabsView.addTab(a, 0, LocaleController.getString("FilterAllChats", R.string.FilterAllChats), "\uD83D\uDCAC", true, filters.get(a).locked);
                     } else {
-                        filterTabsView.addTab(a, filters.get(a).localId, filters.get(a).name, filters.get(a).emoticon == null ? "\uD83D\uDCC1" : filters.get(a).emoticon, false,  filters.get(a).locked);
+                        switch (NekoConfig.tabsTitleType) {
+                            case NekoConfig.TITLE_TYPE_TEXT:
+                                filterTabsView.addTab(a, filters.get(a).localId, filters.get(a).name, dialogFilter.name, false, false);
+                                break;
+                            case NekoConfig.TITLE_TYPE_ICON:
+                                filterTabsView.addTab(a, filters.get(a).localId, filters.get(a).name, dialogFilter.emoticon != null ? dialogFilter.emoticon : "📂", false, false);
+                                break;
+                            case NekoConfig.TITLE_TYPE_MIX:
+                                filterTabsView.addTab(a, filters.get(a).localId, filters.get(a).name, dialogFilter.emoticon != null ? dialogFilter.emoticon : "\uD83D\uDCC1 " + dialogFilter.name, false, false);
+                                break;
+                        }
                     }
                 }
+                boolean updateCurrentTab = NekoConfig.hideAllTab;
                 if (stableId >= 0) {
                     if (filterTabsView.getStableId(viewPages[0].selectedType) != stableId) {
                         updateCurrentTab = true;
@@ -4373,7 +4385,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 }
                 for (int a = 0; a < viewPages.length; a++) {
                     if (viewPages[a].selectedType >= filters.size()) {
-                        viewPages[a].selectedType = filters.size() - 1;
+                        viewPages[a].selectedType = filters.size();
                     }
                     viewPages[a].listView.setScrollingTouchSlop(RecyclerView.TOUCH_SLOP_PAGING);
                 }
@@ -4401,14 +4413,14 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 }
                 if (viewPages[0].selectedType != filterTabsView.getDefaultTabId()) {
                     viewPages[0].selectedType = filterTabsView.getDefaultTabId();
-                    viewPages[0].dialogsAdapter.setDialogsType(0);
-                    viewPages[0].dialogsType = 0;
+                    viewPages[0].dialogsAdapter.setDialogsType(initialDialogsType);
+                    viewPages[0].dialogsType = initialDialogsType;
                     viewPages[0].dialogsAdapter.notifyDataSetChanged();
                 }
                 viewPages[1].setVisibility(View.GONE);
                 viewPages[1].selectedType = 0;
-                viewPages[1].dialogsAdapter.setDialogsType(0);
-                viewPages[1].dialogsType = 0;
+                viewPages[1].dialogsAdapter.setDialogsType(initialDialogsType);
+                viewPages[1].dialogsType = initialDialogsType;
                 viewPages[1].dialogsAdapter.notifyDataSetChanged();
                 canShowFilterTabsView = false;
                 updateFilterTabsVisibility(animated);
