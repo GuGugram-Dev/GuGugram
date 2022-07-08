@@ -48,6 +48,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blxueya.gugugram.GuGuConfig;
 
+import org.telegram.messenger.AccountInstance;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.Emoji;
 import org.telegram.messenger.LocaleController;
@@ -1176,6 +1177,8 @@ public class FilterTabsView extends FrameLayout {
             delegate.onPageSelected(tab, scrollingForward);
         }
         scrollToChild(position);
+        if (NekoConfig.hideAllTab && showAllChatsTab && !currentTabIsDefault())
+            toggleAllTabs(false);
     }
 
     public void selectFirstTab() {
@@ -1813,6 +1816,37 @@ public class FilterTabsView extends FrameLayout {
                 }
             }
         }
+    }
+
+    // from NekoX show all chats tab
+    public boolean showAllChatsTab = !NekoConfig.hideAllTab;
+
+    public void toggleAllTabs(boolean show) {
+        if (show == showAllChatsTab)
+            return;
+        showAllChatsTab = show;
+        ArrayList<MessagesController.DialogFilter> filters = AccountInstance.getInstance(UserConfig.selectedAccount).getMessagesController().dialogFilters;
+        removeTabs();
+        for (int a = 0, N = filters.size(); a < N; a++) {
+            MessagesController.DialogFilter dialogFilter = filters.get(a);
+            if (filters.get(a).isDefault()) {
+                if (showAllChatsTab)
+                    addTab(a, 0, LocaleController.getString("FilterAllChats", R.string.FilterAllChats), null, true, false);
+            } else {
+                switch (NekoConfig.tabsTitleType) {
+                    case NekoConfig.TITLE_TYPE_TEXT:
+                        addTab(a, filters.get(a).localId, filters.get(a).name, dialogFilter.name, false, false);
+                        break;
+                    case NekoConfig.TITLE_TYPE_ICON:
+                        addTab(a, filters.get(a).localId, filters.get(a).name, dialogFilter.emoticon != null ? dialogFilter.emoticon : "\uD83D\uDCC1", false, false);
+                        break;
+                    case NekoConfig.TITLE_TYPE_MIX:
+                        addTab(a, filters.get(a).localId, filters.get(a).name, dialogFilter.emoticon != null ? dialogFilter.emoticon : "\uD83D\uDCC1 " + dialogFilter.name, false, false);
+                        break;
+                }
+            }
+        }
+        finishAddingTabs(true);
     }
 
 }
