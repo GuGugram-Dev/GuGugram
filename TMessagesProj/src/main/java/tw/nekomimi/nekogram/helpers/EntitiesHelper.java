@@ -249,6 +249,10 @@ public class EntitiesHelper {
         }
     }
 
+    public static boolean isEnabled() {
+        return NekoConfig.keepFormatting;
+    }
+
     private static TLRPC.MessageEntity setEntityStartEnd(TLRPC.MessageEntity entity, int spanStart, int spanEnd) {
         entity.offset = spanStart;
         entity.length = spanEnd - spanStart;
