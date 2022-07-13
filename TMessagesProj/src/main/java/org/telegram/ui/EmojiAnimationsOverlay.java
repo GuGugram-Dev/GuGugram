@@ -6,6 +6,8 @@ import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.blxueya.gugugram.GuGuConfig;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -313,6 +315,10 @@ public class EmojiAnimationsOverlay implements NotificationCenter.NotificationCe
     }
 
     public boolean onTapItem(ChatMessageCell view, ChatActivity chatActivity) {
+        if(GuGuConfig.disablePremiumStickersAnimation.Bool()) {
+            return false;
+        }
+
         if (chatActivity.isSecretChat() || view.getMessageObject() == null || view.getMessageObject().getId() < 0) {
             return false;
         }

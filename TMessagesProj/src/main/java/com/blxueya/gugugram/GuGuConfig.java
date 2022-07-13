@@ -46,6 +46,7 @@ public class GuGuConfig {
     public static ConfigItem showForwarderName = addConfig("showForwarderName",configTypeBool,false);
     public static ConfigItem showSpoilersDirectly = addConfig("showSpoilersDirectly",configTypeBool,false);
     public static ConfigItem showPremiumStarInChat = addConfig("showPremiumStarInChat",configTypeBool,true);
+    public static ConfigItem disablePremiumStickersAnimation = addConfig("disablePremiumStickersAnimation",configTypeBool,false);
     public static ConfigItem LocalPremium = addConfig("LocalPremium",configTypeBool,false);
 
     // extra
