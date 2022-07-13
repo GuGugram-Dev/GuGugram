@@ -72,6 +72,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.content.ContextCompat;
 
 import com.blxueya.gugugram.GuGuConfig;
 
@@ -116,6 +117,8 @@ import org.telegram.ui.Components.AudioVisualizerDrawable;
 import org.telegram.ui.Components.AvatarDrawable;
 import org.telegram.ui.Components.BackgroundGradientDrawable;
 import org.telegram.ui.Components.CheckBoxBase;
+import org.telegram.ui.Components.ColoredImageSpan;
+import org.telegram.ui.Components.ColoredImageSpan;
 import org.telegram.ui.Components.CubicBezierInterpolator;
 import org.telegram.ui.Components.EmptyStubSpan;
 import org.telegram.ui.Components.FloatSeekBarAccessibilityDelegate;
@@ -10901,6 +10904,14 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             try {
                 nameStringFinal = Emoji.replaceEmoji(nameStringFinal, Theme.chat_namePaint.getFontMetricsInt(), AndroidUtilities.dp(14), false);
             } catch (Exception ignore) {}
+            if (nameStringFinal != null && currentUser != null) {
+                if (currentUser.premium && GuGuConfig.showPremiumStarInChat.Bool()) {
+                    nameStringFinal = TextUtils.ellipsize(nameStringFinal, Theme.chat_namePaint, nameWidth - 2, TextUtils.TruncateAt.END);
+                    SpannableStringBuilder spannableStringBuilder = SpannableStringBuilder.valueOf(String.format("  %s", nameStringFinal));
+                    spannableStringBuilder.setSpan(new ColoredImageSpan(ContextCompat.getDrawable(getContext(), R.drawable.msg_premium_liststar)), 0, 1, 0);
+                    nameStringFinal = spannableStringBuilder;
+                }
+            }
             try {
                 nameLayout = new StaticLayout(nameStringFinal, Theme.chat_namePaint, nameWidth + AndroidUtilities.dp(2), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                 if (nameLayout.getLineCount() > 0) {
@@ -11039,6 +11050,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 CharSequence stringFinalText = null;
 
                 String name = null;
+                boolean showReplyPremiumStar = false;
                 if ((!isThreadChat || messageObject.getReplyTopMsgId() != 0) && messageObject.hasValidReplyMessageObject()) {
                     lastReplyMessage = messageObject.replyMessageObject.messageOwner;
                     int cacheType = 1;
@@ -11088,9 +11100,20 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                             } else {
                                 TLRPC.User user = MessagesController.getInstance(currentAccount).getUser(messageObject.sendAsPeer.user_id);
                                 name = UserObject.getUserName(user);
+                                if (user != null) {
+                                    if (user.premium) {
+                                        showReplyPremiumStar = true;
+                                    }
+                                }
                             }
                         } else {
-                            name = UserObject.getUserName(AccountInstance.getInstance(currentAccount).getUserConfig().getCurrentUser());
+                            TLRPC.User user = AccountInstance.getInstance(currentAccount).getUserConfig().getCurrentUser();
+                            name = UserObject.getUserName(user);
+                            if (user != null) {
+                                if (user.premium) {
+                                    showReplyPremiumStar = true;
+                                }
+                            }
                         }
                     } else if (messageObject.customReplyName != null) {
                         name = messageObject.customReplyName;
@@ -11102,7 +11125,9 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                                 TLRPC.User user = MessagesController.getInstance(currentAccount).getUser(fromId);
                                 if (user != null) {
                                     name = UserObject.getUserName(user);
-                                }
+                                if (user.premium) {
+                                    showReplyPremiumStar = true;
+                                }}
                             } else if (fromId < 0) {
                                 TLRPC.Chat chat = MessagesController.getInstance(currentAccount).getChat(-fromId);
                                 if (chat != null) {
@@ -11173,6 +11198,9 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                             }
                         } else if (currentForwardUser != null) {
                             currentForwardNameString = UserObject.getUserName(currentForwardUser);
+                            if (currentForwardUser.premium) {
+                                showReplyPremiumStar = true;
+                            }
                         } else {
                             currentForwardNameString = currentForwardName;
                         }
@@ -11197,6 +11225,12 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 try {
                     replyNameWidth = AndroidUtilities.dp(4 + (needReplyImage ? 44 : 0));
                     if (stringFinalName != null) {
+                        if (showReplyPremiumStar && GuGuConfig.showPremiumStarInChat.Bool()) {
+                            stringFinalName = TextUtils.ellipsize(stringFinalName, Theme.chat_namePaint, maxWidth - 2, TextUtils.TruncateAt.END);
+                            SpannableStringBuilder spannableStringBuilder = SpannableStringBuilder.valueOf(String.format("  %s", stringFinalName));
+                            spannableStringBuilder.setSpan(new ColoredImageSpan(ContextCompat.getDrawable(getContext(), R.drawable.msg_premium_liststar)), 0, 1, 0);
+                            stringFinalName = spannableStringBuilder;
+                        }
                         replyNameLayout = new StaticLayout(stringFinalName, Theme.chat_replyNamePaint, maxWidth + AndroidUtilities.dp(6), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
                         if (replyNameLayout.getLineCount() > 0) {
                             replyNameWidth += (int) Math.ceil(replyNameLayout.getLineWidth(0)) + AndroidUtilities.dp(8);

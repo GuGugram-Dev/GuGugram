@@ -5,7 +5,7 @@
     <string name="GuGugramBeta" translatable="false">GuGugram Beta</string>
     <string name="OfficialGuGugramChannelUsername" translatable="false">GuGugram</string>
     <string name="UnknownGuGuSettingsOption">There is no such GuGu Settings option.</string>
-    <string name="GuGugramFlying">GuGugram is flying</string> 
+    <string name="GuGugramFlying">GuGugram is flying</string>
     <string name="UpdateGuGugram">Update GuGugram</string>
     <string name="InviteTextGuGu">Hey, I\'m using GuGugram to chat. Join me! Download it here: %1$s</string>
     <string name="ShareGuGugram">Share GuGugram...</string>
@@ -36,4 +36,5 @@
     <string name="TextUndoRedo">Undo/Redo</string>
 
     <string name="ToTheBeginning">To the beginning</string>
+    <string name="showPremiumStarInChat">show Premium Star In Chat</string>
 </resources>

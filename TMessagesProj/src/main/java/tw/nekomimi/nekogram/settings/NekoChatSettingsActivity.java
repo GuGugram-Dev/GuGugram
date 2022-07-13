@@ -66,6 +66,8 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
     private int disableGreetingStickerRow;
     private int disableChatActionSendingRow;
     private int showSpoilersDirectlyRow;
+
+    private int showPremiumStarInChatRow;
     private int doubleTapActionRow;
     private int textStyleRow;
     private int maxRecentStickersRow;
@@ -231,6 +233,11 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(GuGuConfig.showSpoilersDirectly.Bool());
             }
+        } else if (position == showPremiumStarInChatRow) {
+            GuGuConfig.showPremiumStarInChat.toggleConfigBool();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(GuGuConfig.showPremiumStarInChat.Bool());
+            }
         } else if (position == markdownEnableRow) {
             NekoConfig.toggleDisableMarkdownByDefault();
             if (view instanceof TextCheckCell) {
@@ -367,6 +374,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         disableGreetingStickerRow = addRow("disableGreetingSticker");
         disableChatActionSendingRow = addRow("disableChatActionSending");
         showSpoilersDirectlyRow = addRow("showSpoilersDirectly");
+        showPremiumStarInChatRow = addRow("showPremiumStarInChat");
         textStyleRow = addRow("textStyleRow");
         doubleTapActionRow = addRow("doubleTapAction");
         maxRecentStickersRow = addRow("maxRecentStickers");
@@ -726,7 +734,9 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     } else if (position == disableVoiceMessageAutoPlayRow) {
                         textCell.setTextAndCheck(LocaleController.getString("DisableVoiceMessagesAutoPlay", R.string.DisableVoiceMessagesAutoPlay), NekoConfig.disableVoiceMessageAutoPlay, true);
                     } else if (position == showSpoilersDirectlyRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly.Bool(),true);
+                        textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly.Bool(), true);
+                    } else if (position == showPremiumStarInChatRow) {
+                        textCell.setTextAndCheck(LocaleController.getString("showPremiumStarInChat",R.string.showPremiumStarInChat),GuGuConfig.showPremiumStarInChat.Bool(),true);
                     } else if (position == hqVoiceMessageRow) {
                         textCell.setTextAndCheck(LocaleController.getString("IncreaseVoiceMessageQuality", R.string.IncreaseVoiceMessageQuality), NekoConfig.increaseVoiceMessageQuality, true);
                     } else if (position == voiceEnhancementsRow) {
