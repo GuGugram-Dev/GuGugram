@@ -742,9 +742,9 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     } else if (position == showSpoilersDirectlyRow) {
                         textCell.setTextAndCheck(LocaleController.getString("ShowSpoilersDirectly", R.string.ShowSpoilersDirectly), GuGuConfig.showSpoilersDirectly.Bool(), true);
                     } else if (position == showPremiumStarInChatRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("showPremiumStarInChat", R.string.showPremiumStarInChat), GuGuConfig.showPremiumStarInChat.Bool(), true);
+                        textCell.setTextAndCheck(LocaleController.getString("showPremiumStarInChat", R.string.ShowPremiumStarInChat), GuGuConfig.showPremiumStarInChat.Bool(), true);
                     } else if (position == disablePremiumStickersAnimationRow) {
-                        textCell.setTextAndCheck(LocaleController.getString("disablePremiumStickersAnimation",R.string.disablePremiumStickersAnimation),GuGuConfig.disablePremiumStickersAnimation.Bool(),true);
+                        textCell.setTextAndCheck(LocaleController.getString("disablePremiumStickersAnimation",R.string.DisablePremiumStickersAnimation),GuGuConfig.disablePremiumStickersAnimation.Bool(),true);
                     } else if (position == hqVoiceMessageRow) {
                         textCell.setTextAndCheck(LocaleController.getString("IncreaseVoiceMessageQuality", R.string.IncreaseVoiceMessageQuality), NekoConfig.increaseVoiceMessageQuality, true);
                     } else if (position == voiceEnhancementsRow) {

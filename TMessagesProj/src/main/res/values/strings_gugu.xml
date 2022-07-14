@@ -36,6 +36,6 @@
     <string name="TextUndoRedo">Undo/Redo</string>
 
     <string name="ToTheBeginning">To the beginning</string>
-    <string name="showPremiumStarInChat">show Premium Star In Chat</string>
-    <string name="disablePremiumStickersAnimation">Show premium stickers Animation</string>
+    <string name="ShowPremiumStarInChat">show Premium Star In Chat</string>
+    <string name="DisablePremiumStickersAnimation">Disable premium stickers Animation</string>
 </resources>

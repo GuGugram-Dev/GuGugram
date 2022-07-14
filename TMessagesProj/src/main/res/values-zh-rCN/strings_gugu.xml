@@ -38,6 +38,6 @@
     <string name="TextUndoRedo">撤销/重做</string>
 
     <string name="ToTheBeginning">回到开头</string>
-    <string name="showPremiumStarInChat">在消息上显示 Premium 用户标识</string>
-    <string name="disablePremiumStickersAnimation">显示 Premium 贴纸动画</string>
+    <string name="ShowPremiumStarInChat">在消息上显示 Premium 用户标识</string>
+    <string name="DisablePremiumStickersAnimation">禁用 Premium 贴纸动画</string>
 </resources>
